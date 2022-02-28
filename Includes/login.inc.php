@@ -2,9 +2,6 @@
 require_once("../DataBase/config.php");
 
 if (isset($_POST['submit'])) {
-
-	echo "<script>alert('Hello')</script>";
-
 	$username = $_POST['Uname'];
 	$pwd = $_POST['pwd'];
 
@@ -21,15 +18,14 @@ if (isset($_POST['submit'])) {
 
 	function UpdateStatusLogIn($id, $con)
 	{
-		$sql = "UPDATE Player SET isActive = 0 WHERE email='" . $id . "'";
+		$sql = "UPDATE player SET isActive = 0 WHERE email='" . $id . "'";
 		$result = $con->query($sql);
 		mysqli_close($con);
 	}
 
 	function UidExists($con, $username)
 	{
-
-		$sql = "SELECT * FROM Player WHERE email= ?";
+		$sql = "SELECT * FROM player WHERE email= ?";
 		$stmt = mysqli_stmt_init($con);
 
 		if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -52,7 +48,7 @@ if (isset($_POST['submit'])) {
 
 	function loginFun($con, $username, $pwd)
 	{
-		$uidExists = UidExists($con, $username, $username);
+		$uidExists = UidExists($con, $username);
 		if ($uidExists === false) {
 			header("Location:../index.php?error=wronglogin");
 			exit();
@@ -64,7 +60,7 @@ if (isset($_POST['submit'])) {
 		if ($checkPwd == true) {
 			session_start();
 			$_SESSION["userid"] = $uidExists['email'];
-			$_SESSION['userTY'] == "GP";
+			$_SESSION["userTY"] = "GP";
 			UpdateStatusLogIn($uidExists['email'], $con);
 			header("Location:../MainGame.php");
 			exit();

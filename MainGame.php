@@ -1,12 +1,12 @@
 <?php require_once 'DataBase/config.php';
 session_start();
-if (isset($_SESSION['useruid'])) {
+if (isset($_SESSION['userid'])) {
   if ($_SESSION['userTY'] == "GP") {
   } else {
-    header('Location:index.php');
+    echo "1";
   }
 } else {
-  header('Location:index.php');
+  echo "2";
 }
 ?>
 
