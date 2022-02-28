@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Jquery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!--Axios CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--SweetAlert CDN-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+</head>
+
+<body>
+    <script>
+        // function validateEmail() {
+        //     var email = "buddhi2002625@gmail.com";
+        //     var at = email.indexOf("@");
+        //     var dt = email.lastIndexOf(".");
+        //     var lengthEmial = email.length;
+
+        //     if ((at < 2) || (dt - at < 2) || (lengthEmial - dt < 2)) {
+        //         swal("Please enter a valid Email Address!");
+        //         return false;
+        //     } else {
+        //         // --> abstractapi.com/email-verification-validation-api
+        //         var url = "https://emailvalidation.abstractapi.com/v1/?api_key=d2fe700dc5694481b4c2db9d380908d9&email=" + email
+        //         return fetch(url,
+        //             {
+        //                 method: "GET",
+        //                 headers: {
+        //                     'Accept': 'application/json',
+        //                     'Content-Type': 'application/json',
+        //                 },
+        //             })
+        //             .then((response) => response.json())
+        //             .then((responseData) => {
+        //                 console.log(responseData);
+        //                 return responseData.is_valid_format.text;
+        //             })
+        //             .catch(error => console.warn(error));
+        //     }
+        // }
+        // console.log(validateEmail().then(response => console.log(response)));
+
+        //Email
+
+        const validatePhone = async () => {
+            var CPno = document.getElementById("contact").value;
+            try {
+                let url="https://numlookupapi.com/api/validate/"+CPno;
+                const resp = await axios.get(url);
+                return resp.data;
+            } catch (err) {
+                console.log(err);
+                return (err);
+            }
+        }
+
+        //SignUp 
+        async function validateAll(e) {
+            validatePhone().then(response => {
+                console.log(response.valid, " : ", response.international_format);
+                if ((response.valid)) {
+                    e.submit();
+                } else {
+                    swal("The Phone number you entered is not a valid number!");
+                }
+            })
+        }
+    </script>
+
+    <form action="Sample.html" onsubmit="validateAll(this); return false;">
+        <input type="email" id="email" required name="contact" placeholder="Email" />
+        <input type="tel" id="contact" required name="contact" placeholder="Contact number" />
+        <br>
+        <button type="submit">Enter</button>
+    </form>
+</body>
+
+</html>
