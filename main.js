@@ -16,7 +16,6 @@ const endGameAudio = new Audio('./audio/endGame.mp3')
 const shootAudio = new Howl({ src: ['./audio/shoot.mp3'] })
 const enemyHitAudio = new Howl({ src: ['./audio/enemyHit.mp3'] })
 const enemyEliminatedAudio = new Howl({ src: ['./audio/enemyEliminated.mp3'] })
-const obtainPowerUpAudio = new Howl({ src: ['./audio/obtainPowerUp.mp3'] })
 const backgroundMusicAudio = new Audio('./audio/backgroundMusic.mp3')
 backgroundMusicAudio.loop = true
 
@@ -35,7 +34,6 @@ class Player {
       y: 0
     }
     this.friction = 0.99
-    this.powerUp = ''
   }
 
   draw() {
@@ -99,36 +97,6 @@ class Projectile {
   }
 
   update() {
-    this.draw()
-    this.x = this.x + this.velocity.x
-    this.y = this.y + this.velocity.y
-  }
-}
-
-const powerUpImg = new Image()
-powerUpImg.src = './img/lightning.png'
-
-class PowerUp {
-  constructor(x, y, velocity) {
-    this.x = x
-    this.y = y
-    this.velocity = velocity
-    this.width = 14
-    this.height = 18
-    this.radians = 0
-  }
-
-  draw() {
-    c.save()
-    c.translate(this.x + this.width / 2, this.y + this.height / 2)
-    c.rotate(this.radians)
-    c.translate(-this.x - this.width / 2, -this.y - this.height / 2)
-    c.drawImage(powerUpImg, this.x, this.y, 14, 18)
-    c.restore()
-  }
-
-  update() {
-    this.radians += 0.002
     this.draw()
     this.x = this.x + this.velocity.x
     this.y = this.y + this.velocity.y
@@ -269,7 +237,6 @@ class BackgroundParticle {
 }
 
 let player
-let powerUps = []
 let projectiles = []
 let enemies = []
 let particles = []
@@ -279,7 +246,6 @@ function init() {
   const x = canvas.width / 2
   const y = canvas.height / 2
   player = new Player(x, y, 10, 'white')
-  powerUps = []
   projectiles = []
   enemies = []
   particles = []
@@ -295,8 +261,8 @@ function init() {
 function spawnEnemies() {
   const radius = Math.random() * (30 - 4) + 4
 
-  let x
-  let y
+  let x;
+  let y;
 
   if (Math.random() < 0.5) {
     x = Math.random() < 0.5 ? 0 - radius : canvas.width + radius
@@ -316,28 +282,6 @@ function spawnEnemies() {
   }
 
   enemies.push(new Enemy(x, y, radius, color, velocity))
-}
-
-function spawnPowerUps() {
-  let x
-  let y
-
-  if (Math.random() < 0.5) {
-    x = Math.random() < 0.5 ? 0 - 7 : canvas.width + 7
-    y = Math.random() * canvas.height
-  } else {
-    x = Math.random() * canvas.width
-    y = Math.random() < 0.5 ? 0 - 9 : canvas.height + 9
-  }
-
-  const angle = Math.atan2(canvas.height / 2 - y, canvas.width / 2 - x)
-
-  const velocity = {
-    x: Math.cos(angle),
-    y: Math.sin(angle)
-  }
-
-  powerUps.push(new PowerUp(x, y, velocity))
 }
 
 function createScoreLabel(projectile, score) {
@@ -371,7 +315,6 @@ function animate() {
   c.fillRect(0, 0, canvas.width, canvas.height)
 
   if (frame % 70 === 0) spawnEnemies()
-  if (frame % 300 === 0) spawnPowerUps()
 
   backgroundParticles.forEach((backgroundParticle) => {
     const dist = Math.hypot(
@@ -407,33 +350,6 @@ function animate() {
       particles.splice(index, 1)
     } else {
       particle.update()
-    }
-  })
-
-  if (player.powerUp === 'Automatic' && mouse.down) {
-    if (frame % 4 === 0) {
-      player.shoot(mouse, '#FFF500')
-    }
-  }
-
-  powerUps.forEach((powerUp, index) => {
-    const dist = Math.hypot(player.x - powerUp.x, player.y - powerUp.y)
-
-    // obtain power up
-    // gain the automatic shooting ability
-    if (dist - player.radius - powerUp.width / 2 < 1) {
-      player.color = '#FFF500'
-      player.powerUp = 'Automatic'
-      powerUps.splice(index, 1)
-
-      obtainPowerUpAudio.play()
-
-      setTimeout(() => {
-        player.powerUp = null
-        player.color = '#FFFFFF'
-      }, 5000)
-    } else {
-      powerUp.update()
     }
   })
 
@@ -594,7 +510,7 @@ addEventListener('touchend', () => {
 })
 
 addEventListener('click', ({ clientX, clientY }) => {
-  if (scene.active && player.powerUp !== 'Automatic') {
+  if (scene.active !== 'Automatic') {
     mouse.x = clientX
     mouse.y = clientY
     player.shoot(mouse)
@@ -658,6 +574,7 @@ addEventListener('keydown', ({ keyCode }) => {
   }
 })
 
+//Sounds
 soundOffEl.addEventListener('click', () => {
   console.log('mute')
   backgroundMusicAudio.volume = 0
