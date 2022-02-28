@@ -212,7 +212,7 @@ session_start(); ?>
       $ErrorMes = "Invalid User Type";
       require_once("Includes/ErrorPopup.php");
     } elseif ($_GET['error'] == "none") {
-      $SucessMes = "Now you can Play and Learn Maths, By defeating aliens!";
+      $SucessMes = "Now you can Play and Learn Maths, By defeating aliens! <br> Please Sign-In";
       require_once 'Includes/SucessPopup.php';
     }elseif ($_GET['error'] == "uidexists") {
       $ErrorMes = "This email already has an Account! <br> Try Sign In!";
