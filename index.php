@@ -206,12 +206,16 @@ session_start(); ?>
       $ErrorMes = "Please Fill the inputs";
       require_once("Includes/ErrorPopup.php");
     } elseif ($_GET['error'] == "wronglogin") {
-
       $ErrorMes = "Your username or Password is invalid";
       require_once("Includes/ErrorPopup.php");
     } elseif ($_GET['error'] == "Invaild") {
-
       $ErrorMes = "Invalid User Type";
+      require_once("Includes/ErrorPopup.php");
+    } elseif ($_GET['error'] == "none") {
+      $SucessMes = "Now you can Play and Learn Maths, By defeating aliens!";
+      require_once 'Includes/SucessPopup.php';
+    }elseif ($_GET['error'] == "uidexists") {
+      $ErrorMes = "This email already has an Account! <br> Try Sign In!";
       require_once("Includes/ErrorPopup.php");
     }
   }
