@@ -14,7 +14,7 @@ session_start(); ?>
 
   <!--StyleSheet-->
   <link rel="stylesheet" href="CSS/style.css" type="text/css" />
-  <link rel="shortcut icon" href="images/Icon.jpg">
+  <link rel="shortcut icon" href="Images/Icon.jpg">
 
   <!--FontAwsome CDN-->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -51,7 +51,6 @@ session_start(); ?>
         return true;
       } else {
         swal("Please insert the Login credentials!");
-        event.preventDefault();
         return false;
       }
     }
@@ -129,7 +128,7 @@ session_start(); ?>
       <div class="signin-signup">
         <!-- Sign In FORM -->
         <div id="google_translate_element">Select a Language</div>
-        <form action="Includes/login.inc.php" onsubmit="return validateLogin()" method="post" class="sign-in-form">
+        <form action="Includes/login.inc.php" onsubmit="return validateLogin()" autocomplete="off" method="POST" class="sign-in-form">
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fa fa-user"></i>
@@ -147,7 +146,7 @@ session_start(); ?>
         </form>
 
         <!-- Sign UP FORM -->
-        <form action="Includes/signup.inc.php" autocomplete="off" onsubmit="return validateAll(this); return false;" method="post" class="sign-up-form">
+        <form action="Includes/signup.inc.php" autocomplete="off" onsubmit="return validateAll(this); return false;" method="POST" class="sign-up-form">
           <h2 class="title">Sign up</h2>
           <div class="aboutp" align="center">
             <div class="input-field">

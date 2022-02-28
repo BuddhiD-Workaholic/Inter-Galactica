@@ -2,6 +2,9 @@
 require_once("../DataBase/config.php");
 
 if (isset($_POST['submit'])) {
+
+	echo "<script>alert('Hello')</script>";
+
 	$username = $_POST['Uname'];
 	$pwd = $_POST['pwd'];
 

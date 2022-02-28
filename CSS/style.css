@@ -40,6 +40,13 @@ iframe#\:2\.container {
 .goog-te-banner-frame.skiptranslate {
   display: none !important;
 } 
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important; 
+  box-shadow: none !important;
+}
+
 /*Google translate hidden*/
 
 .signin-signup {

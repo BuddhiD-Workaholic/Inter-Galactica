@@ -1,7 +1,3 @@
-$(document).ready(function () {
-	$('[data-toggle="tooltip"]').tooltip();
-});
-
 function togglePopup() {
 	document.getElementById('popup-1').classList.toggle('active');
 }
