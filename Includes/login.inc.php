@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
 	function UpdateStatusLogIn($id, $con)
 	{
-		$sql = "UPDATE player SET isActive = 0 WHERE email='" . $id . "'";
+		$sql = "UPDATE player SET isActive = 1 WHERE email='" . $id . "'";
 		$result = $con->query($sql);
 		mysqli_close($con);
 	}
