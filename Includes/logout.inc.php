@@ -5,7 +5,7 @@ $id = $_SESSION['userid'];
 
 function UpdateStatusLogOut($id, $con)
 {
-    $sql = "UPDATE player SET isActive = 0 WHERE email='" . $id . "'";
+    $sql = "UPDATE player SET isActive = '0' WHERE email='" . $id . "'";
     $result = $con->query($sql);
     mysqli_close($con);
 }
