@@ -382,7 +382,7 @@ function animate() {
       endGameAudio.play()
       scene.active = false
 
-       //Gsap02
+      //Gsap02
       gsap.to('#whiteModalEl', {
         opacity: 1,
         scale: 1,
@@ -423,7 +423,7 @@ function animate() {
 
           createScoreLabel(projectile, 100)
 
-           //Gsap03
+          //Gsap03
           gsap.to(enemy, {
             radius: enemy.radius - 10
           })
@@ -442,7 +442,7 @@ function animate() {
           // change backgroundParticle colors
           backgroundParticles.forEach((backgroundParticle) => {
             backgroundParticle.color = enemy.color
-             //Gsap04
+            //Gsap04
             gsap.to(backgroundParticle, {
               alpha: 0.5,
               duration: 0.015,
@@ -535,7 +535,7 @@ startGameBtn.addEventListener('click', () => {
   bigScoreEl.innerHTML = score
   backgroundMusicAudio.play()
 
-   //Gsap05
+  //Gsap05
   gsap.to('#whiteModalEl', {
     opacity: 0,
     scale: 0.75,

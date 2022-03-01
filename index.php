@@ -1,6 +1,10 @@
 <?php require_once 'DataBase/config.php';
-date_default_timezone_set("Asia/Calcutta");
-session_start(); ?>
+require_once 'Includes/GoogleAPI/vendor/autoload.php';
+require_once("Includes/GoogleController.php");
+
+require_once 'Includes/FacebookSDK/autoload.php';
+require_once("Includes/FacebookController.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -140,7 +144,19 @@ session_start(); ?>
             <!--Password Icons-->
           </div>
           <i class="far fa-eye fa-eye-slash" id="togglePassword" style="float: right;margin-left: 280px;margin-top: -43px;/* margin: -40px -34px 6px 298px; */position: relative;z-index: 2;" onclick="ShowPFunc(this)"></i>
-          <div style="margin: 10px 0;">
+          <div style="display: flex;">
+            <div class="google-btn" style="margin-top: 1.8rem;">
+              <div class="google-icon-wrapper">
+                <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+              </div>
+              <p onclick="window.location='<?php echo $login_url; ?>'" class="btn-text" type="button"><b>Sign in with google</b></p>
+            </div>
+            <div class="google-btn" style="margin-top: 1.8rem; margin-left: 1.1rem;">
+              <div class="google-icon-wrapper">
+                <img class="google-icon" src="https://img.icons8.com/color/144/000000/facebook-new.png" />
+              </div>
+              <p onclick="window.location='<?php echo $Fblogin_url; ?>'" style="margin: 11px 3px 0 0 !important;" class="btn-text" type="button"><b> Sign in with Facebook</b></p>
+            </div>
           </div>
           <input type="submit" name="submit" value="Login" class="btn solid" />
         </form>
@@ -214,7 +230,7 @@ session_start(); ?>
     } elseif ($_GET['error'] == "none") {
       $SucessMes = "Now you can Play and Learn Maths, By defeating aliens! <br> Please Sign-In";
       require_once 'Includes/SucessPopup.php';
-    }elseif ($_GET['error'] == "uidexists") {
+    } elseif ($_GET['error'] == "uidexists") {
       $ErrorMes = "This email already has an Account! <br> Try Sign In!";
       require_once("Includes/ErrorPopup.php");
     }
