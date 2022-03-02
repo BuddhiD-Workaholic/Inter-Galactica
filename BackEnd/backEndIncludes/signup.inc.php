@@ -65,9 +65,9 @@ if (isset($_POST['submit'])) {
 
 		$hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 		$Imgurl = get_gravatar_url($email);
-		$defa=0;
+		$defa = 0;
 
-		mysqli_stmt_bind_param($stmt, "ssssssss", $email, $name, $hashedPwd, $Tel, $defa, $defa, $Imgurl,$defa);
+		mysqli_stmt_bind_param($stmt, "ssssssss", $email, $name, $hashedPwd, $Tel, $defa, $defa, $Imgurl, $defa);
 		mysqli_stmt_execute($stmt);
 
 

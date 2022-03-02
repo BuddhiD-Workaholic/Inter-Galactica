@@ -1,13 +1,6 @@
 <?php require_once 'DataBase/config.php';
 session_start();
-if (isset($_SESSION['useruid'])) {
-	if ($_SESSION['userTY'] == "EMP") {
-	} else {
-		header('Location:index.php');
-	}
-} else {
-	header('Location:index.php');
-}
+
 ?>
 
 <!DOCTYPE html>

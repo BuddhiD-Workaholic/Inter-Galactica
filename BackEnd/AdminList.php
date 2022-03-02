@@ -1,19 +1,6 @@
 <?php require_once 'DataBase/config.php';
 session_start();
-if (isset($_SESSION['useruid'])) {
-  if ($_SESSION['userTY'] == "EMP") {
-  } else {
-    header('Location:index.php');
-  }
-} else {
-  header('Location:index.php');
-}
 
-if (isset($_GET['WLPage'])) {
-  $WP = $_GET['WLPage'];
-} else {
-  $WP = 1;
-}
 
 $num_per_page = 40;
 $start_from = ($WP - 1) * 40;
