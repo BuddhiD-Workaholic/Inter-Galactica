@@ -1,8 +1,8 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
-canvas.width = innerWidth
-canvas.height = innerHeight
+canvas.width = document.getElementById("main").clientWidth
+canvas.height = document.getElementById("main").clientHeight
 
 const scoreEl = document.querySelector('#scoreEl')
 const startGameBtn = document.querySelector('#startGameBtn')
@@ -415,7 +415,7 @@ function animate() {
 
         // shrink enemy
         if (enemy.radius - 10 > 5) {
-          enemyHitAudio.play()
+         // enemyHitAudio.play()
 
           // increase our score
           score += 100
@@ -438,22 +438,6 @@ function animate() {
           score += 250
           scoreEl.innerHTML = score
           createScoreLabel(projectile, 250)
-
-          // change backgroundParticle colors
-          backgroundParticles.forEach((backgroundParticle) => {
-            backgroundParticle.color = enemy.color
-            //Gsap04
-            gsap.to(backgroundParticle, {
-              alpha: 0.5,
-              duration: 0.015,
-              onComplete: () => {
-                gsap.to(backgroundParticle, {
-                  alpha: backgroundParticle.initialAlpha,
-                  duration: 0.03
-                })
-              }
-            })
-          })
 
           setTimeout(() => {
             const enemyFound = enemies.find((enemyValue) => {
@@ -520,7 +504,6 @@ addEventListener('click', ({ clientX, clientY }) => {
 addEventListener('resize', () => {
   canvas.width = innerWidth
   canvas.height = innerHeight
-
   init()
 })
 
