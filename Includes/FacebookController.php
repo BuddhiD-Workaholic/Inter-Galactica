@@ -1,13 +1,4 @@
 <?php
-/* 
-| Developed by: Tauseef Ahmad
-| Last Upate: 13-12-2020 04:46 PM
-| Facebook: www.facebook.com/ahmadlogs
-| Twitter: www.twitter.com/ahmadlogs
-| YouTube: https://www.youtube.com/channel/UCOXYfOHgu-C-UfGyDcu5sYw/
-| Blog: https://ahmadlogs.wordpress.com/
- */
-
 define('APP_ID', '3182494142077947');
 define('APP_SECRET', 'aba175aafbf23209d6ba91f72eccbb73');
 define('API_VERSION', 'v2.5');

@@ -1,5 +1,6 @@
 <?php
 require_once("../DataBase/config.php");
+
 require_once './GoogleAPI/vendor/autoload.php';
 require_once "./GoogleController.php";
 
@@ -109,22 +110,15 @@ if (isset($_POST['submit'])) {
 		exit();
 	}
 } else if (!isset($_SESSION['facebook_access_token'])) {
-	//get short-lived access token
+
 	$_SESSION['facebook_access_token'] = (string) $accessToken;
-
-	//OAuth 2.0 client handler
 	$oAuth2Client = $fb->getOAuth2Client();
-
-	//Exchanges a short-lived access token for a long-lived one
 	$longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($_SESSION['facebook_access_token']);
 	$_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
-
-	//setting default access token to be used in script
 	$fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
-
-	//redirect the user to the index page if it has $_GET['code']
+	
 	if (isset($_GET['code'])) {
-		//header('Location: ../index.php?error=wronglogin');
+		header('Location: ../index.php?error=wronglogin');
 	}
 	try {
 		$fb_response = $fb->get('/me?fields=name,first_name,last_name,email');
@@ -135,14 +129,14 @@ if (isset($_POST['submit'])) {
 
 		$uidExists = UidExists($con, $email);
 		if ($uidExists === false) {
-			//header("Location:../index.php?error=wronglogin");
+			header("Location:../index.php?error=wronglogin");
 			exit();
 		}
 		session_start();
 		$_SESSION["userid"] = $uidExists['email'];
 		$_SESSION["userTY"] = "GP";
 		UpdateStatusLogIn($uidExists['email'], $con);
-		//header("Location:../MainGame.php");
+		header("Location:../MainGame.php");
 	} catch (Facebook\Exceptions\FacebookResponseException $e) {
 		echo 'Facebook API Error: ' . $e->getMessage();
 		session_destroy();
