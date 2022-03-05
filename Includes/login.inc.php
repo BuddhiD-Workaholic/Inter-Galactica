@@ -85,10 +85,9 @@ if (isset($_POST['submit'])) {
 	$token = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
 
 	if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
-		// get data from google
+		try{
 		$oAuth = new Google_Service_Oauth2($Gclient);
 		$userData = $oAuth->userinfo_v2_me->get();
-		//insert data in the database
 		$email = $userData['email'];
 
 		$uidExists = UidExists($con, $email);
@@ -100,6 +99,9 @@ if (isset($_POST['submit'])) {
 		$_SESSION["userTY"] = "GP";
 		UpdateStatusLogIn($uidExists['email'], $con);
 		header("Location: ../MainGame.php");
+	}catch(Exception $e){
+		header("Location: ../index.php?error=exception");
+	}
 	} else {
 		header("Location: ../index.php?error=error");
 	}
@@ -136,6 +138,7 @@ if (isset($_POST['submit'])) {
 		header("Location:../index.php?error=wronglogin");
 	} catch (Facebook\Exceptions\FacebookSDKException $e) {
 		echo 'Facebook SDK Error: ' . $e->getMessage();
+		header("Location:../index.php?error=wronglogin");
 	}
 } else {
 	header("Location:../index.php?error=empty");

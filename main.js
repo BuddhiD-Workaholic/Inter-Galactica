@@ -461,39 +461,40 @@ const mouse = {
   y: undefined
 }
 
-addEventListener('mousedown', ({ clientX, clientY }) => {
+const element = document.querySelector('#main');
+
+element.addEventListener('mousedown', ({ clientX, clientY }) => {
   mouse.x = clientX
   mouse.y = clientY
-
   mouse.down = true
 })
 
-addEventListener('mousemove', ({ clientX, clientY }) => {
+element.addEventListener('mousemove', ({ clientX, clientY }) => {
   mouse.x = clientX
   mouse.y = clientY
 })
 
-addEventListener('mouseup', () => {
+element.addEventListener('mouseup', () => {
   mouse.down = false
 })
 
-addEventListener('touchstart', (event) => {
+element.addEventListener('touchstart', (event) => {
   mouse.x = event.touches[0].clientX
   mouse.y = event.touches[0].clientY
 
   mouse.down = true
 })
 
-addEventListener('touchmove', (event) => {
+element.addEventListener('touchmove', (event) => {
   mouse.x = event.touches[0].clientX
   mouse.y = event.touches[0].clientY
 })
 
-addEventListener('touchend', () => {
+element.addEventListener('touchend', () => {
   mouse.down = false
 })
 
-addEventListener('click', ({ clientX, clientY }) => {
+element.addEventListener('click', ({ clientX, clientY }) => {
   if (scene.active !== 'Automatic') {
     mouse.x = clientX
     mouse.y = clientY
@@ -502,8 +503,8 @@ addEventListener('click', ({ clientX, clientY }) => {
 })
 
 addEventListener('resize', () => {
-  canvas.width = innerWidth
-  canvas.height = innerHeight
+  canvas.width = document.getElementById("main").clientWidth;
+  canvas.height = document.getElementById("main").clientHeight;
   init()
 })
 

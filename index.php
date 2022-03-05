@@ -242,9 +242,9 @@ if (isset($_SESSION['userid'])) {
     }
   }
   ?>
-
   <!--JavaScript-->
   <script language="JavaScript" type="text/javascript" src="JSFile.js"></script>
 </body>
 
 </html>
+
