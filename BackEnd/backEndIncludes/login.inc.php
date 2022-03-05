@@ -8,7 +8,7 @@ require_once("./FacebookController.php");
 
 function emptyInputLogin($username, $pwd)
 {
-	$result;
+	$result=0;
 	if (empty($username) || empty($pwd)) {
 		$result = true;
 	} else {

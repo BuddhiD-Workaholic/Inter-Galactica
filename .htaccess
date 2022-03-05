@@ -1,0 +1,4 @@
+Options All -Indexes
+Options +MultiViews
+
+ErrorDocument 500 "Houston, we have a problem.! Server Is Down!"
