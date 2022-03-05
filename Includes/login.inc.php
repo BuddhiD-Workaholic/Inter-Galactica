@@ -32,7 +32,6 @@ function UidExists($con, $username)
 
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		header("Location: ../index.php?error=sqlerror");
-		exit();
 	}
 	mysqli_stmt_bind_param($stmt, "s", $username);
 	mysqli_stmt_execute($stmt);
@@ -53,7 +52,6 @@ function loginFun($con, $username, $pwd)
 	$uidExists = UidExists($con, $username);
 	if ($uidExists === false) {
 		header("Location: ../index.php?error=wronglogin");
-		exit();
 	}
 
 	$pwdHashed = $uidExists['password'];
@@ -65,11 +63,9 @@ function loginFun($con, $username, $pwd)
 		$_SESSION["userTY"] = "GP";
 		UpdateStatusLogIn($uidExists['email'], $con);
 		header("Location: ../MainGame.php");
-		exit();
 	}
 	if ($checkPwd == false) {
 		header("Location: ../index.php?error=wronglogin");
-		exit();
 	}
 }
 
@@ -98,7 +94,6 @@ if (isset($_POST['submit'])) {
 		$uidExists = UidExists($con, $email);
 		if ($uidExists === false) {
 			header("Location: ../index.php?error=wronglogin");
-			exit();
 		}
 		session_start();
 		$_SESSION["userid"] = $uidExists['email'];
@@ -107,7 +102,6 @@ if (isset($_POST['submit'])) {
 		header("Location: ../MainGame.php");
 	} else {
 		header("Location: ../index.php?error=error");
-		exit();
 	}
 } else if (!isset($_SESSION['facebook_access_token'])) {
 
@@ -130,7 +124,6 @@ if (isset($_POST['submit'])) {
 		$uidExists = UidExists($con, $email);
 		if ($uidExists === false) {
 			header("Location: ../index.php?error=wronglogin");
-			exit();
 		}
 		session_start();
 		$_SESSION["userid"] = $uidExists['email'];
@@ -141,12 +134,9 @@ if (isset($_POST['submit'])) {
 		echo 'Facebook API Error: ' . $e->getMessage();
 		session_destroy();
 		header("Location:../index.php?error=wronglogin");
-		exit();
 	} catch (Facebook\Exceptions\FacebookSDKException $e) {
 		echo 'Facebook SDK Error: ' . $e->getMessage();
-		exit;
 	}
 } else {
 	header("Location:../index.php?error=empty");
-	exit();
 }
