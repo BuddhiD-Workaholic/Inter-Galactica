@@ -4,6 +4,13 @@ require_once("Includes/GoogleController.php");
 
 require_once 'Includes/FacebookSDK/autoload.php';
 require_once("Includes/FacebookController.php");
+
+if (isset($_SESSION['userid'])) {
+  if ($_SESSION['userTY'] == "GP") {
+    header("Location: MainGame.php");
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +130,6 @@ require_once("Includes/FacebookController.php");
       })
     }
   </script>
-
 </head>
 
 <body>

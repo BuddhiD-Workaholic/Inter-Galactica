@@ -31,7 +31,7 @@ function UidExists($con, $username)
 	$stmt = mysqli_stmt_init($con);
 
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
-		header("Location:../index.php?error=sqlerror");
+		header("Location: ../index.php?error=sqlerror");
 		exit();
 	}
 	mysqli_stmt_bind_param($stmt, "s", $username);
@@ -52,7 +52,7 @@ function loginFun($con, $username, $pwd)
 {
 	$uidExists = UidExists($con, $username);
 	if ($uidExists === false) {
-		header("Location:../index.php?error=wronglogin");
+		header("Location: ../index.php?error=wronglogin");
 		exit();
 	}
 
@@ -64,11 +64,11 @@ function loginFun($con, $username, $pwd)
 		$_SESSION["userid"] = $uidExists['email'];
 		$_SESSION["userTY"] = "GP";
 		UpdateStatusLogIn($uidExists['email'], $con);
-		header("Location:../MainGame.php");
+		header("Location: ../MainGame.php");
 		exit();
 	}
 	if ($checkPwd == false) {
-		header("Location:../index.php?error=wronglogin");
+		header("Location: ../index.php?error=wronglogin");
 		exit();
 	}
 }
@@ -79,7 +79,7 @@ if (isset($_POST['submit'])) {
 	$pwd = $_POST['pwd'];
 
 	if (emptyInputLogin($username, $pwd) !== false) {
-		header("Location:../index.php?error=empty");
+		header("Location: ../index.php?error=empty");
 		exit();
 	} else {
 		loginFun($con, $username, $pwd);
@@ -97,16 +97,16 @@ if (isset($_POST['submit'])) {
 
 		$uidExists = UidExists($con, $email);
 		if ($uidExists === false) {
-			header("Location:../index.php?error=wronglogin");
+			header("Location: ../index.php?error=wronglogin");
 			exit();
 		}
 		session_start();
 		$_SESSION["userid"] = $uidExists['email'];
 		$_SESSION["userTY"] = "GP";
 		UpdateStatusLogIn($uidExists['email'], $con);
-		header("Location:../MainGame.php");
+		header("Location: ../MainGame.php");
 	} else {
-		header("Location:../index.php?error=error");
+		header("Location: ../index.php?error=error");
 		exit();
 	}
 } else if (!isset($_SESSION['facebook_access_token'])) {
@@ -129,7 +129,7 @@ if (isset($_POST['submit'])) {
 
 		$uidExists = UidExists($con, $email);
 		if ($uidExists === false) {
-			header("Location:../index.php?error=wronglogin");
+			header("Location: ../index.php?error=wronglogin");
 			exit();
 		}
 		session_start();

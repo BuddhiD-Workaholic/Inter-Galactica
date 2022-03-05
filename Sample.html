@@ -18,47 +18,11 @@
     <!--SweetAlert CDN-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
-</head>
-
-<body>
     <script>
-        // function validateEmail() {
-        //     var email = "buddhi2002625@gmail.com";
-        //     var at = email.indexOf("@");
-        //     var dt = email.lastIndexOf(".");
-        //     var lengthEmial = email.length;
 
-        //     if ((at < 2) || (dt - at < 2) || (lengthEmial - dt < 2)) {
-        //         swal("Please enter a valid Email Address!");
-        //         return false;
-        //     } else {
-        //         // --> abstractapi.com/email-verification-validation-api
-        //         var url = "https://emailvalidation.abstractapi.com/v1/?api_key=d2fe700dc5694481b4c2db9d380908d9&email=" + email
-        //         return fetch(url,
-        //             {
-        //                 method: "GET",
-        //                 headers: {
-        //                     'Accept': 'application/json',
-        //                     'Content-Type': 'application/json',
-        //                 },
-        //             })
-        //             .then((response) => response.json())
-        //             .then((responseData) => {
-        //                 console.log(responseData);
-        //                 return responseData.is_valid_format.text;
-        //             })
-        //             .catch(error => console.warn(error));
-        //     }
-        // }
-        // console.log(validateEmail().then(response => console.log(response)));
-
-        //Email
-
-        const validatePhone = async () => {
-            var CPno = document.getElementById("contact").value;
+        const getMATHQuetions = async () => {
             try {
-                let url="https://numlookupapi.com/api/validate/"+CPno;
+                let url = "https://math-api-app.herokuapp.com/getmath";
                 const resp = await axios.get(url);
                 return resp.data;
             } catch (err) {
@@ -67,25 +31,43 @@
             }
         }
 
-        //SignUp 
-        async function validateAll(e) {
-            validatePhone().then(response => {
-                console.log(response.valid, " : ", response.international_format);
-                if ((response.valid)) {
-                    e.submit();
-                } else {
-                    swal("The Phone number you entered is not a valid number!");
-                }
-            })
+        function classcreation() {
+            let NewPopUp = new PopUp(100);
+            NewPopUp.MATHQuestion(28000,"This is the quetion");
+        }
+
+        class PopUp {
+            constructor(score) {
+                this.score = score;
+            }
+
+            async MATHQuestion(time, titile) {
+                getMATHQuetions().then(response => {
+                    const question = response.MathAPI.question;
+                    const answer = Math.round(response.MathAPI.answer);
+                    console.log(answer)
+                    swal({
+                        title: `${titile}`,
+                        text: `Your Quetions is: ${question}`,
+                        content: "input",
+                        timer: time,
+                    }).then((value) => {
+                        if (value == answer) {
+                            swal("Good job!", "Your answer is Correct!", "success");
+                        } else if (value == null) {
+                            swal("We are Sorry!", "Your time is Up!", "error");
+                        } else {
+                            swal("We are Sorry!", "Your answer is Wrong!", "error");
+                        }
+                    });
+                })
+            }
         }
     </script>
+</head>
 
-    <form action="Sample.html" onsubmit="validateAll(this); return false;">
-        <input type="email" id="email" required name="contact" placeholder="Email" />
-        <input type="tel" id="contact" required name="contact" placeholder="Contact number" />
-        <br>
-        <button type="submit">Enter</button>
-    </form>
+<body>
+    <button onclick="classcreation()">Enter</button>
 </body>
 
 </html>
