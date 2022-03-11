@@ -9,7 +9,6 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   header("Location: index.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,11 +18,12 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inter Galactica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no, shrink-to-fit=no" />
-  <!--TailWindCSS-->
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- TailWindCSS
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" /> -->
 
   <!--StyleSheet-->
   <link rel="stylesheet" href="CSS/Dashboard.css" type="text/css" />
+  <link rel="stylesheet" href="CSS/Game.css" type="text/css" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="shortcut icon" href="Images/Icon.jpg">
 
@@ -42,33 +42,19 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <style>
-    .main {
-      margin: 0;
-      background: black;
-      overflow: hidden;
-      height: 38rem;
-    }
 
-    header {
-      position: inherit !important;
-      left: 0px !important;
-      width: 100% !important;
-    }
-
-    .leaderboard {
-      max-width: 11%;
-    }
   </style>
 </head>
 
 <body>
+
   <!--Header Starts-->
   <div class="main-content">
     <header>
       <h2>
-        <i for="nav-toggle">
-          <img class="leaderboard fixed inset-0" src="Images/scoreboard.png" alt="Error">
-        </i>
+        <div for="nav-toggle">
+          <img style="position: fixed;top: 0;right: 0;bottom: 0;left: 0; " src="Images/scoreboard.png" alt="Error">
+        </div>
       </h2>
       <!-- searchwrapper Starts-->
       <div style="display: inline;" class="asearch-wrapper">
@@ -127,24 +113,35 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <!--Header Ends-->
 
   <div id="main" class="main">
-    <svg id="soundOffEl" xmlns="http://www.w3.org/2000/svg" class="fixed h-10 w-10 right-0 mt-2 mr-2 cursor-pointer z-10" viewBox="0 0 20 20" fill="white">
+    <svg id="soundOffEl" xmlns="http://www.w3.org/2000/svg" class="VolumButton" viewBox="0 0 20 20" fill="white">
       <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
     </svg>
 
-    <svg id="soundOnEl" xmlns="http://www.w3.org/2000/svg" class="fixed h-10 w-10 right-0 mt-2 mr-2 cursor-pointer z-10 hidden" viewBox="0 0 20 20" fill="white">
+    <svg id="soundOnEl" xmlns="http://www.w3.org/2000/svg" class="VolumButton noun" viewBox="0 0 20 20" fill="white">
       <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd" />
     </svg>
     <canvas id="canvas"></canvas>
   </div>
 
-  <div class="fixed inset-0 flex z-20 items-center justify-center" id="modalEl">
-    <div id="whiteModalEl" class="bg-white max-w-md w-full p-6 text-center">
-      <h1 class="text-4xl font-bold leading-none" id="bigScoreEl">0</h1>
-      <p class="text-sm text-gray-700 mb-4">Points</p>
+  <div class="buttonclass">
+    <button id="N0" class="ButtonPress"> 00 </button>
+    <button id="N1" class="ButtonPress"> 01 </button>
+    <button id="N2" class="ButtonPress"> 02 </button>
+    <button id="N3" class="ButtonPress"> 03 </button>
+    <button id="N4" class="ButtonPress"> 04 </button>
+    <button id="N5" class="ButtonPress"> 05 </button>
+    <button id="N6" class="ButtonPress"> 06 </button>
+    <button id="N7" class="ButtonPress"> 07 </button>
+    <button id="N8" class="ButtonPress"> 08 </button>
+    <button id="N9" class="ButtonPress"> 09 </button>
+  </div>
+
+  <div class="mainDIV" id="modalEl">
+    <div id="whiteModalEl" class="modelDiv">
+      <h1 class="h1Div" id="bigScoreEl">0</h1>
+      <p class="PDiv">Points</p>
       <div>
-        <button class="bg-blue-500 text-white w-full py-3 rounded-full text-sm" id="startGameBtn">
-          Start Game
-        </button>
+        <button class="buttonDiv" id="startGameBtn"> Start Game </button>
       </div>
     </div>
   </div>

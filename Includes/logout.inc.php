@@ -1,4 +1,11 @@
 <?php
+
+echo "
+<script src='../PopupQuestion.js'></script>
+<script>
+deleteCookie(); //Delete set Cookies for two days
+</script>
+";
 require_once("../DataBase/config.php");
 session_start();
 $id = $_SESSION['userid'];

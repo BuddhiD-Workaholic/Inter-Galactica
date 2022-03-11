@@ -316,43 +316,6 @@ soundOnEl.addEventListener('click', () => {
   soundOffEl.style.display = 'block';
 })
 
-
-/**
- * Math API class 
- */
-const getMATHQuetions = async () => {
-  try {
-    let url = "https://math-api-app.herokuapp.com/getmath";
-    const resp = await axios.get(url);
-    return resp.data;
-  } catch (err) {
-    console.log(err);
-    return (err);
-  }
-}
-
-async function MATHQuestion(time, titile) {
-  getMATHQuetions().then(response => {
-    const question = response.MathAPI.question;
-    const answer = Math.round(response.MathAPI.answer);
-    console.log(answer)
-    swal({
-      title: `${titile}`,
-      text: `Your Quetions is: ${question}`,
-      content: "input",
-      timer: time,
-    }).then((value) => {
-      if (value == answer) {
-        swal("Good job!", "Your answer is Correct!", "success");
-      } else if (value == null) {
-        swal("We are Sorry!", "Your time is Up!", "error");
-      } else {
-        swal("We are Sorry!", "Your answer is Wrong!", "error");
-      }
-    });
-  })
-}
-
 /**
  * Progress bar 
  * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js

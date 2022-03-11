@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.VolumButton{
+background-color: #6B7280; 
+width:3.5rem; 
+height: 3.25rem; 
+border-radius: 0.125rem; 
+border-width: 1px; 
+position: fixed; 
+right: 0; 
+z-index: 10; 
+margin-top: 0.5rem; 
+margin-right: 0.5rem; 
+cursor: pointer; 
+
+}
+
+.noun{
+    display: none; 
+}
+
+.main {
+    margin: 0;
+    background: black;
+    height: 38rem;
+  }
+
+  .buttonclass{
+    display:inline;
+  }
+
+  header {
+    position: inherit !important;
+    left: 0px !important;
+    width: 100% !important;
+  }
+
+  .leaderboard {
+    max-width: 11%;
+  }
+
+  .mainDIV{
+    display: flex; 
+    position: fixed; 
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; 
+    z-index: 20; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  .modelDiv{
+    padding: 1.5rem; 
+    background-color: #ffffff; 
+    text-align: center; 
+    width: 100%; 
+    max-width: 28rem; 
+    
+  }
+  .h1Div{
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    line-height: 1; 
+  }
+  .PDiv{
+    margin-bottom: 1rem; 
+    color: #374151; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+  }
+
+  .buttonDiv{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem; 
+    background-color: #3B82F6; 
+    color: #ffffff; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    width: 100%; 
+    border-radius: 9999px; 
+  }
+
+  .buttonclass{
+      align-items: center;
+      text-align: center;
+      align-content: center;
+  }
+
+
+  
