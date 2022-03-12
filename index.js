@@ -176,7 +176,7 @@ function animate() {
         duration: 0.45,
         ease: 'expo'
       })
-      
+
       //Ajax call here
     }
 
@@ -260,6 +260,8 @@ startGameBtn.addEventListener('click', () => {
   init()
   animate()
   scene.active = true
+  //Xp();
+  Health();
 
   score = 0
   scoreEl.innerHTML = score
@@ -319,33 +321,26 @@ soundOnEl.addEventListener('click', () => {
 /**
  * Progress bar 
  * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
+ * 
  */
+
+var scoreBenchmark = 100;
+// var score = 75;
+
 function Health() {
-  var elem = document.getElementById("myBar");
-  var width = 20;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
+  $(".score").attr(
+    "style",
+    "height:" + (75 / scoreBenchmark) * 100 * 1.5 + "px"
+  );
 }
 
 function Xp() {
-  var elem = document.getElementById("myBar");
-  var width = 20;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
+  $(".xp").attr(
+    "style",
+    "height:" + (xp / scoreBenchmark) * 100 * 1.5 + "px"
+  );
+}
+
+function togglePopup1() {
+  document.getElementById('popupV3').toggleClass('noun');
 }

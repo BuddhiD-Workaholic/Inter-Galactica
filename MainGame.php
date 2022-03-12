@@ -56,15 +56,15 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
           <img style="position: fixed;top: 0;right: 0;bottom: 0;left: 0; " src="Images/scoreboard.png" alt="Error">
         </div>
       </h2>
+      <?php require_once './Leaderboard.php'; ?>
+      <button onclick="togglePopup1()">Show popup</button>
       <!-- searchwrapper Starts-->
       <div style="display: inline;" class="asearch-wrapper">
-        <span>Helth</span>
-        <div style="width:20%" class="w3-light-grey">
-          <div id="myBar" class="w3-container w3-green" style="width:20%">20%</div>
+        <div class="containerX">
+        <i class="XVY"> Score:</i> <div class="score"></div>
         </div>
-        <span>Xp</span>
-        <div style="width:20%" class="w3-light-grey">
-          <div id="myBar" class="w3-container w3-green" style="width:20%">20%</div>
+        <div class="containerY">
+        <i class="XVY"> Xp:</i> <div class="xp"></div>
         </div>
       </div>
       <!-- searchwrapper ENDs-->
@@ -135,7 +135,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <button id="N8" class="ButtonPress"> 08 </button>
     <button id="N9" class="ButtonPress"> 09 </button>
   </div>
-
+  <!-- 
   <div class="mainDIV" id="modalEl">
     <div id="whiteModalEl" class="modelDiv">
       <h1 class="h1Div" id="bigScoreEl">0</h1>
@@ -144,7 +144,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
         <button class="buttonDiv" id="startGameBtn"> Start Game </button>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!--GreenSock JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
