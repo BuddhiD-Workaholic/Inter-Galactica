@@ -37,8 +37,9 @@ element.addEventListener('click', ({ clientX, clientY }) => {
 const startGameBtn = document.querySelector('#startGameBtn')
 startGameBtn.addEventListener('click', () => {
   init();
+  MATHQuestion(60, "Hello Take this");
   startGameAudio.play();
-  backgroundMusicAudio.play();
+ // backgroundMusicAudio.play();
   gsap.to('#whiteModalEl', {
     opacity: 0,
     scale: 0.75,

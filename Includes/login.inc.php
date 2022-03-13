@@ -40,12 +40,6 @@ if (isset($_POST['submit'])) {
 			$_SESSION["userid"] = $uidExists['email'];
 			$_SESSION["userTY"] = "GP";
 			$_SESSION["TimeOut"] = time(); //Last login timestamp
-			echo "
-			<script src='../PopupQuestion.js'></script>
-			<script>
-			setCookie(2); //Set Cookies for two days
-			</script>
-			";
 			UpdateStatusLogIn($uidExists['email'], $con);
 			header("Location: ../MainGame.php");
 		} catch (Exception $e) {
@@ -80,12 +74,6 @@ if (isset($_POST['submit'])) {
 		$_SESSION["userid"] = $uidExists['email'];
 		$_SESSION["userTY"] = "GP";
 		$_SESSION["TimeOut"] = time(); //Last login timestamp
-		echo "
-			<script src='../PopupQuestion.js'></script>
-			<script>
-			setCookie(2); //Set Cookies for two days
-			</script>
-			";
 		UpdateStatusLogIn($uidExists['email'], $con);
 		header("Location:../MainGame.php");
 	} catch (Facebook\Exceptions\FacebookResponseException $e) {

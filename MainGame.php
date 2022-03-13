@@ -5,6 +5,8 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     header("Location: ./Includes/logout.inc.php");
   }
   $_SESSION["TimeOut"] = time();
+  echo "<script src='PopupQuestion.js'></script>
+			<script>setCookie(1);</script>";
 } else {
   header("Location: index.php");
 }
@@ -44,9 +46,11 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <!--SweetAlert CDN-->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  <style>
-
-  </style>
+    <!--Axios CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  <!--Crypto-JS CDN-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body ng-app="rxApp">
@@ -134,13 +138,10 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <!--Howler JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--JS Class-->
-  <script src="Player.js"></script>
-  <script src="Particles.js"></script>
-  <script src="Projectile.js"></script>
-  <script src="Enemy.js"></script>
+  <script src='./PopupQuestion.js'></script>
   <!--Main JS-->
   <script src="index.js"></script>
-  <script src='PopupQuestion.js'></script>
+
 </body>
 
 </html>
