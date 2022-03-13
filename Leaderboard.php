@@ -44,7 +44,7 @@
       <div class="others flex">
         <div class="rank">
           <i class="fas fa-caret-up"></i>
-          <p class="num">4</p>
+          <p class="num">5</p>
         </div>
         <div class="info flex">
           <img src="https://image.flaticon.com/icons/png/512/2922/2922510.png" alt="Error" class="p_img">
@@ -55,7 +55,7 @@
       <div class="others flex">
         <div class="rank">
           <i class="fas fa-caret-up"></i>
-          <p class="num">4</p>
+          <p class="num">6</p>
         </div>
         <div class="info flex">
           <img src="https://image.flaticon.com/icons/png/512/2922/2922510.png" alt="Error" class="p_img">
