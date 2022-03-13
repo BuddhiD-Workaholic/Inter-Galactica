@@ -140,6 +140,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <script src="Enemy.js"></script>
   <!--Main JS-->
   <script src="index.js"></script>
+  <script src='PopupQuestion.js'></script>
 </body>
 
 </html>
