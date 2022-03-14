@@ -46,9 +46,9 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <!--SweetAlert CDN-->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <!--Axios CDN-->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  
+  <!--Axios CDN-->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <!--Crypto-JS CDN-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>

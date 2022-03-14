@@ -28,18 +28,12 @@ function init() {
  * Mouse Events
  */
 
-
-const element = document.querySelector('#main');
-element.addEventListener('click', ({ clientX, clientY }) => {
-
-})
-
 const startGameBtn = document.querySelector('#startGameBtn')
 startGameBtn.addEventListener('click', () => {
   init();
   MATHQuestion(60, "Hello Take this");
   startGameAudio.play();
- // backgroundMusicAudio.play();
+  // backgroundMusicAudio.play();
   gsap.to('#whiteModalEl', {
     opacity: 0,
     scale: 0.75,
@@ -57,10 +51,10 @@ addEventListener('resize', () => {
   //      endGameAudio.play()
 })
 
-addEventListener('keydown', ({ keyCode }) => {
-})
-
-//Sounds
+//Sound Contols
+/**
+ * Event listener to listen to the click
+ */
 soundOffEl.addEventListener('click', () => {
   Howler.mute(true);
   backgroundMusicAudio.volume = 0;
@@ -86,10 +80,10 @@ leaderboard.addEventListener('click', () => {
 })
 
 /**
- * Progress bar 
- * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
- * 
- */
+* Progress bar 
+* https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
+* 
+*/
 
 var scoreBenchmark = 100;
 // var score = 75;

@@ -5,8 +5,7 @@ class Game {
      * @param location
      * @param solution
      */
-    Game(location, solution) {
-        super();
+    constructor(location, solution) {
         this.location = location;
         this.solution = solution;
     }
@@ -15,16 +14,14 @@ class Game {
      * @return the location of the game.
      */
     getLocation() {
-        return location;
-        //return URL String
+        return this.location;
     }
 
     /**
      * @return The solution of the game.
      */
     getSolution() {
-        return solution;
-        //return int
+        return this.solution;
     }
 
 }
