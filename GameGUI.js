@@ -24,10 +24,12 @@ Howler.volume(0.1);
 
 let GameEngingObj;
 let currentGame;
+let scoreBenchmark;
 
 async function main() {
     bigScoreEl.innerHTML = 0;
     GameEngingObj = new GameEngine(null, 0, 2);   //Player details as a object/ Score/ Lavel 
+    scoreBenchmark = 1000;
     currentGame = await GameEngingObj.nextMathImageGame();
     ImagURLQuestion(currentGame);
 }
@@ -35,6 +37,7 @@ async function main() {
 function updateScore(score) {
     scoreEl.innerHTML = score;
     bigScoreEl.innerHTML = score;
+    Xp(score);
 }
 
 /**
@@ -118,19 +121,9 @@ soundOnEl.addEventListener('click', () => {
 * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
 */
 
-var scoreBenchmark = 100;
-// var score = 75;
-
-function Health() {
-    $(".score").attr(
-        "style",
-        "height:" + (75 / scoreBenchmark) * 100 * 1.5 + "px"
-    );
-}
-
-function Xp() {
+function Xp(score) {
     $(".xp").attr(
         "style",
-        "height:" + (10 / scoreBenchmark) * 100 * 1.5 + "px"
+        "height:" + (score / scoreBenchmark) * 100 * 1.5 + "px"
     );
 }

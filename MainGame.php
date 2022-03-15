@@ -102,9 +102,9 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     </div>
 
     <div class="row">
-      <div class="col-sm-2"></div>
-      <img class="d-flex img-fluid justify-content-center" id="mainImg" src="./Images/active.png" id="canvas" alt="">
-      <div class="col-sm-2"></div>
+      <div class="col-sm-1"></div>
+      <img class="d-flex img-fluid justify-content-center" id="mainImg" src="" id="canvas" alt="">
+      <div class="col-sm-1"></div>
     </div>
 
     <div class="row" class="buttonclass">

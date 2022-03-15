@@ -27,7 +27,7 @@ class MathQuetions {
         var result = await this.getMATHQuetions(encodeURIComponent(encryptedAES.toString())).then(response => {
             try{
             let decData = CryptoJS.enc.Base64.parse(response).toString(CryptoJS.enc.Utf8);
-            response = JSON.parse(decodeURIComponent(CryptoJS.AES.decrypt(decData, cookie).toString(CryptoJS.enc.Utf8)));
+            response = JSON.parse((CryptoJS.AES.decrypt(decData, cookie).toString(CryptoJS.enc.Utf8)));
             }catch(e){
                 swal("Something went wrong!", "when trying to retrieve game! " + e, "warning");
             }
