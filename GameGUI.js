@@ -86,7 +86,8 @@ async function MathQuestion() {
     var result = await GameEngingObj.nextMathQuetionGame(10, "This is the quetion");
     if (result) {
         updateScore(GameEngingObj.score);
-        main();
+        currentGame = await GameEngingObj.nextMathImageGame();
+        ImagURLQuestion(currentGame);
     } else {
         swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
             console.log("Start a new game!");
