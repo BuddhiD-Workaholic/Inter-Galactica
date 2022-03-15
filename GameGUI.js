@@ -40,12 +40,11 @@ function updateScore(score) {
 /**
  * Mouse Events
  */
-
 const startGameBtn = document.querySelector('#startGameBtn')
 startGameBtn.addEventListener('click', () => {
     main();
-    // startGameAudio.play();
-    // backgroundMusicAudio.play();
+    startGameAudio.play();
+    backgroundMusicAudio.play();
     gsap.to('#whiteModalEl', {
         opacity: 0,
         scale: 0.75,
@@ -87,10 +86,50 @@ async function MathQuestion() {
     var result = await GameEngingObj.nextMathQuetionGame(10, "This is the quetion");
     if (result) {
         updateScore(GameEngingObj.score);
+        main();
     } else {
         swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
             console.log("Start a new game!");
             main();
         });
     }
+}
+
+/** 
+ * Sound controll
+ */
+soundOffEl.addEventListener('click', () => {
+    Howler.mute(true);
+    backgroundMusicAudio.volume = 0;
+    soundOnEl.style.display = 'block';
+    soundOffEl.style.display = 'none';
+})
+
+soundOnEl.addEventListener('click', () => {
+    Howler.mute(false);
+    backgroundMusicAudio.volume = 1;
+    soundOnEl.style.display = 'none';
+    soundOffEl.style.display = 'block';
+})
+
+/**
+* Progress bar 
+* https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
+*/
+
+var scoreBenchmark = 100;
+// var score = 75;
+
+function Health() {
+    $(".score").attr(
+        "style",
+        "height:" + (75 / scoreBenchmark) * 100 * 1.5 + "px"
+    );
+}
+
+function Xp() {
+    $(".xp").attr(
+        "style",
+        "height:" + (10 / scoreBenchmark) * 100 * 1.5 + "px"
+    );
 }

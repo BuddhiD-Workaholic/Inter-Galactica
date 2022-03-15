@@ -91,6 +91,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
 
     <span>Score: </span><span id="scoreEl">0</span>
 
+
     <div id="main" class="main">
       <svg id="soundOffEl" xmlns="http://www.w3.org/2000/svg" class="VolumButton" viewBox="0 0 20 20" fill="white">
         <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
@@ -102,23 +103,23 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
 
     <div class="row">
       <div class="col-sm-2"></div>
-      <img class="d-flex img-fluid justify-content-center" src="./Images/active.png" id="canvas" alt="">
+      <img class="d-flex img-fluid justify-content-center" id="mainImg" src="./Images/active.png" id="canvas" alt="">
       <div class="col-sm-2"></div>
     </div>
 
     <div class="row" class="buttonclass">
       <div class="col-sm-2"></div>
       <div class="d-flex justify-content-center">
-        <button id="N0" class="ButtonPress"> 00 </button>
-        <button id="N1" class="ButtonPress"> 01 </button>
-        <button id="N2" class="ButtonPress"> 02 </button>
-        <button id="N3" class="ButtonPress"> 03 </button>
-        <button id="N4" class="ButtonPress"> 04 </button>
-        <button id="N5" class="ButtonPress"> 05 </button>
-        <button id="N6" class="ButtonPress"> 06 </button>
-        <button id="N7" class="ButtonPress"> 07 </button>
-        <button id="N8" class="ButtonPress"> 08 </button>
-        <button id="N9" class="ButtonPress"> 09 </button>
+        <button id="N0" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 0 </button> &nbsp;
+        <button id="N1" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 1 </button> &nbsp;
+        <button id="N2" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 2 </button> &nbsp;
+        <button id="N3" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 3 </button> &nbsp;
+        <button id="N4" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 4 </button> &nbsp;
+        <button id="N5" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 5 </button> &nbsp;
+        <button id="N6" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 6 </button> &nbsp;
+        <button id="N7" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 7 </button> &nbsp;
+        <button id="N8" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 8 </button> &nbsp;
+        <button id="N9" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 9 </button> &nbsp;
       </div>
       <div class="col-sm-2"></div>
     </div>
@@ -133,15 +134,22 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
       </div>
     </div>
   </div>
+
   <!--GreenSock JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
   <!--Howler JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!--JS Class-->
   <script src='./PopupQuestion.js'></script>
-  <!--Main JS-->
-  <script src="index.js"></script>
+  <script src='./MathQuetion.js'></script>
+  <script src='./MathImage.js'></script>
+  <script src='./GameEngine.js'></script>
+  <script src='./Game.js'></script>
 
+  <!--Main JS-->
+  <script src="./GameGUI.js"></script>
+  <script src="./index.js"></script>
 </body>
 
 </html>

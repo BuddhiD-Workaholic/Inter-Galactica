@@ -25,11 +25,15 @@ class MathQuetions {
             location.href = "./Includes/logout.inc.php";
         }
         var result = await this.getMATHQuetions(encodeURIComponent(encryptedAES.toString())).then(response => {
+            try{
             let decData = CryptoJS.enc.Base64.parse(response).toString(CryptoJS.enc.Utf8);
-            response = JSON. parse(decodeURIComponent(CryptoJS.AES.decrypt(decData, cookie).toString(CryptoJS.enc.Utf8)));
+            response = JSON.parse(decodeURIComponent(CryptoJS.AES.decrypt(decData, cookie).toString(CryptoJS.enc.Utf8)));
+            }catch(e){
+                swal("Something went wrong!", "when trying to retrieve game! " + e, "warning");
+            }
             let question = response.MathAPI.question;
             let answer = response.MathAPI.answer;
-            console.log("Answer: "+Math.round(answer));
+            console.log("Answer: " + Math.round(answer));
             var resultSwal = swal({
                 title: `${titile}`,
                 text: `Your Quetions is: ${question}`,
