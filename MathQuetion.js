@@ -25,8 +25,9 @@ class MathQuetions {
             location.href = "./Includes/logout.inc.php";
         }
         var result = await this.getMATHQuetions(encodeURIComponent(encryptedAES.toString())).then(response => {
-            var decryptedBytes = CryptoJS.AES.decrypt(response, cookie);
-            response = decodeURIComponent(decryptedBytes.toString(CryptoJS.enc.Utf8));
+            let decData = CryptoJS.enc.Base64.parse(response).toString(CryptoJS.enc.Utf8);
+            response = JSON. parse(decodeURIComponent(CryptoJS.AES.decrypt(decData, cookie).toString(CryptoJS.enc.Utf8)));
+            console.log("response : "+response);
             let question = response.MathAPI.question;
             let answer = response.MathAPI.answer;
             console.log(Math.round(answer));
