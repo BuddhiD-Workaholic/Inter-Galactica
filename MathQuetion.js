@@ -24,8 +24,9 @@ class MathQuetions {
         } else {
             location.href = "./Includes/logout.inc.php";
         }
-
         var result = await this.getMATHQuetions(encodeURIComponent(encryptedAES.toString())).then(response => {
+            var decryptedBytes = CryptoJS.AES.decrypt(response, cookie);
+            response = decodeURIComponent(decryptedBytes.toString(CryptoJS.enc.Utf8));
             let question = response.MathAPI.question;
             let answer = response.MathAPI.answer;
             console.log(Math.round(answer));
@@ -34,7 +35,7 @@ class MathQuetions {
                 text: `Your Quetions is: ${question}`,
                 content: "input",
             }).then((value) => {
-                if ((value == Math.round(answer)) || (value == Math.round(answer *1000)/1000)) {
+                if ((value == Math.round(answer)) || (value == Math.round(answer * 1000) / 1000)) {
                     swal("Good job!", "Your answer is Correct!", "success");
                     return true;
                 } else {

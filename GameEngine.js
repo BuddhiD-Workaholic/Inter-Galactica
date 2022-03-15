@@ -32,7 +32,7 @@ class GameEngine {
             this.current = new Game(result.MathAPI.location, result.MathAPI.solution);
             return result.MathAPI.location;
         } catch (e) {
-            console.log("Something went wrong when trying to retrieve game!" + e);
+            swal("Something went wrong!", "when trying to retrieve game! " + e, "warning");
             return null;
         }
         //return URL String
@@ -53,7 +53,7 @@ class GameEngine {
                 return false;
             }
         } catch (e) {
-            console.log("Something went wrong when trying to retrieve game! " + e);
+            swal("Something went wrong!", "when trying to retrieve game! " + e, "warning");
             return null;
         }
         //return URL String

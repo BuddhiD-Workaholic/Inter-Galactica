@@ -27,7 +27,7 @@ let currentGame;
 
 async function main() {
     bigScoreEl.innerHTML = 0;
-    GameEngingObj = new GameEngine(null, 100, 2);   //Player details as a object/ Score/ Lavel 
+    GameEngingObj = new GameEngine(null, 0, 2);   //Player details as a object/ Score/ Lavel 
     currentGame = await GameEngingObj.nextMathImageGame();
     ImagURLQuestion(currentGame);
 }
@@ -71,7 +71,7 @@ async function ClickButton(e) {
         currentGame = await GameEngingObj.nextMathImageGame();
         ImagURLQuestion(currentGame);
     } else {
-        swal("We are Sorry!", "Your answer was incorrect!", "error").then(response =>{
+        swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
             MathQuestion();
         });
     }
@@ -87,7 +87,10 @@ async function MathQuestion() {
     var result = await GameEngingObj.nextMathQuetionGame(10, "This is the quetion");
     if (result) {
         updateScore(GameEngingObj.score);
-    }else{
-        
+    } else {
+        swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
+            console.log("Start a new game!");
+            main();
+        });
     }
 }
