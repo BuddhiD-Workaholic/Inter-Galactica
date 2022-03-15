@@ -29,7 +29,7 @@ class MathQuetions {
             response = JSON. parse(decodeURIComponent(CryptoJS.AES.decrypt(decData, cookie).toString(CryptoJS.enc.Utf8)));
             let question = response.MathAPI.question;
             let answer = response.MathAPI.answer;
-            console.log(("Answer: "+Math.round(answer));
+            console.log("Answer: "+Math.round(answer));
             var resultSwal = swal({
                 title: `${titile}`,
                 text: `Your Quetions is: ${question}`,
