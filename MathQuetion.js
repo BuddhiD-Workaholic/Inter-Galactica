@@ -27,10 +27,9 @@ class MathQuetions {
         var result = await this.getMATHQuetions(encodeURIComponent(encryptedAES.toString())).then(response => {
             let decData = CryptoJS.enc.Base64.parse(response).toString(CryptoJS.enc.Utf8);
             response = JSON. parse(decodeURIComponent(CryptoJS.AES.decrypt(decData, cookie).toString(CryptoJS.enc.Utf8)));
-            console.log("response : "+response);
             let question = response.MathAPI.question;
             let answer = response.MathAPI.answer;
-            console.log(Math.round(answer));
+            console.log(("Answer: "+Math.round(answer));
             var resultSwal = swal({
                 title: `${titile}`,
                 text: `Your Quetions is: ${question}`,

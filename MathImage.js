@@ -29,7 +29,6 @@ class MathImages {
         var result = await this.getImageQuetions(encodeURIComponent(encryptedAES.toString())).then(response => {
             let decData = CryptoJS.enc.Base64.parse(response).toString(CryptoJS.enc.Utf8);
             response = JSON. parse(decodeURIComponent(CryptoJS.AES.decrypt(decData, cookie).toString(CryptoJS.enc.Utf8)));
-            console.log("response : "+response);
             console.log("Answer: "+response.MathAPI.solution);
             return response;
         })
