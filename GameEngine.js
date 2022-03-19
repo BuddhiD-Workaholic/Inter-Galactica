@@ -13,11 +13,13 @@ class GameEngine {
         this.score = score;
         this.level = level;
         this.init(this.score);
+        this.time = this.getTime();
     }
 
     init(score) {
         this.counter = 0;
         this.score = score;
+        this.time = this.getTime();
         this.MathImagesObj = new MathImages();
         this.MathQuetionsObj = new MathQuetions();
         this.current = null;
@@ -41,9 +43,9 @@ class GameEngine {
     /*
     * Retrieves a game (Image from the API). This basic version only has two games that alternate.
     */
-    async nextMathQuetionGame(time, titile) {
+    async nextMathQuetionGame(titile) {
         try {
-            var result = await this.MathQuetionsObj.MATHQuestion(time, titile)
+            var result = await this.MathQuetionsObj.MATHQuestion(this.time, titile)
             if (result) {
                 console.log("Game Engine: " + result);
                 this.score = this.score + this.MathQuetionsObj.fixscore;
@@ -72,6 +74,24 @@ class GameEngine {
             return false;
         }
         //return boolean
+    }
+
+    /**
+    * @param i
+    * @return the time
+    */
+   
+    getTime() {
+        //Level 1 20 minutes is given
+        let time = 1;
+        let i = this.level;
+        if ((i * i * i) < 300) {
+            time = (60 * 20) / (i * i * i);
+        } else {
+            time = (60 * 20) / (10 * 10 * 10);
+        }
+        return Math.ceil(time);
+        //return int
     }
 
 

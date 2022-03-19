@@ -46,6 +46,21 @@ function updateScore(score) {
 const startGameBtn = document.querySelector('#startGameBtn')
 startGameBtn.addEventListener('click', () => {
     main();
+    var time = GameEngingObj.getTime();
+    console.log("Time: " +  time);
+    console.log(time*1000)
+    var count = 15;
+
+    var interval = setInterval(function () {
+        document.getElementById('time').innerHTML = count;
+        count--;
+        if (count === 0) {
+            clearInterval(interval);
+            document.getElementById('time').innerHTML = 'Done';
+            alert("You're out of time!");
+        }
+    }, time*1000);
+
     startGameAudio.play();
     backgroundMusicAudio.play();
     gsap.to('#whiteModalEl', {
@@ -86,7 +101,7 @@ function ImagURLQuestion(URL) {
 
 
 async function MathQuestion() {
-    var result = await GameEngingObj.nextMathQuetionGame(10, "This is the quetion");
+    var result = await GameEngingObj.nextMathQuetionGame("This is the quetion");
     if (result) {
         updateScore(GameEngingObj.score);
         currentGame = await GameEngingObj.nextMathImageGame();

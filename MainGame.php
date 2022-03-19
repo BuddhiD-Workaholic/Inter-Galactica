@@ -90,6 +90,8 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     </div>
 
     <span>Score: </span><span id="scoreEl">0</span>
+    <br />
+    <span>Time: </span><span id="time">0</span>
 
 
     <div id="main" class="main">
