@@ -93,35 +93,36 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
       </svg>
     </div>
 
-    <!--Section Image-->
-    <div class="row">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="maintxt">
-            <img id="mainImg" src="" class="img-fluid center" alt="Error">
+    <div class="whiteconuiatiner">
+      <!--Section Image-->
+      <div class="row">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="maintxt">
+              <img id="mainImg" src="" class="img-fluid center" alt="Error">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!--Section Image Ends-->
+      <!--Section Image Ends-->
 
-    <div class="row justify-content-md-center">
-      <div class="col-md-1"></div>
-      <div class="buttonclass">
-        <button id="N0" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 0 </button> &nbsp;
-        <button id="N1" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 1 </button> &nbsp;
-        <button id="N2" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 2 </button> &nbsp;
-        <button id="N3" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 3 </button> &nbsp;
-        <button id="N4" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 4 </button> &nbsp;
-        <button id="N5" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 5 </button> &nbsp;
-        <button id="N6" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 6 </button> &nbsp;
-        <button id="N7" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 7 </button> &nbsp;
-        <button id="N8" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 8 </button> &nbsp;
-        <button id="N9" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 9 </button> &nbsp;
+      <div class="row justify-content-md-center">
+        <div class="col-md-1"></div>
+        <div class="buttonclass">
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 0 </button> &nbsp;
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 1 </button> &nbsp;
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 2 </button> &nbsp;
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 3 </button> &nbsp;
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 4 </button> &nbsp; <br>
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 5 </button> &nbsp;
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 6 </button> &nbsp;
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 7 </button> &nbsp;
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 8 </button> &nbsp;
+          <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 9 </button> &nbsp;
+        </div>
+        <div class="col-md-1"></div>
       </div>
-      <div class="col-md-1"></div>
     </div>
-
 
     <div class="mainDIV" id="modalEl">
       <div id="whiteModalEl" class="modelDiv">

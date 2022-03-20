@@ -20,7 +20,7 @@ Howler.volume(0.1);
 checkMusicCookie(); //Checking the MUSIC Cookie
 
 //https://www.svgbackgrounds.com/
-document.body.style.backgroundImage = "url('./Uploads/liquid-cheese.svg')";
+document.body.style.backgroundImage = "url('./Uploads/a.svg')";
 
 /**
  * Main Function
@@ -35,6 +35,7 @@ async function main() {
     GameEngingObj = new GameEngine(null, 0, 2);   //Player details as a object/ Score/ Lavel 
     scoreBenchmark = 1000;      //UpperBound for the ProgresBar
     currentGame = await GameEngingObj.nextMathImageGame();
+    updateScore(GameEngingObj.score);
     ImagURLQuestion(currentGame);
 }
 
