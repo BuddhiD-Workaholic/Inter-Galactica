@@ -199,7 +199,7 @@ if (isset($_SESSION['userid'])) {
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3><span class="las la-star-of-life"></span> Inter Galactica - War For SUN</h3>
+          <h3><span class="las la-star-of-life"></span> Inter Galactica - War For MATH</h3>
           <p>
             A web-based Interactive Mathamatical Game
           </p>
@@ -223,22 +223,16 @@ if (isset($_SESSION['userid'])) {
   </div>
   <?php
   if (isset($_GET['error'])) {
-
     if ($_GET['error'] == "empty") {
-      $ErrorMes = "Please Fill the inputs";
-      require_once("Includes/ErrorPopup.php");
+      echo '<script>swal("Error!", "Please Fill the inputs!", "error");</script>';
     } elseif ($_GET['error'] == "wronglogin") {
-      $ErrorMes = "Your username or Password is invalid";
-      require_once("Includes/ErrorPopup.php");
+      echo '<script>swal("Error!", "Your username or Password is invalid!", "error");</script>';
     } elseif ($_GET['error'] == "Invaild") {
-      $ErrorMes = "Invalid User Type";
-      require_once("Includes/ErrorPopup.php");
+      echo '<script>swal("Error!", Invalid User Type!", "error");</script>';
     } elseif ($_GET['error'] == "none") {
-      $SucessMes = "Now you can Play and Learn Maths, By defeating aliens! <br> Please Sign-In";
-      require_once 'Includes/SucessPopup.php';
+      echo '<script>swal("Good job!", "Now you can Play and Learn Maths, and Enjoy Maths! <br> Please Sign-In!", "success");</script>';
     } elseif ($_GET['error'] == "uidexists") {
-      $ErrorMes = "This email already has an Account! <br> Try Sign In!";
-      require_once("Includes/ErrorPopup.php");
+      echo '<script>swal("Error!", "This email already has an Account! <br> Try Sign In!", "error");</script>';
     }
   }
   ?>

@@ -1,14 +1,5 @@
 <?php
 require_once './DataBase/config.php';
-
-if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
-  if ((time() - $_SESSION["TimeOut"]) > 900) { // 15Minutes = 900Secs (15*60)
-    header("Location: ./logout.inc.php");
-  }
-  $_SESSION["TimeOut"] = time();
-} else {
-  header("Location: ../index.php");
-}
 ?>
 
 <div id="popupV3" class="cardX one noun">

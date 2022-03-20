@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   if ((time() - $_SESSION["TimeOut"]) > 900) { // 15Minutes = 900Secs (15*60)
-    header("Location: ./Includes/logout.inc.php");
+    header("Location: ./Includes/logout.inc.php?error=sesssionExp");
   }
   $_SESSION["TimeOut"] = time();
   echo "<script src='PopupQuestion.js'></script>
@@ -62,7 +62,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <button class="nav-link" id="leaderboard">Leader Board</button>
+          <button class="nav-link btn-primary" id="leaderboard">Leader Board</button>
         </li>
         <li class="nav-item">
           <?php require_once './UserProfile.php'; ?>
@@ -139,7 +139,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!--JS Class-->
-  <script src='./PopupQuestion.js'></script>
+  <script src='./Cookie.js'></script>
   <script src='./MathQuetion.js'></script>
   <script src='./MathImage.js'></script>
   <script src='./GameEngine.js'></script>

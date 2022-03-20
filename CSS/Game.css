@@ -97,7 +97,6 @@ cursor: pointer;
     top: -2rem;
     left: 20%; 
     position: absolute;
-    z-index: 10;
     transform: rotate(90deg);
   }
   .containerY {
@@ -110,7 +109,6 @@ cursor: pointer;
     top: -5rem;
     left: 8rem;
     position: relative;
-    z-index: 10;
     transform: rotate(90deg);
   }
   .score {

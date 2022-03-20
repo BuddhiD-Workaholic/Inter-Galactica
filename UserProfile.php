@@ -17,7 +17,7 @@
                     </div>
                     <div class="sec">
                         <div class="txt">
-                            <a href="EmpUserprofile.php"><i class="las la-user"></i></i>View Profile</a>
+                            <a href="UserProfile.php"><i class="las la-user"></i></i>View Profile</a>
                         </div>
                     </div>
                     <div class="sec">

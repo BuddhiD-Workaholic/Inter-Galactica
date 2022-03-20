@@ -1,9 +1,9 @@
 <?php
 
 echo "
-<script src='../PopupQuestion.js'></script>
+<script src='../Cookie.js'></script>
 <script>
-deleteCookie(); //Delete set Cookies for two days
+deleteCookie(); 
 </script>
 ";
 require_once("../DataBase/config.php");

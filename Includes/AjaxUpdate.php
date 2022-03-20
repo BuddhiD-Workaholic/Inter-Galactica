@@ -4,7 +4,7 @@ require_once '../DataBase/config.php';
 session_start();
 if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     if ((time() - $_SESSION["TimeOut"]) > 900) { // 15Minutes = 900Secs (15*60)
-        header("Location: ./logout.inc.php");
+        header("Location: ./logout.inc.php?error=sesssionExp");
     }
     $_SESSION["TimeOut"] = time();
 } else {
