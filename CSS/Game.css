@@ -102,22 +102,21 @@ cursor: pointer;
   .containerY {
     background: white;
     display: flex;
-    width: 16px;
-    height: 150px;
+    width: 213px;
+    height: 20px;
     border: 1px solid #cdcdcd;
-    margin: -8px;
-    top: -5rem;
-    left: 8rem;
-    position: relative;
-    transform: rotate(90deg);
+    margin: -2px;
+    top: 4rem;
+    left: 4rem;
+    position: absolute;
+    /* transform: rotate(90deg); */
   }
   .score {
     display: block;
-    width: 16px;
-    background-color: yellow;
-    margin: 0 auto;
-    height: 0px;
-
+    width: 0px;
+    background-color: red;
+    height: 68px important;
+    height: 18px !important;
     -webkit-transition: 0.4s ease-out;
     -moz-transition: 0.4s ease-out;
     -o-transition: 0.4s ease-out;

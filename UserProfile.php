@@ -10,7 +10,6 @@
                         <div class="txt-profile" s>
                             <img src="Images/user.png" width="38px" height="38px" alt="Error" />
                             <div class="txt-profiletxt">
-                                <h4><?php echo ""; ?></h4>
                                 <small>Player</small>
                             </div>
                         </div>

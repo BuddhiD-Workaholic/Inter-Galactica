@@ -147,6 +147,6 @@ soundOnEl.addEventListener('click', () => {
 function Xp(score, UpperBound) {
     $(".score").attr(
         "style",
-        "height:" + (score / scoreBenchmark) * 100 * 1.5 + "px"
+        "width:" + (score / scoreBenchmark) * 100 * 1.5 + "px"
     );
 }

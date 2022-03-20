@@ -56,9 +56,6 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
 <body ng-app="rxApp">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -72,15 +69,19 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   </nav>
   <div class="container-fluid">
     <?php require_once './Leaderboard.php'; ?>
-    <div style="display: inline;" class="row asearch-wrapper">
-      Score: <div class="containerY">
-        <div class="score"></div>
-      </div>
+    <div class="row asearch-wrapper">
+      <span>
+        <i> Score: </i>
+        <div class="containerY">
+          <div class="score"></div>
+        </div>
+      </span>
+      <span>Time: <i id="time">0</i></span>
     </div>
 
     <div class="row">
-      <span>Score: </span><span id="scoreEl">0</span>
-      <span>Time: </span><span id="time">0</span>
+      <span>Score: <i id="scoreEl">0</i></span>
+      <span>Time: <i id="time">0</i></span>
     </div>
 
     <div id="main" class="main">
