@@ -26,7 +26,7 @@ if ($FuntionName == "GetUserDetails") {
     }
 } else if ($FuntionName == "GetGameDetails") {
     $level = $_POST['level'];
-    $sql1 = "SELECT Xp, backgroundImg, backgroundImg, level FROM `game` WHERE level= '" . $level . "'";
+    $sql1 = "SELECT Xp, time_allocated, backgroundImg, level FROM `game` WHERE level= '" . $level . "'";
     $results = mysqli_query($con, $sql1);
     if (mysqli_num_rows($results) > 0) {
         $rowArray = mysqli_fetch_assoc($results);

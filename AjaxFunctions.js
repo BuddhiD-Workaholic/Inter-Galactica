@@ -21,7 +21,6 @@ async function GetGameData(level) {
     return result;
 }
 
-
 async function UpdateXP(xp) {
     let Fucname = "UpdateXP";
     let result = await $.post("Includes/AjaxUpdate.php", {

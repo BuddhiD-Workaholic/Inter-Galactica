@@ -49,11 +49,10 @@
                 try {
                     response = JSON.parse(response);
                     console.log(response)
-                    // console.log(response.id);
-                    // console.log(response.email);
-                    // console.log(response.name);
                     // console.log(response.Xp);
-                    // console.log(response.level);
+                    // console.log(response.time_allocated);
+                    // console.log(response.backgroundImg);
+                    // console.log(response.BGMusic);
                 } catch (e) {
                     console.log("Error: " + e);
                 }

@@ -61,14 +61,8 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item">
           <button class="nav-link" id="leaderboard">Leader Board</button>
-        </li>
-        <li class="nav-item">
-
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
         </li>
         <li class="nav-item">
           <?php require_once './UserProfile.php'; ?>
@@ -78,21 +72,16 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   </nav>
   <div class="container-fluid">
     <?php require_once './Leaderboard.php'; ?>
-    <div style="display: inline;" class="asearch-wrapper">
-      <i class="XVY"> Xp:</i>
-      <div class="containerY">
-        <div class="xp"></div>
-      </div>
-      <i class="XVY"> Score:</i>
-      <div class="containerX">
+    <div style="display: inline;" class="row asearch-wrapper">
+      Score: <div class="containerY">
         <div class="score"></div>
       </div>
     </div>
 
-    <span>Score: </span><span id="scoreEl">0</span>
-    <br />
-    <span>Time: </span><span id="time">0</span>
-
+    <div class="row">
+      <span>Score: </span><span id="scoreEl">0</span>
+      <span>Time: </span><span id="time">0</span>
+    </div>
 
     <div id="main" class="main">
       <svg id="soundOffEl" xmlns="http://www.w3.org/2000/svg" class="VolumButton" viewBox="0 0 20 20" fill="white">
@@ -103,15 +92,21 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
       </svg>
     </div>
 
+    <!--Section Image-->
     <div class="row">
-      <div class="col-sm-1"></div>
-      <img class="d-flex img-fluid justify-content-center" id="mainImg" src="" id="canvas" alt="">
-      <div class="col-sm-1"></div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="maintxt">
+            <img id="mainImg" src="" class="img-fluid center" alt="Error">
+          </div>
+        </div>
+      </div>
     </div>
+    <!--Section Image Ends-->
 
-    <div class="row" class="buttonclass">
-      <div class="col-sm-2"></div>
-      <div class="d-flex justify-content-center">
+    <div class="row justify-content-md-center">
+      <div class="col-md-1"></div>
+      <div class="buttonclass">
         <button id="N0" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 0 </button> &nbsp;
         <button id="N1" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 1 </button> &nbsp;
         <button id="N2" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 2 </button> &nbsp;
@@ -123,8 +118,9 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
         <button id="N8" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 8 </button> &nbsp;
         <button id="N9" class="btn btn-primary" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 9 </button> &nbsp;
       </div>
-      <div class="col-sm-2"></div>
+      <div class="col-md-1"></div>
     </div>
+
 
     <div class="mainDIV" id="modalEl">
       <div id="whiteModalEl" class="modelDiv">
@@ -150,6 +146,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
   <script src='./Game.js'></script>
 
   <!--Main JS-->
+  <script src="./AjaxFunctions.js"></script>
   <script src="./GameGUI.js"></script>
   <script src="./index.js"></script>
 </body>

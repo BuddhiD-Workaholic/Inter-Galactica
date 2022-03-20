@@ -17,6 +17,10 @@ const backgroundMusicAudio = new Audio('./audio/backgroundMusic.mp3');
 backgroundMusicAudio.loop = true;
 //Main Volum control
 Howler.volume(0.1);
+checkMusicCookie(); //Checking the MUSIC Cookie
+
+//https://www.svgbackgrounds.com/
+document.body.style.backgroundImage = "url('./Uploads/liquid-cheese.svg')";
 
 /**
  * Main Function
@@ -29,7 +33,7 @@ let scoreBenchmark;
 async function main() {
     bigScoreEl.innerHTML = 0;
     GameEngingObj = new GameEngine(null, 0, 2);   //Player details as a object/ Score/ Lavel 
-    scoreBenchmark = 1000;
+    scoreBenchmark = 1000;      //UpperBound for the ProgresBar
     currentGame = await GameEngingObj.nextMathImageGame();
     ImagURLQuestion(currentGame);
 }
@@ -47,8 +51,8 @@ const startGameBtn = document.querySelector('#startGameBtn')
 startGameBtn.addEventListener('click', () => {
     main();
     var time = GameEngingObj.getTime();
-    console.log("Time: " +  time);
-    console.log(time*1000)
+    console.log("Time: " + time);
+    console.log(time * 1000)
     var count = 15;
 
     var interval = setInterval(function () {
@@ -59,7 +63,7 @@ startGameBtn.addEventListener('click', () => {
             document.getElementById('time').innerHTML = 'Done';
             alert("You're out of time!");
         }
-    }, time*1000);
+    }, time * 1000);
 
     startGameAudio.play();
     backgroundMusicAudio.play();
@@ -88,6 +92,7 @@ async function ClickButton(e) {
         currentGame = await GameEngingObj.nextMathImageGame();
         ImagURLQuestion(currentGame);
     } else {
+        endGameAudio.play();
         swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
             MathQuestion();
         });
@@ -107,6 +112,7 @@ async function MathQuestion() {
         currentGame = await GameEngingObj.nextMathImageGame();
         ImagURLQuestion(currentGame);
     } else {
+        endGameAudio.play();
         swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
             console.log("Start a new game!");
             main();
@@ -122,6 +128,7 @@ soundOffEl.addEventListener('click', () => {
     backgroundMusicAudio.volume = 0;
     soundOnEl.style.display = 'block';
     soundOffEl.style.display = 'none';
+    setMusicCookie();
 })
 
 soundOnEl.addEventListener('click', () => {
@@ -129,6 +136,7 @@ soundOnEl.addEventListener('click', () => {
     backgroundMusicAudio.volume = 1;
     soundOnEl.style.display = 'none';
     soundOffEl.style.display = 'block';
+    deleteMusicCookie();
 })
 
 /**
@@ -136,8 +144,8 @@ soundOnEl.addEventListener('click', () => {
 * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
 */
 
-function Xp(score) {
-    $(".xp").attr(
+function Xp(score, UpperBound) {
+    $(".score").attr(
         "style",
         "height:" + (score / scoreBenchmark) * 100 * 1.5 + "px"
     );
