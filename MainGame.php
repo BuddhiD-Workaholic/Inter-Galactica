@@ -5,7 +5,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     header("Location: ./Includes/logout.inc.php?error=sesssionExp");
   }
   $_SESSION["TimeOut"] = time();
-  echo "<script src='PopupQuestion.js'></script>
+  echo "<script src='Cookie.js'></script>
 			<script>setCookie(1);</script>";
 } else {
   header("Location: index.php");
