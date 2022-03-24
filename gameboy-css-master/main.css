@@ -19,8 +19,8 @@ input.btn-hide {
   position: relative;
   display: block;
   margin: 0px auto;
-  width: 422px;
-  height: 580px;
+  width: 56vw;
+  height: 656px;
   background: #eee;
   border-radius: 10px 10px 60px 10px;
   box-shadow: 5px 5px rgba(0,0,0,0.1);
@@ -29,14 +29,14 @@ input.btn-hide {
   content: "";
   position: absolute;
   width: 100%;
-  height: 31px;
+  height: 31px; 
   border-bottom: 4px solid #e0e0e0;
 }
 .gameboy:after {
   content: "";
   position: absolute;
   top: 0;
-  width: 334px;
+  width: 776px;
   height: 31px;
   border-left: 4px solid #e0e0e0;
   border-right: 4px solid #e0e0e0;
@@ -45,10 +45,10 @@ input.btn-hide {
 }
 .gameboy .screen-cont {
   position: relative;
-  top: 60px;
+  top: 42px;
   left: 40px;
-  width: 342px;
-  height: 272px;
+  width: 776px;
+  height: 440px;
   background-color: #777;
   border-radius: 13px 13px 50px 13px;
 }
@@ -58,16 +58,15 @@ input.btn-hide {
   margin-left: auto;
   margin-right: auto;
   background: #bdae58;
-  width: 225px;
-  height: 205px;
+  width: 661px;
+  height: 383px;
   box-shadow: inset 3px 3px rgba(0,0,0,0.15);
 }
 .gameboy .screen-cont .screen .header {
   position: relative;
   top: -30px;
   width: 100%;
-  height: 30px;
-  padding-top: 10px;
+  padding-top: 8px;
   box-sizing: border-box;
   text-align: right;
   font-size: 10px;
@@ -103,7 +102,7 @@ input.btn-hide {
   color: #8a891f;
   font-size: 17px;
   font-family: "Pretendo";
-  z-index: 10;
+  z-index: 20;
 }
 .gameboy .screen-cont .screen .animated-text.end {
   opacity: 1;
@@ -214,7 +213,7 @@ input.btn-hide {
 .gameboy .controls-cont .btn-AB {
   position: absolute;
   top: 72px;
-  left: 252px;
+  left: 698px;
   width: 130px;
   height: 60px;
   background: #dfdfdf;
@@ -235,8 +234,8 @@ input.btn-hide {
 }
 .gameboy .controls-cont .btn-start-select {
   position: absolute;
-  top: 205px;
-  left: 140px;
+  top: 150px;
+  left: 423px;
   height: 12px;
   width: 60px;
   background: #999;
@@ -332,7 +331,7 @@ input.btn-hide {
 .switch {
   width: 2vw;
   height: 1vw;
-  margin-left: 498px !important;
+  margin-left: 28vw !important;
   background: #848190;
   border: none;
   top: -1vw;
@@ -344,4 +343,44 @@ input.btn-hide {
 
 .on .switch {
   left: 18%;
+}
+
+/* CSS */
+
+.buttonclass{
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  padding-top: 81px;
+  padding-right: 29px;
+}
+
+
+.button-54 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
 }
