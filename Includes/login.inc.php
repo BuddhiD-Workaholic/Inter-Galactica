@@ -44,7 +44,9 @@ if (isset($_POST['submit'])) {
 	require_once("./UserLogin.classes.php");
 	$login = new UserLogin($con, $username, $pwd);
 	$login->initUser();
-} elseif (isset($_GET['code'])) {
+}
+
+if (isset($_GET['code'])) {
 	echo "hey";
 	// $toke = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
 	// if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
@@ -69,7 +71,9 @@ if (isset($_POST['submit'])) {
 	// } else {
 	// 	header("Location: ../index.php?error=error");
 	// }
-} elseif (!isset($_SESSION['facebook_access_token'])) {
+} 
+
+if (!isset($_SESSION['facebook_access_token'])) {
 
 	$_SESSION['facebook_access_token'] = (string) $accessToken;
 	$oAuth2Client = $fb->getOAuth2Client();
@@ -105,6 +109,4 @@ if (isset($_POST['submit'])) {
 		echo 'Facebook SDK Error: ' . $e->getMessage();
 		header("Location:../index.php?error=wronglogin");
 	}
-} else {
-	header("Location:../index.php?error=empty");
 }
