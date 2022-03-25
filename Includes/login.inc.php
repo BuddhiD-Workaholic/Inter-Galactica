@@ -1,11 +1,11 @@
 <?php
 require_once("../DataBase/config.php");
 
-require_once './GoogleAPI/vendor/autoload.php';
-require_once "./GoogleController.php";
+require_once('./GoogleAPI/vendor/autoload.php');
+require_once("./GoogleController.php");
 
-require_once './FacebookSDK/autoload.php';
-require_once "./FacebookController.php";
+require_once('./FacebookSDK/autoload.php');
+require_once("./FacebookController.php");
 
 function UpdateStatusLogIn($id, $con)
 {
