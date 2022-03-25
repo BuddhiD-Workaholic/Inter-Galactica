@@ -2,7 +2,7 @@
 require_once("../DataBase/config.php");
 
 require_once './GoogleAPI/vendor/autoload.php';
-// require_once "./GoogleController.php";
+require_once "./GoogleController.php";
 
 require_once './FacebookSDK/autoload.php';
 require_once "./FacebookController.php";
@@ -46,20 +46,10 @@ if (isset($_POST['submit'])) {
 	$login->initUser();
 } elseif (isset($_GET['code'])) {
 
-	$Gclient = new Google_Client();
-	$Gclient->setClientId("811203755210-t5s1egd1863a5mh2dc6e53rletttv0ii.apps.googleusercontent.com");
-	$Gclient->setClientSecret("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");
-
-	$Gclient->setApplicationName("Inter_galactica");
-	$Gclient->setRedirectUri("http://inter-galactica.herokuapp.com/Includes/login.inc.php");
-	$Gclient->addScope("https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email");
-
-	$login_url = $Gclient->createAuthUrl();
-
 	$token = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
 	$oAuth = new Google_Service_Oauth2($Gclient);
 	$userData = $oAuth->userinfo_v2_me->get();
-	var_dump($userData);
+	echo var_dump($userData);
 	// if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
 	// 	try {
 	// 		$oAuth = new Google_Service_Oauth2($Gclient);
