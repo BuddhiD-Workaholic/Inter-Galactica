@@ -25,9 +25,10 @@ if (isset($_POST['submit'])) {
 } else if (isset($_GET['code'])) {
 
 	$token = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
-
+	echo "Hello1";
 	if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
 		try {
+			echo "Hello2";
 			$oAuth = new Google_Service_Oauth2($Gclient);
 			$userData = $oAuth->userinfo_v2_me->get();
 			$email = $userData['email'];
@@ -36,6 +37,7 @@ if (isset($_POST['submit'])) {
 			if ($uidExists === false) {
 				header("Location: ../index.php?error=wronglogin");
 			}
+			echo "Hello3";
 			session_start();
 			$_SESSION["userid"] = $uidExists['email'];
 			$_SESSION["userTY"] = "GP";
@@ -56,7 +58,7 @@ if (isset($_POST['submit'])) {
 	$_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
 	$fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
 
-	if (isset($_GET['code'])) {
+	if (!isset($_GET['code'])) {
 		header('Location: ../index.php?error=wronglogin');
 	}
 	try {
