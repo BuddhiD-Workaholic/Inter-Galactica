@@ -46,10 +46,7 @@ if (isset($_POST['submit'])) {
 	$login->initUser();
 } elseif (isset($_GET['code'])) {
 	echo "hey";
-	$toke = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
-	$oAuth = new Google_Service_Oauth2($Gclient);
-	$userData = $oAuth->userinfo_v2_me->get();
-	echo "Output: " . $userData;
+	// $toke = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
 	// if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
 	// 	try {
 	// 		$oAuth = new Google_Service_Oauth2($Gclient);
