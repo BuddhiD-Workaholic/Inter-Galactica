@@ -47,31 +47,31 @@ if (isset($_POST['submit'])) {
 } else if (isset($_GET['code'])) {
 
 	$token = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
-	echo "Hello1";
-	if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
-		try {
-			echo "Hello2";
-			$oAuth = new Google_Service_Oauth2($Gclient);
-			$userData = $oAuth->userinfo_v2_me->get();
-			$email = $userData['email'];
+	$oAuth = new Google_Service_Oauth2($Gclient);
+	$userData = $oAuth->userinfo_v2_me->get();
+	var_dump($userData);
+	// if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
+	// 	try {
+	// 		$oAuth = new Google_Service_Oauth2($Gclient);
+	// 		$userData = $oAuth->userinfo_v2_me->get();
+	// 		$email = $userData['email'];
 
-			$uidExists = UidExists($con, $email);
-			if ($uidExists === false) {
-				header("Location: ../index.php?error=wronglogin");
-			}
-			echo "Hello3";
-			session_start();
-			$_SESSION["userid"] = $uidExists['email'];
-			$_SESSION["userTY"] = "GP";
-			$_SESSION["TimeOut"] = time(); //Last login timestamp
-			UpdateStatusLogIn($uidExists['email'], $con);
-			header("Location: ../MainGame.php");
-		} catch (Exception $e) {
-			header("Location: ../index.php?error=exception");
-		}
-	} else {
-		header("Location: ../index.php?error=error");
-	}
+	// 		$uidExists = UidExists($con, $email);
+	// 		if ($uidExists === false) {
+	// 			header("Location: ../index.php?error=wronglogin");
+	// 		}
+	// 		session_start();
+	// 		$_SESSION["userid"] = $uidExists['email'];
+	// 		$_SESSION["userTY"] = "GP";
+	// 		$_SESSION["TimeOut"] = time(); //Last login timestamp
+	// 		UpdateStatusLogIn($uidExists['email'], $con);
+	// 		header("Location: ../MainGame.php");
+	// 	} catch (Exception $e) {
+	// 		header("Location: ../index.php?error=exception");
+	// 	}
+	// } else {
+	// 	header("Location: ../index.php?error=error");
+	// }
 } else if (!isset($_SESSION['facebook_access_token'])) {
 
 	$_SESSION['facebook_access_token'] = (string) $accessToken;
@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
 	$_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
 	$fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
 
-	if (!isset($_GET['code'])) {
+	if (isset($_GET['code'])) {
 		header('Location: ../index.php?error=wronglogin');
 	}
 	try {
