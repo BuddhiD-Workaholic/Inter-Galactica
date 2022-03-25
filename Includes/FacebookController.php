@@ -2,9 +2,9 @@
 define('APP_ID', '3182494142077947');
 define('APP_SECRET', 'aba175aafbf23209d6ba91f72eccbb73');
 define('API_VERSION', 'v2.5');
-define('FB_BASE_URL', 'http://localhost/IT20768676/Inter-Galactica/Includes/login.inc.php');
+define('FB_BASE_URL', 'https://inter-galactica.herokuapp.com/Includes/login.inc.php');
 
-define('BASE_URL', 'http://localhost/IT20768676/Inter-Galactica/login.inc.php');
+define('BASE_URL', 'https://inter-galactica.herokuapp.com/Includes/login.inc.php');
 
 if (!session_id()) {
     session_start();
@@ -16,12 +16,9 @@ $fb = new Facebook\Facebook([
     'app_secret' => APP_SECRET,
     'default_graph_version' => API_VERSION,
 ]);
-if (isset($_GET['state'])) {
-    $_SESSION['FBRLH_state'] = $_GET['state'];
-} 
+
 // Get redirect login helper
 $fb_helper = $fb->getRedirectLoginHelper();
-
 
 // Try to get access token
 try {
