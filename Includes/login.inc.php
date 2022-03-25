@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 	require_once("./UserLogin.classes.php");
 	$login = new UserLogin($con, $username, $pwd);
 	$login->initUser();
-} else if (isset($_GET['code'])) {
+} elseif (isset($_GET['code'])) {
 
 	$token = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
 	$oAuth = new Google_Service_Oauth2($Gclient);
@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 	// } else {
 	// 	header("Location: ../index.php?error=error");
 	// }
-} else if (!isset($_SESSION['facebook_access_token'])) {
+} elseif (!isset($_SESSION['facebook_access_token'])) {
 
 	$_SESSION['facebook_access_token'] = (string) $accessToken;
 	$oAuth2Client = $fb->getOAuth2Client();
