@@ -44,36 +44,33 @@ if (isset($_POST['submit'])) {
 	require_once("./UserLogin.classes.php");
 	$login = new UserLogin($con, $username, $pwd);
 	$login->initUser();
-}
-
-if (isset($_GET['code'])) {
+} else if (isset($_GET['code'])) {
 	echo "hey";
-	// $toke = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
-	// if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
-	// 	try {
-	// 		$oAuth = new Google_Service_Oauth2($Gclient);
-	// 		$userData = $oAuth->userinfo_v2_me->get();
-	// 		$email = $userData['email'];
+	
+	$toke = $Gclient->fetchAccessTokenWithAuthCode($_GET['code']);
+	if (!isset($token["error"]) && ($token["error"] != "invalid_grant")) {
+		try {
+			$oAuth = new Google_Service_Oauth2($Gclient);
+			$userData = $oAuth->userinfo_v2_me->get();
+			$email = $userData['email'];
 
-	// 		$uidExists = UidExists($con, $email);
-	// 		if ($uidExists === false) {
-	// 			header("Location: ../index.php?error=wronglogin");
-	// 		}
-	// 		session_start();
-	// 		$_SESSION["userid"] = $uidExists['email'];
-	// 		$_SESSION["userTY"] = "GP";
-	// 		$_SESSION["TimeOut"] = time(); //Last login timestamp
-	// 		UpdateStatusLogIn($uidExists['email'], $con);
-	// 		header("Location: ../MainGame.php");
-	// 	} catch (Exception $e) {
-	// 		header("Location: ../index.php?error=exception");
-	// 	}
-	// } else {
-	// 	header("Location: ../index.php?error=error");
-	// }
-} 
-
-if (!isset($_SESSION['facebook_access_token'])) {
+			$uidExists = UidExists($con, $email);
+			if ($uidExists === false) {
+				header("Location: ../index.php?error=wronglogin");
+			}
+			session_start();
+			$_SESSION["userid"] = $uidExists['email'];
+			$_SESSION["userTY"] = "GP";
+			$_SESSION["TimeOut"] = time(); //Last login timestamp
+			UpdateStatusLogIn($uidExists['email'], $con);
+			header("Location: ../MainGame.php");
+		} catch (Exception $e) {
+			header("Location: ../index.php?error=exception");
+		}
+	} else {
+		header("Location: ../index.php?error=error");
+	}
+} else if (!isset($_SESSION['facebook_access_token'])) {
 
 	$_SESSION['facebook_access_token'] = (string) $accessToken;
 	$oAuth2Client = $fb->getOAuth2Client();
@@ -109,4 +106,6 @@ if (!isset($_SESSION['facebook_access_token'])) {
 		echo 'Facebook SDK Error: ' . $e->getMessage();
 		header("Location:../index.php?error=wronglogin");
 	}
+} else {
+	header("Location:../index.php?error=empty");
 }
