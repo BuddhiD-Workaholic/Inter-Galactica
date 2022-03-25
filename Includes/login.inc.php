@@ -69,6 +69,7 @@ if (isset($_POST['submit'])) {
 		header("Location: ../index.php?error=error");
 	}
 } else if (!isset($_SESSION['facebook_access_token'])) {
+	
 	require_once('./FacebookSDK/autoload.php');
 	require_once("./FacebookController.php");
 

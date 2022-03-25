@@ -6,7 +6,7 @@ $Gclient->setClientSecret("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");
 
 $Gclient->setApplicationName("Inter_galactica");
 
-$Gclient->setRedirectUri("http://localhost/IT20768676/Inter-Galactica/Includes/login.inc.php");
+$Gclient->setRedirectUri("https://inter-galactica.herokuapp.com/Includes/login.inc.php");
 $Gclient->addScope("https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email");
 
 $login_url = $Gclient->createAuthUrl();
