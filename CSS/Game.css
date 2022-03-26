@@ -48,7 +48,7 @@ cursor: pointer;
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
   }
   .modelDiv{
     padding: 1.5rem; 

@@ -20,7 +20,7 @@ Howler.volume(0.1);
 checkMusicCookie(); //Checking the MUSIC Cookie
 
 //https://www.svgbackgrounds.com/
-document.body.style.backgroundImage = "url('./Uploads/a.svg')";
+//document.body.style.backgroundImage = "url('./Uploads/a.svg')";
 
 /**
  * Main Function
@@ -45,6 +45,18 @@ function updateScore(score) {
     scoreEl.innerHTML = score;
     bigScoreEl.innerHTML = score;
     Xp(score);
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function pauseBtn() {
+    const power = document.querySelector('body');
+    power.classList.add('blurOut');
+    await sleep(50);   //await for half a ms to blur the screen and popup the alert
+    alert('\t Game is Paused! \n Click the Button to resume the game play!');
+    power.classList.remove('blurOut');
 }
 
 function gameTimer(timeleft) {

@@ -366,5 +366,11 @@ input.btn-hide {
 }
 
 .swal-overlay {
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);    /*This is used to blur out aorund an element*/
+  pointer-events: none;            /*This is used to disable mouseclicks out aorund an element*/
+}
+
+.blurOut {
+  filter: blur(8px);             /*This is used to blur out an element*/
+  pointer-events: none;
 }

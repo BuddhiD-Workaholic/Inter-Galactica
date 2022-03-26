@@ -31,6 +31,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <!--StyleSheet-->
     <link rel="stylesheet" href="CSS/Dashboard.css" type="text/css" />
     <link rel="stylesheet" href="CSS/Game.css" type="text/css" />
+    <link rel="stylesheet" href="main.css" />
     <link rel="shortcut icon" href="Images/Icon.jpg">
 
     <!--FontAwsome CDN-->
@@ -63,7 +64,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
             </div>
         </span> -->
             <div>
-                <button id="pauseGbtn" onclick="alert('\t Game is Paused! \n Click the Button to resume the game play!')">Pause
+                <button id="pauseGbtn" onclick="pauseBtn()">Pause
                     Game</button>
             </div>
 
@@ -152,7 +153,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <script src="./AjaxFunctions.js"></script>
     <script src="./GameGUI.js"></script>
     <script src="./index.js"></script>
-    <script src="./main.js"></script>
+
 </body>
 
 </html>
