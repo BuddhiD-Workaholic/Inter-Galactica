@@ -29,11 +29,13 @@ document.body.style.backgroundImage = "url('./Uploads/a.svg')";
 let GameEngingObj;
 let currentGame;
 let scoreBenchmark;
+let timeeIntervel; //The ID of the Intervel 
 
 async function main() {
     bigScoreEl.innerHTML = 0;
     GameEngingObj = new GameEngine(null, 0, 2);   //Player details as a object/ Score/ Lavel 
     scoreBenchmark = 1000;      //UpperBound for the ProgresBar
+    gameTimer(10);
     currentGame = await GameEngingObj.nextMathImageGame();
     updateScore(GameEngingObj.score);
     ImagURLQuestion(currentGame);
@@ -45,27 +47,27 @@ function updateScore(score) {
     Xp(score);
 }
 
+function gameTimer(timeleft) {
+    console.log(timeleft);
+    //call the function here
+    let timer = document.getElementById('time');
+    timeeIntervel = setInterval(async function () {
+        timeleft -= 1;
+        timer.innerHTML = timeleft;
+        if (timeleft == 0) {
+            clearInterval(timeeIntervel);
+            gameTimer(10);
+            currentGame = await GameEngingObj.nextMathImageGame();
+            ImagURLQuestion(currentGame);
+        }
+    }, 1000);
+}
+
 /**
  * Mouse Events
  */
 const startGameBtn = document.querySelector('#startGameBtn')
 startGameBtn.addEventListener('click', () => {
-    main();
-    var time = GameEngingObj.getTime();
-    console.log("Time: " + time);
-    console.log(time * 1000)
-    var count = 15;
-
-    var interval = setInterval(function () {
-        document.getElementById('time').innerHTML = count;
-        count--;
-        if (count === 0) {
-            clearInterval(interval);
-            document.getElementById('time').innerHTML = 'Done';
-            alert("You're out of time!");
-        }
-    }, time * 1000);
-
     startGameAudio.play();
     backgroundMusicAudio.play();
     gsap.to('#whiteModalEl', {
@@ -77,12 +79,8 @@ startGameBtn.addEventListener('click', () => {
             modalEl.style.display = 'none'
         }
     })
-})
-
-addEventListener('resize', () => {
-    //main();
-    //startGameAudio.play();
-    //endGameAudio.play()
+    main();
+    var time = GameEngingObj.getTime();
 })
 
 async function ClickButton(e) {
@@ -90,10 +88,13 @@ async function ClickButton(e) {
     if (result) {
         console.log("Correct");
         updateScore(GameEngingObj.score);
+        clearInterval(timeeIntervel);
+        gameTimer(10);
         currentGame = await GameEngingObj.nextMathImageGame();
         ImagURLQuestion(currentGame);
     } else {
         endGameAudio.play();
+        clearInterval(timeeIntervel);
         swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
             MathQuestion();
         });
@@ -114,10 +115,10 @@ async function MathQuestion() {
         ImagURLQuestion(currentGame);
     } else {
         endGameAudio.play();
-        swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
-            console.log("Start a new game!");
-            main();
-        });
+        //swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
+        console.log("Start a new game!");
+        main();
+        // });
     }
 }
 

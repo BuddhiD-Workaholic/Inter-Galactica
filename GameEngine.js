@@ -45,7 +45,7 @@ class GameEngine {
     */
     async nextMathQuetionGame(titile) {
         try {
-            var result = await this.MathQuetionsObj.MATHQuestion(this.time, titile)
+            var result = await this.MathQuetionsObj.MATHQuestion(10, titile)
             if (result) {
                 console.log("Game Engine: " + result);
                 this.score = this.score + this.MathQuetionsObj.fixscore;
@@ -93,7 +93,6 @@ class GameEngine {
         return Math.ceil(time);
         //return int
     }
-
 
     /**
      * Retrieves the score. 

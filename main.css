@@ -20,7 +20,7 @@ input.btn-hide {
   display: block;
   margin: 0px auto;
   width: 56vw;
-  height: 656px;
+  height: 49.7vw;
   background: #eee;
   border-radius: 10px 10px 60px 10px;
   box-shadow: 5px 5px rgba(0,0,0,0.1);
@@ -36,7 +36,7 @@ input.btn-hide {
   content: "";
   position: absolute;
   top: 0;
-  width: 776px;
+  width: 50vw;
   height: 31px;
   border-left: 4px solid #e0e0e0;
   border-right: 4px solid #e0e0e0;
@@ -47,8 +47,8 @@ input.btn-hide {
   position: relative;
   top: 42px;
   left: 40px;
-  width: 776px;
-  height: 440px;
+  width: 51vw;
+  height: 30vw;
   background-color: #777;
   border-radius: 13px 13px 50px 13px;
 }
@@ -58,8 +58,8 @@ input.btn-hide {
   margin-left: auto;
   margin-right: auto;
   background: #bdae58;
-  width: 661px;
-  height: 383px;
+  width: 43.5vw;
+  height: 26vw;
   box-shadow: inset 3px 3px rgba(0,0,0,0.15);
 }
 .gameboy .screen-cont .screen .header {
@@ -97,7 +97,7 @@ input.btn-hide {
   opacity: 0;
   display: inline;
   position: relative;
-  top: -26px;
+  top: -46px;
   left: 30%;
   color: #8a891f;
   font-size: 17px;
@@ -106,7 +106,7 @@ input.btn-hide {
 }
 .gameboy .screen-cont .screen .animated-text.end {
   opacity: 1;
-  top: 50px;
+  top: 80px;
   -webkit-transition: top 3s linear;
   -moz-transition: top 3s linear;
   -ms-transition: top 3s linear;
@@ -213,7 +213,7 @@ input.btn-hide {
 .gameboy .controls-cont .btn-AB {
   position: absolute;
   top: 72px;
-  left: 698px;
+  left: 45.5vw;
   width: 130px;
   height: 60px;
   background: #dfdfdf;
@@ -234,27 +234,19 @@ input.btn-hide {
 }
 .gameboy .controls-cont .btn-start-select {
   position: absolute;
-  top: 150px;
-  left: 423px;
-  height: 12px;
-  width: 60px;
+  top:  15vw;
+  left: 24vw;
+  height: 24px;
+  width: 64px;
   background: #999;
   border-radius: 10px;
   -webkit-transform: rotate(-25deg);
-  box-shadow: 57px 27px #999, 0 0 0 5px #dfdfdf, 57px 27px 0 5px #dfdfdf;
 }
-.gameboy .speakers {
-  content: "";
-  position: relative;
-  height: 70px;
-  width: 8px;
-  top: 260px;
-  left: 300px;
-  background: #ddd;
-  border-radius: 4px;
-  -webkit-transform: rotate(-25deg);
-  box-shadow: 20px 0 #ddd, 40px 0 #ddd, 60px 0 #ddd, 80px 0 #ddd, 100px 0 #ddd;
+.gameboy .controls-cont .btn-start-select:hover {
+  background-color: #666;
+  color: white;
 }
+
 .phones {
   position: absolute;
   bottom: 4px;
@@ -328,23 +320,6 @@ input.btn-hide {
   border: 0;
 }
 
-.switch {
-  width: 2vw;
-  height: 1vw;
-  margin-left: 28vw !important;
-  background: #848190;
-  border: none;
-  top: -1vw;
-  left: 13%;
-  z-index: 100;
-  border-radius: 100% 100% 0 0;
-  transition: all ease .1s
-}
-
-.on .switch {
-  left: 18%;
-}
-
 /* CSS */
 
 .Ebuttonclass{
@@ -353,8 +328,13 @@ input.btn-hide {
   align-content: center;
   padding-top: 81px;
   padding-right: 29px;
+  overflow: visible;
 }
 
+.imgVW{
+  width: 43.5vw;
+  height: 24vw;
+}
 
 .button-54 {
   font-family: "Open Sans", sans-serif;
@@ -383,4 +363,8 @@ input.btn-hide {
   .button-54 {
     padding: 0.25em 0.75em;
   }
+}
+
+.swal-overlay {
+  backdrop-filter: blur(10px);
 }

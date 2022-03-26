@@ -48,6 +48,7 @@ cursor: pointer;
     display: flex; 
     justify-content: center; 
     align-items: center; 
+    backdrop-filter: blur(2px);
   }
   .modelDiv{
     padding: 1.5rem; 
@@ -55,7 +56,7 @@ cursor: pointer;
     text-align: center; 
     width: 100%; 
     max-width: 28rem; 
-    
+    border-radius:30px;
   }
   .h1Div{
     font-size: 2.25rem;

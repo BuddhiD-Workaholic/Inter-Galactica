@@ -36,13 +36,17 @@ class MathQuetions {
             console.log("Answer: " + Math.round(answer));
             var resultSwal = swal({
                 title: `${titile}`,
-                text: `Your Quetions is: ${question}`,
+                text: `Time Allocated: ${time}; Your Quetions is: \n  ${question}`,
+                timer: time*1000,
                 content: "input",
             }).then((value) => {
                 if ((value == Math.round(answer)) || (value == Math.round(answer * 1000) / 1000)) {
                     swal("Good job!", "Your answer is Correct!", "success");
                     return true;
-                } else {
+                }else if(value==null){
+                    swal("We are Sorry!", "Your time is up!", "error");
+                    return false;
+                }else{
                     swal("We are Sorry!", "Your answer is Wrong!", "error");
                     return false;
                 }
