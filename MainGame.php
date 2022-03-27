@@ -64,8 +64,8 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                 <div class="timerDisplay"></div>
             </div> 
         </span> -->
-            <div class="row">
-                <span>Time Left: <i id="time">0</i></span>
+            <div class="textContainer">
+                <span class="textConi">Time Left: <br><i id="time">0</i></span>
             </div>
         </div>
 
@@ -76,8 +76,8 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                 <div class="score"></div>
             </div>
         </span> -->
-            <div class="row">
-                <span>Score: <i id="scoreEl">0</i></span>
+            <div class="textContainer">
+                <span class="textConi">Score: <br><i id="scoreEl">0</i></span>
             </div>
         </div>
 

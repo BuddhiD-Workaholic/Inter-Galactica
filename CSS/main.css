@@ -20,6 +20,7 @@ input.btn-hide {
   display: none;
 }
 .gameboy {
+  top: 3rem;
   position: relative;
   display: block;
   margin: 0px auto;
@@ -397,18 +398,37 @@ input.btn-hide {
     top: 16vw;
     font-size: 1.2vw;
     color: #494786;
-    left: 21vw;
+    font-weight: bold;
+    left: 21.4vw;
     height: 28px;
     -webkit-transform: rotate(-25deg);
 }
 
 .leftSi{
-  float: eft;
-  width:24%;
-  margin-left: 2%;
+  float: left;
+  width:26%;
+  position: absolute;
+  margin-top: 15vw;
 }
 
 .rightSi{
   float: right;
-  width:24%;
+  width:26%;
+  margin-top: 15vw;
+}
+
+.textContainer{
+  border: 2px solid #F0DB4F;
+  align-items: center;
+  outline: none;
+  text-align: center;
+  align-content: center;
+  padding: 4rem;
+  border-radius: .5rem;
+}
+
+.textConi{
+  font-size: 3.4rem;;
+  color: #F0DB4F;
+  font-weight: bold;
 }

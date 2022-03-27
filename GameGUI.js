@@ -33,7 +33,7 @@ async function main() {
     bigScoreEl.innerHTML = 0;
     GameEngingObj = new GameEngine(null, 0, 2);   //Player details as a object/ Score/ Lavel 
     scoreBenchmark = 1000;      //UpperBound for the ProgresBar
-    gameTimer(10);
+    gameTimer(GameEngingObj.time);
     currentGame = await GameEngingObj.nextMathImageGame();
     updateScore(GameEngingObj.score);
     ImagURLQuestion(currentGame);
@@ -66,7 +66,7 @@ function gameTimer(timeleft) {
         timer.innerHTML = timeleft;
         if (timeleft == 0) {
             clearInterval(timeeIntervel);
-            gameTimer(10);
+            gameTimer(GameEngingObj.time);
             currentGame = await GameEngingObj.nextMathImageGame();
             ImagURLQuestion(currentGame);
         }
@@ -99,7 +99,7 @@ async function ClickButton(e) {
         console.log("Correct");
         updateScore(GameEngingObj.score);
         clearInterval(timeeIntervel);
-        gameTimer(10);
+        gameTimer(GameEngingObj.time);
         currentGame = await GameEngingObj.nextMathImageGame();
         ImagURLQuestion(currentGame);
     } else {

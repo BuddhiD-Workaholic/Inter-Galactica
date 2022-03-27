@@ -81,7 +81,7 @@ class GameEngine {
     */
 
     getTime() {
-        let time = 14;
+        let time = 144;
         let i = this.level;
         return (time - i);
         //return int
