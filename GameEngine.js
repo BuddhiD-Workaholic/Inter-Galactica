@@ -17,7 +17,6 @@ class GameEngine {
     }
 
     init(score) {
-        this.counter = 0;
         this.score = score;
         this.time = this.getTime();
         this.MathImagesObj = new MathImages();
@@ -80,17 +79,11 @@ class GameEngine {
     * @param i
     * @return the time
     */
-   
+
     getTime() {
-        //Level 1 20 minutes is given
-        let time = 1;
+        let time = 14;
         let i = this.level;
-        if ((i * i * i) < 300) {
-            time = (60 * 20) / (i * i * i);
-        } else {
-            time = (60 * 20) / (10 * 10 * 10);
-        }
-        return Math.ceil(time);
+        return (time - i);
         //return int
     }
 

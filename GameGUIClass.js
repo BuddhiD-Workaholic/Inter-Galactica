@@ -6,7 +6,6 @@ const modalEl = document.querySelector('#modalEl');
 const bigScoreEl = document.querySelector('#bigScoreEl');
 const soundOffEl = document.querySelector('#soundOffEl');
 const soundOnEl = document.querySelector('#soundOnEl');
-const speakerImg = document.querySelector('#speakerImg');
 
 /**
  * Audio Files Manage with Howler functions
@@ -20,9 +19,14 @@ backgroundMusicAudio.loop = true;
 Howler.volume(0.1);
 checkMusicCookie(); //Checking the MUSIC Cookie
 
+//https://www.svgbackgrounds.com/
+//document.body.style.backgroundImage = "url('./Uploads/a.svg')";
+
 /**
  * Main Function
-*/
+ */
+
+class GAMEGUI{
 
 let GameEngingObj;
 let currentGame;
@@ -131,6 +135,8 @@ async function MathQuestion() {
     }
 }
 
+}
+
 /** 
  * Sound controll
  */
@@ -139,7 +145,6 @@ soundOffEl.addEventListener('click', () => {
     backgroundMusicAudio.volume = 0;
     soundOnEl.style.display = 'block';
     soundOffEl.style.display = 'none';
-    speakerImg.classList.add('noun');
     setMusicCookie();
 })
 
@@ -148,7 +153,6 @@ soundOnEl.addEventListener('click', () => {
     backgroundMusicAudio.volume = 1;
     soundOnEl.style.display = 'none';
     soundOffEl.style.display = 'block';
-    speakerImg.classList.remove('noun');
     deleteMusicCookie();
 })
 

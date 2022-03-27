@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+body{
+  background-color: #1E0555;
+}
+
 input.btn-on,
 input.btn-off {
   display: block;
@@ -20,7 +24,7 @@ input.btn-hide {
   display: block;
   margin: 0px auto;
   width: 56vw;
-  height: 49.7vw;
+  height: 52vw;
   background: #eee;
   border-radius: 10px 10px 60px 10px;
   box-shadow: 5px 5px rgba(0,0,0,0.1);
@@ -235,7 +239,7 @@ input.btn-hide {
 .gameboy .controls-cont .btn-start-select {
   position: absolute;
   top:  15vw;
-  left: 24vw;
+  left: 22vw;
   height: 24px;
   width: 64px;
   background: #999;
@@ -320,6 +324,19 @@ input.btn-hide {
   border: 0;
 }
 
+.gameboy .speakers {
+  content: "";
+  position: relative;
+  height: 2.9vw;
+  width: 8px;
+  top: 6.6vw;
+  left: 40.6vw;
+  background: #ddd;
+  border-radius: 4px;
+  -webkit-transform: rotate(-25deg);
+  box-shadow: 20px 0 #ddd, 40px 0 #ddd, 60px 0 #ddd, 80px 0 #ddd, 100px 0 #ddd;
+}
+
 /* CSS */
 
 .Ebuttonclass{
@@ -373,4 +390,25 @@ input.btn-hide {
 .blurOut {
   filter: blur(8px);             /*This is used to blur out an element*/
   pointer-events: none;
+}
+
+.textBtn-select{
+  position: absolute;
+    top: 16vw;
+    font-size: 1.2vw;
+    color: #494786;
+    left: 21vw;
+    height: 28px;
+    -webkit-transform: rotate(-25deg);
+}
+
+.leftSi{
+  float: eft;
+  width:24%;
+  margin-left: 2%;
+}
+
+.rightSi{
+  float: right;
+  width:24%;
 }
