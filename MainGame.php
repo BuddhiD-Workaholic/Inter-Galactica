@@ -64,8 +64,8 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                     <div class="timerDisplay"></div>
                 </div>
             </div>
-            <div style="margin-top: 1.4rem;" class="textContainer">
-
+            <div style="margin-top: 1.4rem; padding:1rem !important" class="textContainer">
+                <?php require_once './UserProfile.php'; ?>
             </div>
         </div>
 
@@ -77,7 +77,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                 </div>
             </div>
             <div style="margin-top: 1.4rem;" class="textContainer">
-                <?php require_once './Leaderboard.php';?>
+                <?php require_once './Leaderboard.php'; ?>
             </div>
         </div>
 

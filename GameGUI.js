@@ -61,6 +61,14 @@ async function pauseBtn() {
     power.classList.remove('blurOut');
 }
 
+function confirmLogout() {
+    const power = document.querySelector('body');
+    power.classList.add('blurOut');
+    var c = confirm("Do you wish to Log-Out?");
+    power.classList.remove('blurOut');
+    return c;
+}
+
 function gameTimer(timeleft) {
     console.log(timeleft);
     //call the function here
