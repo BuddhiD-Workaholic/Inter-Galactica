@@ -58,26 +58,26 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <div class="container-fluid">
 
         <div class="rightSi">
-            <!-- <span>
-            <i> Time: </i>
-            <div class="containerY">
-                <div class="timerDisplay"></div>
-            </div> 
-        </span> -->
             <div class="textContainer">
                 <span class="textConi">Time Left: <br><i id="time">0</i></span>
+                <div class="containerY">
+                    <div class="timerDisplay"></div>
+                </div>
+            </div>
+            <div style="margin-top: 1.4rem;" class="textContainer">
+
             </div>
         </div>
 
         <div class="leftSi">
-            <!-- <span>
-            <i> Score: </i>
-            <div class="containerY">
-                <div class="score"></div>
-            </div>
-        </span> -->
             <div class="textContainer">
                 <span class="textConi">Score: <br><i id="scoreEl">0</i></span>
+                <div class="containerY">
+                    <div class="score"></div>
+                </div>
+            </div>
+            <div style="margin-top: 1.4rem;" class="textContainer">
+                <?php require_once './Leaderboard.php';?>
             </div>
         </div>
 

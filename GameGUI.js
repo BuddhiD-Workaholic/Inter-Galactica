@@ -52,8 +52,12 @@ function sleep(ms) {
 async function pauseBtn() {
     const power = document.querySelector('body');
     power.classList.add('blurOut');
+    Howler.mute(true);
+    backgroundMusicAudio.volume = 0;
     await sleep(50);   //await for half a ms to blur the screen and popup the alert
     alert('\t Game is Paused! \n Click the Button to resume the game play!');
+    backgroundMusicAudio.volume = 1;
+    Howler.mute(false);
     power.classList.remove('blurOut');
 }
 

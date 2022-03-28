@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="CSS/Dashboard.css" type="text/css" />
 <div class="notification">
     <div class="notBtn" href="#">
         <img src="Images/user.png" width="38px" height="38px" alt="Error" />

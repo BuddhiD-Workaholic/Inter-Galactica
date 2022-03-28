@@ -408,13 +408,13 @@ input.btn-hide {
   float: left;
   width:26%;
   position: absolute;
-  margin-top: 15vw;
+  margin-top: 3vw;
 }
 
 .rightSi{
   float: right;
   width:26%;
-  margin-top: 15vw;
+  margin-top: 3vw;
 }
 
 .textContainer{
@@ -423,12 +423,13 @@ input.btn-hide {
   outline: none;
   text-align: center;
   align-content: center;
-  padding: 4rem;
+  padding: 2.6rem;
   border-radius: .5rem;
+  overflow: hidden;
 }
 
 .textConi{
-  font-size: 3.4rem;;
+  font-size: 3.2rem;;
   color: #F0DB4F;
   font-weight: bold;
 }

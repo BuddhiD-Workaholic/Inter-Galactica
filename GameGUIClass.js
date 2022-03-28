@@ -26,7 +26,6 @@ checkMusicCookie(); //Checking the MUSIC Cookie
  * Main Function
  */
 
-class GAMEGUI{
 
 let GameEngingObj;
 let currentGame;
@@ -56,7 +55,11 @@ function sleep(ms) {
 async function pauseBtn() {
     const power = document.querySelector('body');
     power.classList.add('blurOut');
+    Howler.mute(true);
+    backgroundMusicAudio.volume = 0;
     await sleep(50);   //await for half a ms to blur the screen and popup the alert
+    backgroundMusicAudio.volume = 1;
+    Howler.mute(false);
     alert('\t Game is Paused! \n Click the Button to resume the game play!');
     power.classList.remove('blurOut');
 }
@@ -133,8 +136,6 @@ async function MathQuestion() {
         main();
         // });
     }
-}
-
 }
 
 /** 

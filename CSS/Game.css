@@ -89,34 +89,22 @@ cursor: pointer;
   }
 
 /*ProgressBar Starts*/
-  .containerX {
-    background: white;
-    display: flex;
-    width: 16px;
-    height: 150px;
-    border: 1px solid #cdcdcd;
-    top: -2rem;
-    left: 20%; 
-    position: absolute;
-    transform: rotate(90deg);
-  }
   .containerY {
+    margin-left: 4rem !important;
     background: white;
     display: flex;
     width: 213px;
     height: 20px;
-    border: 1px solid #cdcdcd;
+    border: 1px  solid #F0DB4F;
     margin: -2px;
     top: 4rem;
     left: 4rem;
-    position: absolute;
-    /* transform: rotate(90deg); */
   }
   .score {
     display: block;
     width: 0px;
     background-color: yellow;
-    height: 68px important;
+    height: 68px !important;
     height: 18px !important;
     -webkit-transition: 0.4s ease-out;
     -moz-transition: 0.4s ease-out;
@@ -242,7 +230,9 @@ cursor: pointer;
 
   .points {
     color: cyan;
-    font-size: 17px;
+    font-size: 18px;
+    padding-top: 4px;
+    margin-bottom: 0px;
   }
 
   .second {
@@ -287,6 +277,7 @@ cursor: pointer;
 
   .info .link {
     margin: 0 1rem;
+    font-size: 15px;
   }
 
   .rest {
