@@ -14,7 +14,7 @@ function UidExists($con, $username)
 	$stmt = mysqli_stmt_init($con);
 
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
-		header("Location: ../index.php?error=sqlerror");
+		header("Location: ../index.php?error=sqlerror&E=" . mysqli_error($con));
 	}
 	mysqli_stmt_bind_param($stmt, "s", $username);
 	mysqli_stmt_execute($stmt);
@@ -63,13 +63,13 @@ if (isset($_POST['submit'])) {
 			UpdateStatusLogIn($uidExists['email'], $con);
 			header("Location: ../MainGame.php");
 		} catch (Exception $e) {
-			header("Location: ../index.php?error=exception");
+			header("Location: ../index.php?error=exception&E=" . $e);
 		}
 	} else {
 		header("Location: ../index.php?error=error");
 	}
 } else if (!isset($_SESSION['facebook_access_token'])) {
-	
+
 	require_once('./FacebookSDK/autoload.php');
 	require_once("./FacebookController.php");
 

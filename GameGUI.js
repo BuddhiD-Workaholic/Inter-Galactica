@@ -60,7 +60,7 @@ async function pauseBtn() {
 function confirmLogout() {
     swal({
         title: "Do you wish to Logout?",
-        text: "Redirecting in 10 seconds.",
+        text: "Your learning MATHs!. So, Why leave?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
