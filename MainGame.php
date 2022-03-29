@@ -80,6 +80,8 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
         <p class="TEXTp"><b><i class="fa-solid fa-star"></i> XP: </b>' . $rowW['Xp'] . '</p>';
                             echo ' </div>';
                         }
+                    }else{
+                        echo "Error!, Please Contact the Developer via: https://github.com/BuddhiD-Workaholic";
                     }
                     ?>
                     <p><button class="abutton" onclick="confirmLogout()"><i class="las la-sign-out-alt"></i>Log out</button></p>
