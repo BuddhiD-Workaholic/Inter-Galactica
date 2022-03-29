@@ -114,7 +114,7 @@ cursor: pointer;
 
   .timerDisplay {
     display: block;
-    width: 0px;
+    width: 210px;
     background-color: yellow;
     height: 68px !important;
     height: 18px !important;
