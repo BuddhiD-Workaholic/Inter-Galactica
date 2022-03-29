@@ -36,8 +36,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
 
     <!--FontAwsome CDN-->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Jquery CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -65,7 +64,25 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                 </div>
             </div>
             <div style="margin-top: 1.4rem; padding:1rem !important" class="textContainer">
-                <?php require_once './UserProfile.php'; ?>
+                <div class="Prfilescard">
+                    <?php
+                    $sqlQ1 = "SELECT * FROM `player` WHERE email='" . $_SESSION["userid"] . "'";
+                    $results1 = mysqli_query($con, $sqlQ1);
+                    if (mysqli_num_rows($results1) > 0) {
+                        while ($rowW = mysqli_fetch_assoc($results1)) {
+                            echo '<img src="' . $rowW['img'] . '" alt="Error Loading the Image" class="avatar">';
+                            echo ' <h3 style="margin-bottom: 18px;">' . $rowW['name'] . '</h3>';
+                            echo '<div style="margin-top: 0px;">';
+                            echo ' <p class="TEXTp"><b><i class="fa-solid fa-circle-envelope"></i> Email: </b>' . $rowW['email'] . '</p>
+        <p class="TEXTp"><b><i class="fa-solid fa-circle-phone"></i> TP Number: </b>' . $rowW['contact'] . '</p>
+        <p class="TEXTp"><b><i class="fa-solid fa-star"></i> Level: </b>' . $rowW['level'] . '</p>
+        <p class="TEXTp"><b><i class="fa-solid fa-star"></i> XP: </b>' . $rowW['Xp'] . '</p>';
+                            echo ' </div>';
+                        }
+                    }
+                    ?>
+                    <p><a class="abutton" onclick="return confirmLogout()" href="./Includes/logout.inc.php"><i class="las la-sign-out-alt"></i>Log out</a></p>
+                </div>
             </div>
         </div>
 
@@ -77,7 +94,32 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                 </div>
             </div>
             <div style="margin-top: 1.4rem;" class="textContainer">
-                <?php require_once './Leaderboard.php'; ?>
+                <div class="rest">
+                    <!--Leader board Starts-->
+                    <?php
+                    $sqlQ2 = "SELECT * FROM `player` ORDER By Xp DESC LIMIT 5";
+                    $results2 = mysqli_query($con, $sqlQ2);
+                    if (mysqli_num_rows($results2) > 0) {
+                        $count = 1;
+                        while ($row = mysqli_fetch_assoc($results2)) {
+                            echo '<div class="others flex">
+        <div class="rank">
+          <i class="fas fa-caret-up"></i>
+          <p class="num">' . $count++ . '</p>
+        </div>
+        <div class="info flex">
+          <img src="' . $row['img'] . '" alt="Error" class="p_img">
+          <p class="link">Level:' . $row['level'] . '</p>
+          <p class="points">XP: ' . $row['Xp'] . '</p>
+        </div>
+      </div>';
+                        }
+                    } else {
+                        echo "<div class='title'>No Players available!</div><div class='sub_title'>&nbsp;</div>";
+                    }
+                    ?>
+                    <!--Leader board Ends-->
+                </div>
             </div>
         </div>
 
