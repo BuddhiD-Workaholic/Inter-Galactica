@@ -82,7 +82,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                         }
                     }
                     ?>
-                    <p><a class="abutton" onclick="return confirmLogout()" href="./Includes/logout.inc.php"><i class="las la-sign-out-alt"></i>Log out</a></p>
+                    <p><button class="abutton" onclick="confirmLogout()"><i class="las la-sign-out-alt"></i>Log out</button></p>
                 </div>
             </div>
         </div>

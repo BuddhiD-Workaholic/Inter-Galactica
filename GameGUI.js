@@ -62,11 +62,17 @@ async function pauseBtn() {
 }
 
 function confirmLogout() {
-    const power = document.querySelector('body');
-    power.classList.add('blurOut');
-    var c = confirm("Do you wish to Log-Out?");
-    power.classList.remove('blurOut');
-    return c;
+    swal({
+        title: "Do you wish to Logout?",
+        text: "Redirecting in 10 seconds.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((e) => {
+          if(e){
+            window.location.href = "./Includes/logout.inc.php";
+          }
+    });
 }
 
 function gameTimer(timeleft) {
