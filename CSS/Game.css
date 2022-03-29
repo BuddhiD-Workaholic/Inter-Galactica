@@ -112,13 +112,12 @@ cursor: pointer;
     transition: 0.4s ease-out;
   }
 
-  .xp {
+  .timerDisplay {
     display: block;
-    width: 16px;
-    background-color: red;
-    margin: 0 auto;
-    height: 0px;
-
+    width: 0px;
+    background-color: yellow;
+    height: 68px !important;
+    height: 18px !important;
     -webkit-transition: 0.4s ease-out;
     -moz-transition: 0.4s ease-out;
     -o-transition: 0.4s ease-out;

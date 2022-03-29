@@ -52,12 +52,8 @@ function sleep(ms) {
 async function pauseBtn() {
     const power = document.querySelector('body');
     power.classList.add('blurOut');
-    Howler.mute(true);
-    backgroundMusicAudio.volume = 0;
     await sleep(50);   //await for half a ms to blur the screen and popup the alert
     alert('\t Game is Paused! \n Click the Button to resume the game play!');
-    backgroundMusicAudio.volume = 1;
-    Howler.mute(false);
     power.classList.remove('blurOut');
 }
 
@@ -68,18 +64,22 @@ function confirmLogout() {
         icon: "warning",
         buttons: true,
         dangerMode: true,
-      }).then((e) => {
-          if(e){
+    }).then((e) => {
+        if (e) {
             window.location.href = "./Includes/logout.inc.php";
-          }
+        }
     });
 }
 
 function gameTimer(timeleft) {
-    console.log(timeleft);
+    console.log("Time left: " + timeleft);
     //call the function here
     let timer = document.getElementById('time');
     timeeIntervel = setInterval(async function () {
+        $(".timerDisplay").attr(
+            "style",
+            "width:" + (timeleft / GameEngingObj.time) * 100 * 2.1 + "px"
+        );
         timeleft -= 1;
         timer.innerHTML = timeleft;
         if (timeleft == 0) {
@@ -181,16 +181,3 @@ function Xp(score, UpperBound) {
         "width:" + (score / scoreBenchmark) * 100 * 1.5 + "px"
     );
 }
-/* <div class="containerY">
-<div class="score"></div>
-</div> */
-
-function Time(score, UpperBound) {
-    $(".timerDisplay").attr(
-        "style",
-        "width:" + (score / scoreBenchmark) * 100 * 1.5 + "px"
-    );
-}
-/* <div class="containerY">
-<div class="timerDisplay"></div>
-</div> */
