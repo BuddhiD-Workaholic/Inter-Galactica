@@ -7,7 +7,9 @@ const bigScoreEl = document.querySelector('#bigScoreEl');
 const soundOffEl = document.querySelector('#soundOffEl');
 const soundOnEl = document.querySelector('#soundOnEl');
 const speakerImg = document.querySelector('#speakerImg');
-
+const power = document.querySelector('body');
+const LevelUser = document.querySelector('#LevelUser');
+const XpUser = document.querySelector('#XpUser');
 /**
  * Audio Files Manage with Howler functions
 */
@@ -23,6 +25,17 @@ checkMusicCookie(); //Checking the MUSIC Cookie
 /**
  * Main Function
 */
+let GameUserData;
+GetUserData().then(response => {
+    try {
+        GameUserData = JSON.parse(response);
+        //make it clicble only when the userdetails are loaded
+        power.classList.remove('notClickable');
+        console.log(GameUserData);
+    } catch (e) {
+        swal("SQL DB Error!", "Error: GetUserData()" + e, "error");
+    }
+});
 
 let GameEngingObj;
 let currentGame;
@@ -31,7 +44,7 @@ let timeeIntervel; //The ID of the Intervel
 
 async function main() {
     bigScoreEl.innerHTML = 0;
-    GameEngingObj = new GameEngine(null, 0, 2);   //Player details as a object/ Score/ Lavel 
+    GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), GameUserData.level);   //Player details as a object/ Score/ Lavel 
     scoreBenchmark = 1000;      //UpperBound for the ProgresBar
     gameTimer(GameEngingObj.time);
     currentGame = await GameEngingObj.nextMathImageGame();
@@ -42,7 +55,9 @@ async function main() {
 function updateScore(score) {
     scoreEl.innerHTML = score;
     bigScoreEl.innerHTML = score;
+    XpUser.innerHTML = "<b><i class='fa-solid fa-star'></i> XP: </b>" + score;
     Xp(score);
+    UpdateXP(score);
 }
 
 function sleep(ms) {
@@ -50,7 +65,6 @@ function sleep(ms) {
 }
 
 async function pauseBtn() {
-    const power = document.querySelector('body');
     power.classList.add('blurOut');
     await sleep(50);   //await for half a ms to blur the screen and popup the alert
     alert('\t Game is Paused! \n Click the Button to resume the game play!');
@@ -174,7 +188,6 @@ soundOnEl.addEventListener('click', () => {
 * Progress bar 
 * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
 */
-
 function Xp(score, UpperBound) {
     $(".score").attr(
         "style",

@@ -477,3 +477,7 @@ a:hover {
   margin: 0px;
   font-size: 0.9rem;
 }
+
+.notClickable{
+  pointer-events: none;            /*This is used to disable mouseclicks out aorund an element*/
+}

@@ -23,22 +23,22 @@ async function GetGameData(level) {
 
 async function UpdateXP(xp) {
     let Fucname = "UpdateXP";
-    let result = await $.post("Includes/AjaxUpdate.php", {
+    let result = $.post("Includes/AjaxUpdate.php", {
         xp: xp,
         FuntionName: Fucname
     }, function (data) {
+        console.log("Xp Updated");
         return (data);
     });
-    return result;
 }
 
 async function UpdateLevel(level) {
     let Fucname = "UpdateLevel";
-    let result = await $.post("Includes/AjaxUpdate.php", {
+    let result =  $.post("Includes/AjaxUpdate.php", {
         level: level,
         FuntionName: Fucname
     }, function (data) {
+        console.log("Level Updated");
         return (data);
     });
-    return result;
 }

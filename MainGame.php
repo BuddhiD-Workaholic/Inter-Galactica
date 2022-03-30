@@ -54,7 +54,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body>
+<body class="notClickable">
     <div class="container-fluid">
 
         <div class="rightSi">
@@ -76,11 +76,11 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                             echo '<div style="margin-top: 0px;">';
                             echo ' <p class="TEXTp"><b><i class="fa-solid fa-circle-envelope"></i> Email: </b>' . $rowW['email'] . '</p>
         <p class="TEXTp"><b><i class="fa-solid fa-circle-phone"></i> TP Number: </b>' . $rowW['contact'] . '</p>
-        <p class="TEXTp"><b><i class="fa-solid fa-star"></i> Level: </b>' . $rowW['level'] . '</p>
-        <p class="TEXTp"><b><i class="fa-solid fa-star"></i> XP: </b>' . $rowW['Xp'] . '</p>';
+        <p id="LevelUser" class="TEXTp"><b><i class="fa-solid fa-star"></i> Level: </b>' . $rowW['level'] . '</p>
+        <p id="XpUser" class="TEXTp"><b><i class="fa-solid fa-star"></i> XP: </b>' . $rowW['Xp'] . '</p>';
                             echo ' </div>';
                         }
-                    }else{
+                    } else {
                         echo "Error!, Please Contact the Developer via: https://github.com/BuddhiD-Workaholic";
                     }
                     ?>

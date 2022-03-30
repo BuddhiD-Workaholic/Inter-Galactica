@@ -67,9 +67,10 @@ class GameEngine {
      */
     checkSolution(i) {
         if (i == this.current.getSolution()) {
-            this.score = this.score + this.MathImagesObj.fixscore;
+            this.score = parseFloat(this.score + this.MathImagesObj.fixscore);
             return true;
         } else {
+            this.score = parseFloat(this.score - this.MathImagesObj.fixscore);
             return false;
         }
         //return boolean
