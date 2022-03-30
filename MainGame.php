@@ -194,7 +194,6 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <script src="./AjaxFunctions.js"></script>
     <script src="./GameGUI.js"></script>
     <script src="./index.js"></script>
-
 </body>
 
 </html>

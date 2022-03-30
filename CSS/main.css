@@ -435,7 +435,8 @@ input.btn-hide {
 }
 
 .Prfilescard {
-  margin-top: 2rem !important;
+  margin-top: 3rem !important;
+  margin-bottom: 2.4rem !important;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   max-width: 20vw;
   margin: auto;

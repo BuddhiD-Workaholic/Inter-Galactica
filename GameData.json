@@ -1,0 +1,58 @@
+{
+    "1": {
+        "level": "1",
+        "xp": "2000",
+        "time_allocated": "",
+        "backGroundImage": "",
+        "BGMusic": ""
+    },
+    "2": {
+        "level": "2",
+        "xp": "8880",
+        "time_allocated": "",
+        "backGroundImage": "",
+        "BGMusic": ""
+    },
+    "3": {
+        "level": "3",
+        "xp": "15640",
+        "time_allocated": "",
+        "backGroundImage": "",
+        "BGMusic": ""
+    },
+    "4": {
+        "xp": "22000",
+        "level": "4",
+        "time_allocated": "",
+        "backGroundImage": "",
+        "BGMusic": ""
+    },
+    "5": {
+        "level": "5",
+        "xp": "40100",
+        "time_allocated": "",
+        "backGroundImage": "",
+        "BGMusic": ""
+    },
+    "6": {
+        "level": "6",
+        "xp": "52000",
+        "time_allocated": "",
+        "backGroundImage": "",
+        "BGMusic": ""
+    },
+    "7": {
+        "level": "7",
+        "xp": "84400",
+        "time_allocated": "",
+        "backGroundImage": "",
+        "BGMusic": ""
+    },
+    "8": {
+        "level": "8",
+        "xp": "100000",
+        "time_allocated": "",
+        "backGroundImage": "",
+        "BGMusic": ""
+    }
+}

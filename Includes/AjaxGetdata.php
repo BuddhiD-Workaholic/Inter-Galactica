@@ -25,14 +25,5 @@ if ($FuntionName == "GetUserDetails") {
         echo "Error";
     }
 } else if ($FuntionName == "GetGameDetails") {
-    $level = $_POST['level'];
-    $sql1 = "SELECT Xp, time_allocated, backgroundImg, level FROM `game` WHERE level= '" . $level . "'";
-    $results = mysqli_query($con, $sql1);
-    if (mysqli_num_rows($results) > 0) {
-        $rowArray = mysqli_fetch_assoc($results);
-        $JSONFormat = json_encode($rowArray);
-        echo $JSONFormat;
-    } else {
-        echo "Error";
-    }
+    echo "Error";
 }

@@ -46,9 +46,9 @@ async function main() {
     bigScoreEl.innerHTML = 0;
     GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), GameUserData.level);   //Player details as a object/ Score/ Lavel 
     scoreBenchmark = 1000;      //UpperBound for the ProgresBar
+    updateScore(GameEngingObj.score);
     gameTimer(GameEngingObj.time);
     currentGame = await GameEngingObj.nextMathImageGame();
-    updateScore(GameEngingObj.score);
     ImagURLQuestion(currentGame);
 }
 
