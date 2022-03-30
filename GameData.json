@@ -1,58 +1,66 @@
 {
-    "1": {
-        "level": "1",
-        "xp": "2000",
-        "time_allocated": "",
-        "backGroundImage": "",
-        "BGMusic": ""
-    },
-    "2": {
-        "level": "2",
-        "xp": "8880",
-        "time_allocated": "",
-        "backGroundImage": "",
-        "BGMusic": ""
-    },
-    "3": {
-        "level": "3",
-        "xp": "15640",
-        "time_allocated": "",
-        "backGroundImage": "",
-        "BGMusic": ""
-    },
-    "4": {
-        "xp": "22000",
-        "level": "4",
-        "time_allocated": "",
-        "backGroundImage": "",
-        "BGMusic": ""
-    },
-    "5": {
-        "level": "5",
-        "xp": "40100",
-        "time_allocated": "",
-        "backGroundImage": "",
-        "BGMusic": ""
-    },
-    "6": {
-        "level": "6",
-        "xp": "52000",
-        "time_allocated": "",
-        "backGroundImage": "",
-        "BGMusic": ""
-    },
-    "7": {
-        "level": "7",
-        "xp": "84400",
-        "time_allocated": "",
-        "backGroundImage": "",
-        "BGMusic": ""
-    },
-    "8": {
-        "level": "8",
-        "xp": "100000",
-        "time_allocated": "",
-        "backGroundImage": "",
-        "BGMusic": ""
-    }
+    "Data": [
+        {
+            "xp": "2000",
+            "time_allocated": "100",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": ""
+        },
+        {
+            "xp": "8880",
+            "time_allocated": "80",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": ""
+        },
+        {
+            "xp": "15640",
+            "time_allocated": "60",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": ""
+        },
+        {
+            "xp": "22000",
+            "time_allocated": "40",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": ""
+        },
+        {
+            "xp": "40100",
+            "time_allocated": "30",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": ""
+        },
+        {
+            "xp": "52000",
+            "time_allocated": "10",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": ""
+        },
+        {
+            "xp": "84400",
+            "time_allocated": "5",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": ""
+        },
+        {
+            "xp": "100000",
+            "time_allocated": "2",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": ""
+        },
+        {
+            "time_allocated": "1",
+            "PlusScore": "",
+            "MinusScore": "",
+            "BadgeName": "Elite Group"
+        }
+    ]
 }

@@ -10,14 +10,14 @@ async function GetUserData() {
 }
 
 async function GetGameData(level) {
-    let Fucname = "GetGameDetails";
-    let result = await $.post("Includes/AjaxGetdata.php", {
-        level: level,
-        FuntionName: Fucname
-    }, function (data) {
-        //console.log(data);
-        return (data);
-    });
+    var result = await fetch('./GameData.json')
+        .then((response) => {
+            return response.json();
+        })
+        .then((myJson) => {
+            console.log(myJson.Data[level - 1]);
+            return myJson.Data[level - 1];
+        });
     return result;
 }
 
@@ -34,7 +34,7 @@ async function UpdateXP(xp) {
 
 async function UpdateLevel(level) {
     let Fucname = "UpdateLevel";
-    let result =  $.post("Includes/AjaxUpdate.php", {
+    let result = $.post("Includes/AjaxUpdate.php", {
         level: level,
         FuntionName: Fucname
     }, function (data) {
