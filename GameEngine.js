@@ -8,18 +8,17 @@ class GameEngine {
      * 
      * @param player
      */
-    constructor(player, score, level) {
+    constructor(player, score, level, time, PlusScore, MinusScore) {
         this.thePlayer = player;
         this.score = score;
         this.level = level;
-        this.init(this.score);
-        this.time = this.getTime();
+        this.time = time;
+        this.init(this.score, PlusScore, MinusScore);
     }
 
-    init(score) {
+    init(score, PlusScore, MinusScore) {
         this.score = score;
-        this.time = this.getTime();
-        this.MathImagesObj = new MathImages();
+        this.MathImagesObj = new MathImages(PlusScore, MinusScore);
         this.MathQuetionsObj = new MathQuetions();
         this.current = null;
     }
@@ -70,22 +69,23 @@ class GameEngine {
             this.score = parseFloat(this.score + this.MathImagesObj.fixscore);
             return true;
         } else {
-            this.score = parseFloat(this.score - this.MathImagesObj.fixscore);
+            this.score = parseFloat(this.score - this.MathImagesObj.fixMinusScore);
             return false;
         }
         //return boolean
     }
 
+    NoAnswerScore() {
+        this.score = parseFloat(this.score - this.MathImagesObj.fixMinusScore);
+        return this.score;
+    }
+
     /**
-    * @param i
     * @return the time
     */
 
     getTime() {
-        let time = 144;
-        let i = this.level;
-        return (time - i);
-        //return int
+        return this.time;
     }
 
     /**

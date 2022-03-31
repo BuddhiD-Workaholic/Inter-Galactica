@@ -185,6 +185,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
 
     <!--JS Class-->
     <script src='./Cookie.js'></script>
+    <script src="./Level.js"></script>
     <script src='./MathQuetion.js'></script>
     <script src='./MathImage.js'></script>
     <script src='./GameEngine.js'></script>

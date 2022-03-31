@@ -23,12 +23,19 @@ Howler.volume(0.1);
 checkMusicCookie(); //Checking the MUSIC Cookie
 
 /**
- * Main Function
+ * Global Variable declration
 */
 let GameUserData;
+let GameData;
+let GameEngingObj;
+let currentGame;
+let scoreBenchmark;
+let timeeIntervel; //The ID of the Intervel 
+
 GetUserData().then(response => {
     try {
         GameUserData = JSON.parse(response);
+        GetGameData(GameUserData.level);
         //make it clicble only when the userdetails are loaded
         power.classList.remove('notClickable');
         console.log(GameUserData);
@@ -37,15 +44,20 @@ GetUserData().then(response => {
     }
 });
 
-let GameEngingObj;
-let currentGame;
-let scoreBenchmark;
-let timeeIntervel; //The ID of the Intervel 
+async function GetGameData(clevel) {
+    var result = await fetch('./GameData.json')
+        .then((response) => { return response.json(); })
+        .then((myJson) => {
+            GameData = new Levels(myJson.Data, clevel);     //If the level changes we'll just cteate a new Level object and assign it t othe same variable
+            console.log(GameData.getCurentLevelOb(GameUserData.Xp));
+        });
+    return result;
+}
 
 async function main() {
     bigScoreEl.innerHTML = 0;
-    GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), GameUserData.level);   //Player details as a object/ Score/ Lavel 
-    scoreBenchmark = 1000;      //UpperBound for the ProgresBar
+    GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), GameUserData.level, parseInt(GameData.CurentLevel.time_allocated), parseInt(GameData.CurentLevel.PlusScore), parseInt(GameData.CurentLevel.MinusScore));   //Player details as a object/ Score/ Lavel 
+    scoreBenchmark = GameData.UpperLevel.xp;      //UpperBound for the ProgresBar
     updateScore(GameEngingObj.score);
     gameTimer(GameEngingObj.time);
     currentGame = await GameEngingObj.nextMathImageGame();
@@ -58,6 +70,8 @@ function updateScore(score) {
     XpUser.innerHTML = "<b><i class='fa-solid fa-star'></i> XP: </b>" + score;
     Xp(score);
     UpdateXP(score);
+
+    // UpdateLevel();
 }
 
 function sleep(ms) {
@@ -99,6 +113,7 @@ function gameTimer(timeleft) {
         if (timeleft == 0) {
             clearInterval(timeeIntervel);
             gameTimer(GameEngingObj.time);
+            updateScore(GameEngingObj.NoAnswerScore());
             currentGame = await GameEngingObj.nextMathImageGame();
             ImagURLQuestion(currentGame);
         }
@@ -135,6 +150,7 @@ async function ClickButton(e) {
         currentGame = await GameEngingObj.nextMathImageGame();
         ImagURLQuestion(currentGame);
     } else {
+        updateScore(GameEngingObj.score);
         endGameAudio.play();
         clearInterval(timeeIntervel);
         swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
@@ -156,10 +172,10 @@ async function MathQuestion() {
         ImagURLQuestion(currentGame);
     } else {
         endGameAudio.play();
-        //swal("We are Sorry!", "Your answer was incorrect!", "error").then(response => {
+        gameTimer(GameEngingObj.time);
+        updateScore(GameEngingObj.NoAnswerScore());
         console.log("Start a new game!");
         main();
-        // });
     }
 }
 

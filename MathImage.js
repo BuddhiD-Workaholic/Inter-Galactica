@@ -1,6 +1,7 @@
 class MathImages {
-    constructor() {
-        this.fixscore = 20;
+    constructor(PlusScore, MinusScore) {
+        this.fixscore = PlusScore;
+        this.fixMinusScore = MinusScore;
     }
 
     /**
