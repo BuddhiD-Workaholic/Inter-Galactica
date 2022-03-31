@@ -2,7 +2,7 @@ class Levels {
     constructor(JSONData, CLevel) {
         this.CurentLevel = JSONData[CLevel - 1];
         this.getOtherLevels(JSONData, CLevel);
-        console.log("Inside L: "+JSON.stringify(this.getCurentLevelOb(this.CurentLevel.xp)));
+        console.log("Inside L: " + JSON.stringify(this.getCurentLevelOb(this.CurentLevel.xp)));
     }
 
     getOtherLevels(JSONData, CLevel) {
@@ -22,10 +22,10 @@ class Levels {
     }
 
     getCurentLevelOb(score) {
-        if ((score => this.BelowLevel.xp) && (score < this.CurentLevel.xp)) {
+        if ((score >= this.BelowLevel.xp) && (score < this.CurentLevel.xp)) {
             return this.BelowLevel;
         }
-        else if ((score => this.CurentLevel.xp) && (score < this.UpperLevel.xp)) {
+        else if ((score >= this.CurentLevel.xp) && (score < this.UpperLevel.xp)) {
             return this.CurentLevel;
         } else {
             return this.UpperLevel;
