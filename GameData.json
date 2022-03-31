@@ -1,65 +1,75 @@
 {
     "Data": [
         {
+            "Lv": 1,
             "xp": "2000",
             "time_allocated": "100",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "20",
+            "MinusScore": "2",
             "BadgeName": ""
         },
         {
+            "Lv": 2,
             "xp": "8880",
             "time_allocated": "80",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "14",
+            "MinusScore": "5",
             "BadgeName": ""
         },
         {
+            "Lv": 3,
             "xp": "15640",
             "time_allocated": "60",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "12",
+            "MinusScore": "8",
             "BadgeName": ""
         },
         {
+            "Lv": 4,
             "xp": "22000",
             "time_allocated": "40",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "10",
+            "MinusScore": "10",
             "BadgeName": ""
         },
         {
+            "Lv": 5,
             "xp": "40100",
             "time_allocated": "30",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "10",
+            "MinusScore": "16",
             "BadgeName": ""
         },
         {
+            "Lv": 6,
             "xp": "52000",
             "time_allocated": "10",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "8",
+            "MinusScore": "18",
             "BadgeName": ""
         },
         {
+            "Lv": 7,
             "xp": "84400",
             "time_allocated": "5",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "6",
+            "MinusScore": "20",
             "BadgeName": ""
         },
         {
+            "Lv": 8,
             "xp": "100000",
             "time_allocated": "2",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "4",
+            "MinusScore": "24",
             "BadgeName": ""
         },
         {
+            "Lv": 9,
+            "xp": "10",
             "time_allocated": "1",
-            "PlusScore": "",
-            "MinusScore": "",
+            "PlusScore": "2",
+            "MinusScore": "30",
             "BadgeName": "Elite Group"
         }
     ]
