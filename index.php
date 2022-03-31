@@ -234,7 +234,7 @@ if (isset($_SESSION['userid'])) {
     } elseif ($_GET['error'] == "uidexists") {
       echo '<script>swal("Error!", "This email already has an Account! <br> Try Sign In!", "error");</script>';
     } elseif ($_GET['error'] == "sqlerror") {
-      echo '<script>swal("Error!", "SQL error has occurerd!, error: '.$_GET['E'].'", "error");</script>';
+      echo '<script>swal("Error!", "SQL error: '.$_GET['E'].'", "error");</script>';
     } elseif ($_GET['error'] == "exception") {
       echo '<script>swal("Error!", "Error has occurerd!, error: ' . $_GET['E'] . '", "error");</script>';
     } else {

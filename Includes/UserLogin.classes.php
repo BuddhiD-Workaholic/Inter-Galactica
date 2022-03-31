@@ -41,13 +41,13 @@ class UserLogin
         mysqli_close($con);
     }
 
-    private function UidExists($con, $username)
+    private function UidExistsFunction($con, $username)
     {
-        $sql = "SELECT * FROM player WHERE email= ?";
+        $sql1 = "SELECT * FROM player WHERE email= ?";
         $stmt = mysqli_stmt_init($con);
 
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../index.php?error=sqlerror");
+        if (!mysqli_stmt_prepare($stmt, $sql1)) {
+            header("Location: ../index.php?error=sqlerror&E=" . mysqli_error($con));
         }
         mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
@@ -65,7 +65,7 @@ class UserLogin
 
     private function loginFun($con, $username, $pwd)
     {
-        $uidExists = $this->UidExists($con, $username);
+        $uidExists = $this->UidExistsFunction($con, $username);
         if ($uidExists === false) {
             header("Location: ../index.php?error=wronglogin");
         }

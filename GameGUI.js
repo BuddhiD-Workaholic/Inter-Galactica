@@ -32,11 +32,14 @@ let currentGame;
 let scoreBenchmark;
 let timeeIntervel; //The ID of the Intervel 
 
+/**
+ * The bellow function get's the User details from the database by making an Ajax call 
+ */
 GetUserData().then(response => {
     try {
         GameUserData = JSON.parse(response);
         GetGameData(GameUserData.level);
-        //make it clicble only when the userdetails are loaded
+        //make it clik-able only when the user details are loaded
         power.classList.remove('notClickable');
         console.log(GameUserData);
     } catch (e) {
@@ -44,20 +47,23 @@ GetUserData().then(response => {
     }
 });
 
+/**
+ * @param clevel
+ * The bellow function get's the Game details from the GameData.json file accordiing to the user's game level by making an fetch call 
+ */
 async function GetGameData(clevel) {
     var result = await fetch('./GameData.json')
         .then((response) => { return response.json(); })
         .then((myJson) => {
             GameData = new Levels(myJson.Data, clevel);     //If the level changes we'll just cteate a new Level object and assign it t othe same variable
-            console.log(GameData.getCurentLevelOb(GameUserData.Xp));
         });
     return result;
 }
 
 async function main() {
     bigScoreEl.innerHTML = 0;
-    GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), GameUserData.level, parseInt(GameData.CurentLevel.time_allocated), parseInt(GameData.CurentLevel.PlusScore), parseInt(GameData.CurentLevel.MinusScore));   //Player details as a object/ Score/ Lavel 
-    scoreBenchmark = GameData.UpperLevel.xp;      //UpperBound for the ProgresBar
+    GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), parseInt(GameUserData.level), parseInt(GameData.CurentLevel.time_allocated), parseInt(GameData.CurentLevel.PlusScore), parseInt(GameData.CurentLevel.MinusScore));   //Player details as a object/ Score/ Lavel 
+    scoreBenchmark = parseInt(GameData.UpperLevel.xp);      //UpperBound for the ProgresBar
     updateScore(GameEngingObj.score);
     gameTimer(GameEngingObj.time);
     currentGame = await GameEngingObj.nextMathImageGame();
@@ -70,8 +76,12 @@ function updateScore(score) {
     XpUser.innerHTML = "<b><i class='fa-solid fa-star'></i> XP: </b>" + score;
     Xp(score);
     UpdateXP(score);
-
-    // UpdateLevel();
+    let ChekLeveled = GameData.getCurentLevelOb(score);
+    //If the XP based level and the GameEngingObj.level arent's the same then an Ajax call is made to update the user level data
+    if (ChekLeveled != GameEngingObj.level) {
+        console.log("Updated_Level: " + ChekLeveled)
+        UpdateLevel(ChekLeveled);
+    }
 }
 
 function sleep(ms) {
@@ -137,7 +147,6 @@ startGameBtn.addEventListener('click', () => {
         }
     })
     main();
-    var time = GameEngingObj.getTime();
 })
 
 async function ClickButton(e) {
