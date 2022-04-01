@@ -3,7 +3,6 @@
  */
 const scoreEl = document.querySelector('#scoreEl');
 const modalEl = document.querySelector('#modalEl');
-const bigScoreEl = document.querySelector('#bigScoreEl');
 const soundOffEl = document.querySelector('#soundOffEl');
 const soundOnEl = document.querySelector('#soundOnEl');
 const speakerImg = document.querySelector('#speakerImg');
@@ -61,7 +60,6 @@ async function GetGameData(clevel) {
 }
 
 async function main() {
-    bigScoreEl.innerHTML = 0;
     GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), parseInt(GameUserData.level), parseInt(GameData.CurentLevel.time_allocated), parseInt(GameData.CurentLevel.PlusScore), parseInt(GameData.CurentLevel.MinusScore));   //Player details as a object/ Score/ Lavel 
     scoreBenchmark = parseInt(GameData.UpperLevel.xp);      //UpperBound for the ProgresBar
     updateScore(GameEngingObj.score);
@@ -72,7 +70,6 @@ async function main() {
 
 function updateScore(score) {
     scoreEl.innerHTML = score;
-    bigScoreEl.innerHTML = score;
     XpUser.innerHTML = "<b><i class='fa-solid fa-star'></i> XP: </b>" + score;
     Xp(score);
     UpdateXP(score);
@@ -168,6 +165,14 @@ async function ClickButton(e) {
     }
 }
 
+power.addEventListener("keydown", function (event) {
+    let e = event.key;
+    console.log(e);
+    if (isFinite(e)) {
+        ClickButton(e);
+    }
+});
+
 function ImagURLQuestion(URL) {
     var img = document.getElementById("mainImg");
     img.src = URL;
@@ -181,7 +186,6 @@ async function MathQuestion() {
         ImagURLQuestion(currentGame);
     } else {
         endGameAudio.play();
-        gameTimer(GameEngingObj.time);
         updateScore(GameEngingObj.NoAnswerScore());
         console.log("Start a new game!");
         main();

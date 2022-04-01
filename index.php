@@ -205,19 +205,19 @@ if (isset($_SESSION['userid'])) {
           </p>
           <button class="btn transparent" id="sign-up-btn">Sign Up</button>
         </div>
-        <img src="Images/login.svg" class="image" alt="" />
+        <img src="Images/42222-modified.png" class="image" alt="" />
       </div>
 
       <div class="panel right-panel">
         <div class="content">
-          <h3>One of us?</h3>
+          <h3>Wanna Become One of Us?</h3>
           <p>
             Go ahead and Login with your user credentials to proceeed and
             access our website.
           </p>
           <button class="btn transparent" id="sign-in-btn">Sign in</button>
         </div>
-        <img src="Images/register.svg" class="image" alt="" />
+        <img width="38rem;" src="Images/42244-bg.png" class="image" alt="" />
       </div>
     </div>
   </div>
@@ -234,7 +234,7 @@ if (isset($_SESSION['userid'])) {
     } elseif ($_GET['error'] == "uidexists") {
       echo '<script>swal("Error!", "This email already has an Account! <br> Try Sign In!", "error");</script>';
     } elseif ($_GET['error'] == "sqlerror") {
-      echo '<script>swal("Error!", "SQL error: '.$_GET['E'].'", "error");</script>';
+      echo '<script>swal("Error!", "SQL error: ' . $_GET['E'] . '", "error");</script>';
     } elseif ($_GET['error'] == "exception") {
       echo '<script>swal("Error!", "Error has occurerd!, error: ' . $_GET['E'] . '", "error");</script>';
     } else {

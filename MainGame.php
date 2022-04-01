@@ -169,7 +169,6 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
         </div>
         <div class="mainDIV" id="modalEl">
             <div id="whiteModalEl" class="modelDiv">
-                <h1 class="h1Div" id="bigScoreEl">0</h1>
                 <p class="PDiv">Points</p>
                 <div>
                     <button class="buttonDiv" id="startGameBtn"> Start Game </button>

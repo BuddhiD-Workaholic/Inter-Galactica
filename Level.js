@@ -21,13 +21,12 @@ class Levels {
     }
 
     getCurentLevelOb(score) {
-        if ((score >= this.BelowLevel.xp) && (score < this.CurentLevel.xp)) {
+        if (score <= this.BelowLevel.xp) {
             return this.BelowLevel.Lv;
-        }
-        else if ((score >= this.CurentLevel.xp) && (score < this.UpperLevel.xp)) {
-            return this.CurentLevel.Lv;
-        } else {
+        } else if (score >= this.CurentLevel.xp) {
             return this.UpperLevel.Lv;
+        } else if ((score > this.BelowLevel.xp) && (score < this.CurentLevel.xp)) {
+            return this.CurentLevel.Lv;
         }
     }
 }
