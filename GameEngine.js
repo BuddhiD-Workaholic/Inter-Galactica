@@ -4,9 +4,13 @@
  */
 class GameEngine {
     /**
-     * Each player has their own game engine.
-     * 
-     * @param player
+     * The constructor allows to define the Player deatils as well as game details, Each player has their own game engine.
+     * @param {*} player 
+     * @param {*} score 
+     * @param {*} level 
+     * @param {*} time 
+     * @param {*} PlusScore 
+     * @param {*} MinusScore 
      */
     constructor(player, score, level, time, PlusScore, MinusScore) {
         this.thePlayer = player;
@@ -16,6 +20,13 @@ class GameEngine {
         this.init(this.score, PlusScore, MinusScore);
     }
 
+    /**
+     * init function is used to initialize the player score and to create Objects from the Game's two aspects
+     * which are the MathImage and the Math Quetion The curent variable is created to hold the curent game object to later 
+     * @param {*} score 
+     * @param {*} PlusScore 
+     * @param {*} MinusScore 
+     */
     init(score, PlusScore, MinusScore) {
         this.score = score;
         this.MathImagesObj = new MathImages(PlusScore, MinusScore);
@@ -24,7 +35,8 @@ class GameEngine {
     }
 
     /*
-     * Retrieves a game (Image from the API). This basic version only has two games that alternate.
+     * Retrieves a game (Randomly generated Image from the API). This basic version only has two games that alternate.
+     * The function creates a Game object to store the the Curent Game details
      */
     async nextMathImageGame() {
         try {
@@ -39,7 +51,8 @@ class GameEngine {
     }
 
     /*
-    * Retrieves a game (Image from the API). This basic version only has two games that alternate.
+    * Retrieves a game (Randomly generated Math quetion from the API). This basic version only has two games that alternate.
+    * @param {*} titile 
     */
     async nextMathQuetionGame(titile) {
         try {
@@ -62,7 +75,7 @@ class GameEngine {
     /**
      * Checks if the parameter i is a solution to the game URL. If so, score is increased by one. 
      * @param i
-     * @return
+     * @return boolean whether the Solution to the answer is corect or wrong depending on the answer given by the user
      */
     checkSolution(i) {
         if (i == this.current.getSolution()) {
@@ -75,6 +88,9 @@ class GameEngine {
         //return boolean
     }
 
+    /**
+    * @return the Score a player get's if he or she was unabled to get the answer for a math quetion within the given time
+    */
     NoAnswerScore() {
         this.score = parseFloat(this.score - this.MathImagesObj.fixMinusScore);
         return this.score;
@@ -83,16 +99,13 @@ class GameEngine {
     /**
     * @return the time
     */
-
     getTime() {
         return this.time;
     }
 
     /**
      * Retrieves the score. 
-     * 
-     * @param player
-     * @return
+     * @return the score 
      */
     getScore() {
         return this.score;

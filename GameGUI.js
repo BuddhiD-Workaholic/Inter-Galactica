@@ -1,5 +1,5 @@
 /**
- * Selecting different elements
+ * Selecting different elements from the HTML DOM 
  */
 const scoreEl = document.querySelector('#scoreEl');
 const modalEl = document.querySelector('#modalEl');
@@ -19,7 +19,7 @@ const backgroundMusicAudio = new Audio('./audio/backgroundMusic.mp3');
 backgroundMusicAudio.loop = true;
 //Main Volum control
 Howler.volume(0.1);
-checkMusicCookie(); //Checking the MUSIC Cookie
+checkMusicCookie(); //Checking the MUSIC Cookie, Whther the Cookie isset or not
 
 /**
  * Global Variable declration
@@ -59,6 +59,9 @@ async function GetGameData(clevel) {
     return result;
 }
 
+/**
+ * The main() function is the single most important function of the game, It starts creating an GameEngine Object by passing nesessary data
+ */
 async function main() {
     GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), parseInt(GameUserData.level), parseInt(GameData.CurentLevel.time_allocated), parseInt(GameData.CurentLevel.PlusScore), parseInt(GameData.CurentLevel.MinusScore));   //Player details as a object/ Score/ Lavel 
     scoreBenchmark = parseInt(GameData.UpperLevel.xp);      //UpperBound for the ProgresBar
