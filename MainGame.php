@@ -32,6 +32,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <!--FontAwsome CDN-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!--Jquery CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -169,12 +170,13 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
         </div>
         <div class="mainDIV" id="modalEl">
             <div id="whiteModalEl" class="modelDiv">
-                <p class="PDiv">Points</p>
+                <p class="PDiv"><img style="width: 100%; margin:0px" src="./Images/3470042-rg.png" alt=""></p>
                 <div>
                     <button class="buttonDiv" id="startGameBtn"> Start Game </button>
                 </div>
             </div>
         </div>
+
     </div>
     </div>
     <!--GreenSock JS-->
