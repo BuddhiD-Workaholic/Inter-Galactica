@@ -14,10 +14,9 @@ class GameEngine {
      */
     constructor(player, score, level, time, PlusScore, MinusScore) {
         this.thePlayer = player;
-        this.score = score;
         this.level = level;
         this.time = time;
-        this.init(this.score, PlusScore, MinusScore);
+        this.init(score, PlusScore, MinusScore);
     }
 
     /**

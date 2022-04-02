@@ -13,8 +13,9 @@ const XpUser = document.querySelector('#XpUser');
  * Audio Files Manage with Howler functions
 */
 const startGameAudio = new Audio('./audio/startGame.mp3');
+const startGameAudioP2 = new Audio('./audio/startGameP2.mp3');
 const endGameAudio = new Audio('./audio/endGame.mp3');
-const obtainPowerUpAudio = new Howl({ src: ['./audio/obtainPowerUp.mp3'] });
+const obtainPowerUpAudio = new Audio('./audio/obtainPowerUp.mp3');
 const backgroundMusicAudio = new Audio('./audio/backgroundMusic.mp3');
 backgroundMusicAudio.loop = true;
 //Main Volum control
@@ -68,6 +69,7 @@ async function main() {
     updateScore(GameEngingObj.score);
     gameTimer(GameEngingObj.time);
     currentGame = await GameEngingObj.nextMathImageGame();
+    startGameAudioP2.play();
     ImagURLQuestion(currentGame);
 }
 
@@ -152,6 +154,7 @@ startGameBtn.addEventListener('click', () => {
 async function ClickButton(e) {
     var result = GameEngingObj.checkSolution(e);
     if (result) {
+        obtainPowerUpAudio.play();
         console.log("Correct");
         updateScore(GameEngingObj.score);
         clearInterval(timeeIntervel);
@@ -168,13 +171,13 @@ async function ClickButton(e) {
     }
 }
 
-power.addEventListener("keydown", function (event) {
-    let e = event.key;
-    console.log(e);
-    if (isFinite(e)) {
-        ClickButton(e);
-    }
-});
+// power.addEventListener("keydown", function (event) {
+//     let e = event.key;
+//     console.log(e);
+//     if (isFinite(e)) {
+//         ClickButton(e);
+//     }
+// });
 
 function ImagURLQuestion(URL) {
     var img = document.getElementById("mainImg");
@@ -184,6 +187,7 @@ function ImagURLQuestion(URL) {
 async function MathQuestion() {
     var result = await GameEngingObj.nextMathQuetionGame("This is the quetion");
     if (result) {
+        obtainPowerUpAudio.play();
         updateScore(GameEngingObj.score);
         currentGame = await GameEngingObj.nextMathImageGame();
         ImagURLQuestion(currentGame);
