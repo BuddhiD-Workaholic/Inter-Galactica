@@ -93,7 +93,7 @@ function sleep(ms) {
 async function pauseBtn() {
     power.classList.add('blurOut');
     await sleep(50);   //await for half a ms to blur the screen and popup the alert
-    alert('\t Game is Paused! \n Click the Button to resume the game play!');
+    alert('\t Game is Paused! \n Click the "OK" Button to resume the game play!');
     power.classList.remove('blurOut');
 }
 

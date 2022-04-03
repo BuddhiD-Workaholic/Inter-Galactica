@@ -36,7 +36,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
     <!--Jquery CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!--Google translate-->
+    <!--Google Translate-->
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <!--SweetAlert CDN-->
