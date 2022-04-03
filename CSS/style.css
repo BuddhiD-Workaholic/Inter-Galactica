@@ -47,6 +47,32 @@ iframe#\:2\.container {
   box-shadow: none !important;
 }
 
+
+.goog-text-highlight{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Opera and Firefox */
+}
+
+.skiptranslate {
+  visibility: hidden !important;
+  display: none !important;
+}
+
+.VIpgJd-suEOdc {
+  visibility: hidden !important;
+  display: none !important;
+}
+
+div#goog-gt-tt {
+  visibility: hidden !important;
+  display: none !important;
+}
+
 /*Google translate hidden*/
 
 /**/

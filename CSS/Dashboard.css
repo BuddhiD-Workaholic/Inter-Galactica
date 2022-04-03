@@ -284,6 +284,16 @@ div#goog-gt-tt {
   display: none !important;
 }
 
+.goog-text-highlight{
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Opera and Firefox */
+}
+
 .sidebar {
   width: 345px;
   position: fixed;
@@ -323,16 +333,6 @@ div#goog-gt-tt {
   color: #fff;
   font-size: 1.3rem;
 }
-
-/* ValidateCSS 
-input:invalid {
-  border: 2px solid red;
-}
-
-input:valid {
-  border: 1px solid rgba(56, 166, 126, 0.5);
-}
-*/
 
 /*active page*/
 .sidebar-menu a.active {

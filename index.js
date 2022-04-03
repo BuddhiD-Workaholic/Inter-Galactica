@@ -1,3 +1,5 @@
+//https://www.w3schools.com/howto/howto_google_translate.asp
+
 //Google Translate
 function setCookie(b, h, c, f, e) {
     var a;
@@ -28,7 +30,7 @@ function getCookie(d) {
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: "en",
-        includedLanguages: 'en,si,ta',
+        includedLanguages: 'en,si,ta,ko,ja,zh-CN,fr,de',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
     }, "google_translate_element")
@@ -55,7 +57,6 @@ $(document).ready(function () {
             location.reload()
         }
     });
-
 
     var googTrans = getCookie('googtrans');
 
