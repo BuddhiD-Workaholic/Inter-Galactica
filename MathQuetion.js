@@ -36,7 +36,7 @@ class MathQuetions {
             console.log("Answer: " + Math.round(answer));
             var resultSwal = swal({
                 title: `${titile}`,
-                text: `Time Allocated: ${time}; Your Quetions is: \n  ${question}`,
+                text: `\t Time Allocated: ${time}; \n \t Your Quetions is: \n  ${question}`,
                 timer: time*1000,
                 content: "input",
             }).then((value) => {

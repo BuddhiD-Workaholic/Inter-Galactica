@@ -3,7 +3,7 @@
         {
             "Lv": 1,
             "xp": "2000",
-            "time_allocated": "100",
+            "time_allocated": "60",
             "PlusScore": "20",
             "MinusScore": "2",
             "BadgeName": ""
@@ -11,7 +11,7 @@
         {
             "Lv": 2,
             "xp": "8880",
-            "time_allocated": "80",
+            "time_allocated": "50",
             "PlusScore": "14",
             "MinusScore": "5",
             "BadgeName": ""
@@ -19,7 +19,7 @@
         {
             "Lv": 3,
             "xp": "15640",
-            "time_allocated": "60",
+            "time_allocated": "44",
             "PlusScore": "12",
             "MinusScore": "8",
             "BadgeName": ""

@@ -226,6 +226,26 @@ input {
   background-color: gray;
 }
 
+.swal-footer {
+  text-align: center;
+  align-content: center;
+}
+
+.swal-modal .swal-text {
+  text-align: center;
+}
+
+.swal-title:not(:last-child) {
+  margin-bottom: 0px !important;
+}
+
+.swal-text {
+  text-align: center;
+  color: black;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
 /* Sweet Alert CSS END */
 
 /* sidebar collapse code */

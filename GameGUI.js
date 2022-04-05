@@ -20,7 +20,7 @@ const backgroundMusicAudio = new Audio('./audio/backgroundMusic.mp3');
 backgroundMusicAudio.loop = true;
 //Main Volum control
 Howler.volume(0.1);
-checkMusicCookie(); //Checking the MUSIC Cookie, Whther the Cookie isset or not
+checkMusicCookie(); //Checking the MUSIC Cookie, Whther the Cookie is set or not set
 
 /**
  * Global Variable declration
