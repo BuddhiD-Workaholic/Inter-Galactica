@@ -47,7 +47,6 @@ iframe#\:2\.container {
   box-shadow: none !important;
 }
 
-
 .goog-text-highlight{
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -56,11 +55,6 @@ iframe#\:2\.container {
       -ms-user-select: none; /* Internet Explorer/Edge */
           user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Opera and Firefox */
-}
-
-.skiptranslate {
-  visibility: hidden !important;
-  display: none !important;
 }
 
 .VIpgJd-suEOdc {
