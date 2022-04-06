@@ -13,7 +13,7 @@ class GameEngine {
      * @param {*} MinusScore 
      */
     constructor(player, score, level, time, PlusScore, MinusScore) {
-        this.thePlayer = player;
+        this.thePlayer = new Player(player);
         this.level = level;
         this.time = time;
         this.init(score, PlusScore, MinusScore);
