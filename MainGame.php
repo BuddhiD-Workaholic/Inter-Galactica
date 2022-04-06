@@ -147,7 +147,7 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                     &nbsp;
                     <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 4 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 5 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 5 </button> <br />
                     &nbsp;
                     <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 6 </button>
                     &nbsp;

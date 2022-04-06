@@ -1,4 +1,4 @@
 Options All -Indexes
 Options +MultiViews
 
-ErrorDocument 500 "Houston, we have a problem.! Server Is Down!"
+ErrorDocument 500 "Sorry Folks.! The Inter-Galactica Server Is Down!"

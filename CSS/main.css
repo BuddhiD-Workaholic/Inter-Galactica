@@ -344,7 +344,7 @@ input.btn-hide {
   align-items: center;
   text-align: center;
   align-content: center;
-  padding-top: 81px;
+  padding-top: 50px;
   padding-right: 29px;
   overflow: visible;
 }
@@ -355,6 +355,7 @@ input.btn-hide {
 }
 
 .button-54 {
+  margin-top: 10px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   letter-spacing: 2px;
