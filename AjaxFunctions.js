@@ -33,9 +33,9 @@ async function GetGameData(level) {
 }
 
 /**
- * UpdateXP(xp)
+ * Update User XP by making a Ajax fetch request to the PHP 
  * @param {*} xp 
- * @return 
+ * @return the status of the request
  */
 async function UpdateXP(xp) {
     let Fucname = "UpdateXP";
@@ -48,6 +48,11 @@ async function UpdateXP(xp) {
     });
 }
 
+/**
+ * Update User Level by making a Ajax fetch request to the PHP 
+ * @param {*} level 
+ * @return the status of the request
+ */
 async function UpdateLevel(level) {
     let Fucname = "UpdateLevel";
     let result = $.post("Includes/AjaxUpdate.php", {

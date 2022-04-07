@@ -82,6 +82,7 @@ function updateScore(score) {
     //If the XP based level and the GameEngingObj.level arent's the same then an Ajax call is made to update the user level data
     if (ChekLeveled != GameEngingObj.level) {
         console.log("Updated_Level: " + ChekLeveled)
+        LevelUser.innerHTML = "<b><i class='fa-solid fa-star'></i> Level: </b>" + ChekLeveled;
         UpdateLevel(ChekLeveled);
     }
 }
@@ -92,7 +93,7 @@ function sleep(ms) {
 
 async function pauseBtn() {
     power.classList.add('blurOut');
-    await sleep(50);   //await for half a ms to blur the screen and popup the alert
+    await sleep(50);   //await for half a MS to blur the screen and popup the JS alert
     alert('\t Game is Paused! \n Click the "OK" Button to resume the game play!');
     power.classList.remove('blurOut');
 }
