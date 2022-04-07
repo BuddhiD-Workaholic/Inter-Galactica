@@ -43,7 +43,7 @@ GetUserData().then(response => {
         power.classList.remove('notClickable');
         console.log(GameUserData);
     } catch (e) {
-        swal("SQL DB Error!", "Error: GetUserData()" + e, "error");
+        swal("SQL DB Error!", "Error: GetUserData() function; " + e, "error");
     }
 });
 
@@ -170,14 +170,6 @@ async function ClickButton(e) {
         });
     }
 }
-
-// power.addEventListener("keydown", function (event) {
-//     let e = event.key;
-//     console.log(e);
-//     if (isFinite(e)) {
-//         ClickButton(e);
-//     }
-// });
 
 function ImagURLQuestion(URL) {
     var img = document.getElementById("mainImg");
