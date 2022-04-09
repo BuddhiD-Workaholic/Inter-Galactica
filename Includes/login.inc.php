@@ -68,48 +68,6 @@ if (isset($_POST['submit'])) {
 	} else {
 		header("Location: ../index.php?error=error");
 	}
-} else if (!isset($_SESSION['facebook_access_token'])) {
-
-	require_once('./FacebookSDK/autoload.php');
-	require_once("./FacebookController.php");
-
-	$helper = $fb->getRedirectLoginHelper();
-	$_SESSION['facebook_access_token'] = (string) $accessToken;
-	$oAuth2Client = $fb->getOAuth2Client();
-	$longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($_SESSION['facebook_access_token']);
-	$_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
-	$fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
-
-	if (!isset($_GET['code'])) {
-		header('Location: ../index.php?error=wronglogin');
-	}
-	try {
-		$fb_response = $fb->get('/me?fields=name,first_name,last_name,email');
-		$fb_response_picture = $fb->get('/me/picture?redirect=false&height=200');
-
-		$fb_user = $fb_response->getGraphUser();
-		$email = $fb_user->getProperty('email');
-
-		$uidExists = UidExists($con, $email);
-		if ($uidExists === false) {
-			header("Location: ../index.php?error=wronglogin");
-		}
-		session_start();
-		$_SESSION["userid"] = $uidExists['email'];
-		$_SESSION["userTY"] = "GP";
-		$_SESSION["TimeOut"] = time(); //Last login timestamp
-		UpdateStatusLogIn($uidExists['email'], $con);
-		header("Location:../MainGame.php");
-	} catch (Facebook\Exceptions\FacebookResponseException $e) {
-		var_dump($helper->getError());
-		echo 'Facebook API Error: ' . $e->getMessage();
-		session_destroy();
-		header("Location:../index.php?error=wronglogin");
-	} catch (Facebook\Exceptions\FacebookSDKException $e) {
-		var_dump($helper->getError());
-		echo 'Facebook SDK Error: ' . $e->getMessage();
-		header("Location:../index.php?error=wronglogin");
-	}
 } else {
 	header("Location:../index.php?error=empty");
 }
