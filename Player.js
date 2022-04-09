@@ -9,37 +9,4 @@ class Player {
         this.name = playerData.name;
         this.email = playerData.email;
     }
-
-    /**
-     * Update User XP by making a Ajax fetch request to the PHP 
-     * @param {*} xp 
-     * @return the status of the request
-    */
-    async UpdateXP(xp) {
-        let Fucname = "UpdateXP";
-        let result = $.post("Includes/AjaxUpdate.php", {
-            xp: xp,
-            FuntionName: Fucname
-        }, function (data) {
-            console.log("Xp Updated");
-            return (data);
-        });
-    }
-
-    /**
-     * Update User Level by making a Ajax fetch request to the PHP 
-     * @param {*} level 
-     * @return the status of the request
-     */
-    async UpdateLevel(level) {
-        let Fucname = "UpdateLevel";
-        let result = $.post("Includes/AjaxUpdate.php", {
-            level: level,
-            FuntionName: Fucname
-        }, function (data) {
-            console.log("Level Updated");
-            return (data);
-        });
-    }
-
 }
