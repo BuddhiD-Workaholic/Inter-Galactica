@@ -1,13 +1,14 @@
 //https://www.w3schools.com/howto/howto_google_translate.asp
 
 //Google Translate
-function setCookie(b, h, c, f, e) {
+function setCookieGT(b, h, c, f, e) {
     var a;
     if (c === 0) {
         a = ""
     } else {
         var g = new Date();
         g.setTime(g.getTime() + (c * 24 * 60 * 60 * 1000));
+        console.log('Time+'+  g.setTime(g.getTime() + (c * 24 * 60 * 60 * 1000)))
         a = "expires=" + g.toGMTString() + "; "
     }
     var e = (typeof e === "undefined") ? "" : "; domain=" + e;
@@ -48,12 +49,12 @@ $(document).ready(function () {
 
     $(".lang-change").on("click", function () {
         if (googTrans == '/es/en') {
-            setCookie("googtrans", "", 0, "/", ".http://localhost/IT20768676/Inter-Galactica/index.php");
-            setCookie("googtrans", "", 0, "/");
+            setCookieGT("googtrans", "", 30, "/", ".http://inter-galactica.herokuapp.com/index.php");
+            setCookieGT("googtrans", "", 30, "/");
             location.reload();
         } else {
-            setCookie("googtrans", "/es/en", 0, "/", ".http://localhost/IT20768676/Inter-Galactica/index.php");
-            setCookie("googtrans", "/es/en", 0, "/");
+            setCookieGT("googtrans", "/es/en", 30, "/", ".http://inter-galactica.herokuapp.com/index.php");
+            setCookieGT("googtrans", "/es/en", 30, "/");
             location.reload()
         }
     });
