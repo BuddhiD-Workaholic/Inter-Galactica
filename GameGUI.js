@@ -65,6 +65,7 @@ async function GetGameData(clevel) {
 async function main() {
     GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), parseInt(GameUserData.level), parseInt(GameData.CurentLevel.time_allocated), parseInt(GameData.CurentLevel.PlusScore), parseInt(GameData.CurentLevel.MinusScore));   //Player details as a object/ Score/ Lavel 
     updateScore(GameEngingObj.score);
+    clearInterval(timeeIntervel);
     gameTimer(GameEngingObj.time);
     currentGame = await GameEngingObj.nextMathImageGame();
     startGameAudioP2.play();
@@ -84,7 +85,6 @@ function updateScore(score) {
         GetGameData(ChekLeveled);
         GameUserData.Xp = score;
         GameUserData.level = ChekLeveled;
-        clearInterval(timeeIntervel);
         main();
     }
 }
