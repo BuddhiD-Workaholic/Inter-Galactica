@@ -43,7 +43,6 @@ async function UpdateXP(xp) {
         xp: xp,
         FuntionName: Fucname
     }, function (data) {
-        console.log("Xp Updated");
         return (data);
     });
 }
@@ -59,7 +58,6 @@ async function UpdateLevel(level) {
         level: level,
         FuntionName: Fucname
     }, function (data) {
-        console.log("Level Updated");
         return (data);
     });
 }

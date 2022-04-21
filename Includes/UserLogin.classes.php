@@ -41,7 +41,7 @@ class UserLogin
         mysqli_close($con);
     }
 
-    private function UidExistsFunction($con, $username)
+    public function UidExistsFunction($con, $username)
     {
         $sql1 = "SELECT * FROM player WHERE email= ?";
         $stmt = mysqli_stmt_init($con);

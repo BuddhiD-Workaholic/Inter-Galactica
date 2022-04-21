@@ -1,5 +1,8 @@
 <?php
-class UserSingup
+
+require_once("./UserLogin.classes.php");
+
+class UserSingup extends UserLogin
 {
     private $pwd;
     private $email;
@@ -16,6 +19,7 @@ class UserSingup
         $this->Tel = $Tel;
         $this->pwdrepeat = $pwdrepeat;
         $this->con = $con;
+        parent::__construct($con, $email, $pwd);
     }
 
     public function initUser()
@@ -24,7 +28,7 @@ class UserSingup
             header("Location:../index.php?error=empty");
             exit();
         }
-        if ($this->UidExists($this->con, $this->email) !== false) {
+        if ($this->UidExistsFunction($this->con, $this->email) !== false) {
             header("Location:../index.php?error=uidexists");
             exit();
         }
@@ -44,29 +48,6 @@ class UserSingup
             $result = false;
         }
         return ($result);
-    }
-
-    private function UidExists($con, $email)
-    {
-        $sql = "SELECT * FROM player WHERE email= ? ";
-        $stmt = mysqli_stmt_init($con);
-
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location:../index.php?error=sqlerror");
-            exit();
-        }
-        mysqli_stmt_bind_param($stmt, "s", $email);
-        mysqli_stmt_execute($stmt);
-
-        $resultData = mysqli_stmt_get_result($stmt);
-
-        if ($row = mysqli_fetch_assoc($resultData)) {
-            return ($row);
-        } else {
-            $resultData = false;
-            return ($resultData);
-        }
-        mysqli_stmt_close($stmt);
     }
 
     //Gravtar Img API implimenation
@@ -89,7 +70,7 @@ class UserSingup
 
         $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
         $Imgurl = $this->get_gravatar_url($email);
-        $defa = 0;
+        $defa = 1;
 
         mysqli_stmt_bind_param($stmt, "ssssssss", $email, $name, $hashedPwd, $Tel, $defa, $defa, $Imgurl, $defa);
         mysqli_stmt_execute($stmt);

@@ -29,7 +29,6 @@ let GameUserData;
 let GameData;
 let GameEngingObj;
 let currentGame;
-let scoreBenchmark;
 let timeeIntervel; //The ID of the Intervel 
 
 /**
@@ -65,7 +64,6 @@ async function GetGameData(clevel) {
  */
 async function main() {
     GameEngingObj = new GameEngine(GameUserData, parseInt(GameUserData.Xp), parseInt(GameUserData.level), parseInt(GameData.CurentLevel.time_allocated), parseInt(GameData.CurentLevel.PlusScore), parseInt(GameData.CurentLevel.MinusScore));   //Player details as a object/ Score/ Lavel 
-    scoreBenchmark = parseInt(GameData.UpperLevel.xp);      //UpperBound for the ProgresBar
     updateScore(GameEngingObj.score);
     gameTimer(GameEngingObj.time);
     currentGame = await GameEngingObj.nextMathImageGame();
@@ -76,14 +74,18 @@ async function main() {
 function updateScore(score) {
     scoreEl.innerHTML = score;
     XpUser.innerHTML = "<b><i class='fa-solid fa-star'></i> XP: </b>" + score;
-    Xp(score);
+    GameEngingObj.Xp(parseInt(GameData.UpperLevel.xp));
     UpdateXP(score);
-    let ChekLeveled = GameData.getCurentLevelOb(score);
-    //If the XP based level and the GameEngingObj.level arent's the same then an Ajax call is made to update the user level data
+    let ChekLeveled = GameData.getCurentLevelOb(score); //If the XP based level and the GameEngingObj.level arent's the same then an Ajax call is made to update the user level data
     if (ChekLeveled != GameEngingObj.level) {
         console.log("Updated_Level: " + ChekLeveled)
         LevelUser.innerHTML = "<b><i class='fa-solid fa-star'></i> Level: </b>" + ChekLeveled;
         UpdateLevel(ChekLeveled);
+        GetGameData(ChekLeveled);
+        GameUserData.Xp = score;
+        GameUserData.level = ChekLeveled;
+        clearInterval(timeeIntervel);
+        main();
     }
 }
 
@@ -186,7 +188,7 @@ async function MathQuestion() {
         ImagURLQuestion(currentGame);
     } else {
         endGameAudio.play();
-        updateScore(GameEngingObj.NoAnswerScore());
+        GameUserData.Xp = GameEngingObj.NoAnswerScore();
         console.log("Start a new game!");
         main();
     }
@@ -212,14 +214,3 @@ soundOnEl.addEventListener('click', () => {
     speakerImg.classList.remove('noun');
     deleteMusicCookie();
 })
-
-/**
-* Progress bar 
-* https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
-*/
-function Xp(score, UpperBound) {
-    $(".score").attr(
-        "style",
-        "width:" + (score / scoreBenchmark) * 100 * 1.5 + "px"
-    );
-}

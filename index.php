@@ -221,7 +221,7 @@ if (isset($_SESSION['userid'])) {
     } elseif ($_GET['error'] == "Invaild") {
       echo '<script>swal("Error!", Invalid User Type!", "error");</script>';
     } elseif ($_GET['error'] == "none") {
-      echo '<script>swal("Good job!", "Now you can Play and Learn Maths, and Enjoy Maths! <br> Please Sign-In!", "success");</script>';
+      echo '<script>swal("Good job!", "Now you can Play and Learn Maths, and Enjoy Maths! \n Please Sign-In!", "success");</script>';
     } elseif ($_GET['error'] == "uidexists") {
       echo '<script>swal("Error!", "This email already has an Account! <br> Try Sign In!", "error");</script>';
     } elseif ($_GET['error'] == "sqlerror") {

@@ -92,7 +92,7 @@ class GameEngine {
     * @return the Score a player get's if he or she was unabled to get the answer for a math quetion within the given time
     */
     NoAnswerScore() {
-        this.score = parseFloat(this.score - this.MathImagesObj.fixMinusScore);
+        this.score = this.score - this.MathImagesObj.fixMinusScore;
         return this.score;
     }
 
@@ -111,4 +111,15 @@ class GameEngine {
         return this.score;
     }
 
+    /**
+    * Progress bar 
+    * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
+    */
+    Xp(scoreBenchmark) {
+        console.log("XP Bar Updated")
+        $(".score").attr(
+            "style",
+            "width:" + (this.score / scoreBenchmark) * 100 * 1.5 + "px"
+        );
+    }
 }

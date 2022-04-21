@@ -57,10 +57,11 @@ class MathQuetions {
                 timer: time * 1000,
                 content: "input",
             }).then((value) => {
+                console.log("value:"+value)
                 if ((value == Math.round(answer)) || (value == Math.round(answer * 1000) / 1000)) {
                     swal("Good job!", "Your answer is Correct!", "success");
                     return true;
-                } else if (value == null) {
+                } else if ((value == null) || (value == '')) {
                     swal("We are Sorry!", "Your time is up!", "error");
                     return false;
                 } else {
