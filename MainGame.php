@@ -137,25 +137,25 @@ if (isset($_SESSION['userid']) && ($_SESSION['userTY'] == "GP")) {
                     <div class="horizontal"></div>
                 </div>
                 <div class="Ebuttonclass">
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 0 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 0 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 1 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 1 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 2 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 2 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 3 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 3 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 4 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 4 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 5 </button> <br />
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 5 </button> <br />
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 6 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 6 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 7 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 7 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 8 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 8 </button>
                     &nbsp;
-                    <button id="N0" class="button-54" onclick="ClickButton(this.innerHTML)" class="ButtonPress"> 9 </button>
+                    <button id="N0" class="button-54" onclick="ClickButton(this.innerText)" class="ButtonPress"> 9 </button>
                     &nbsp;
                 </div>
                 <div class="btn-AB" id=""></div>

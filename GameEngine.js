@@ -78,6 +78,7 @@ class GameEngine {
      * @return boolean whether the Solution to the answer is corect or wrong depending on the answer given by the user
      */
     checkSolution(i) {
+        console.log("I: "+i);
         if (i == this.current.getSolution()) {
             this.score = parseFloat(this.score + this.MathImagesObj.fixscore);
             return true;
