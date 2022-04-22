@@ -41,20 +41,16 @@ iframe#\:2\.container {
   display: none !important;
 } 
 
-.goog-text-highlight {
+.goog-text-highlight{
   background-color: transparent !important;
   border: none !important; 
   box-shadow: none !important;
-}
-
-.goog-text-highlight{
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
      -moz-user-select: none; /* Old versions of Firefox */
       -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently
-                                supported by Chrome, Opera and Firefox */
+          user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 
 .VIpgJd-suEOdc {
@@ -68,8 +64,6 @@ div#goog-gt-tt {
 }
 
 /*Google translate hidden*/
-
-/**/
 .google-btn {
   width: 212px;
   height: 42px;
