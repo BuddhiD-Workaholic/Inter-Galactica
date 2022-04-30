@@ -40,24 +40,10 @@ GetUserData().then(response => {
         GetGameData(GameUserData.level);
         //make it clik-able only when the user details are loaded
         power.classList.remove('notClickable');
-        console.log(GameUserData);
     } catch (e) {
         swal("SQL DB Error!", "Error: GetUserData() function; " + e, "error");
     }
 });
-
-/**
- * @param clevel
- * The bellow function get's the Game details from the GameData.json file accordiing to the user's game level by making an fetch call 
- */
-async function GetGameData(clevel) {
-    var result = await fetch('./GameData.json')
-        .then((response) => { return response.json(); })
-        .then((myJson) => {
-            GameData = new Levels(myJson.Data, clevel);     //If the level changes we'll just cteate a new Level object and assign it t othe same variable
-        });
-    return result;
-}
 
 /**
  * The main() function is the single most important function of the game, It starts creating an GameEngine Object by passing nesessary data
@@ -76,12 +62,12 @@ function updateScore(score) {
     scoreEl.innerHTML = score;
     XpUser.innerHTML = "<b><i class='fa-solid fa-star'></i> XP: </b>" + score;
     GameEngingObj.Xp(parseInt(GameData.UpperLevel.xp));
-    UpdateXP(score);
+    GameEngingObj.UpdateXP(score);
     let ChekLeveled = GameData.getCurentLevelOb(score); //If the XP based level and the GameEngingObj.level arent's the same then an Ajax call is made to update the user level data
     if (ChekLeveled != GameEngingObj.level) {
-        console.log("Updated_Level: " + ChekLeveled)
+        console.log("Updated_Level: " + ChekLeveled);
         LevelUser.innerHTML = "<b><i class='fa-solid fa-star'></i> Level: </b>" + ChekLeveled;
-        UpdateLevel(ChekLeveled);
+        GameEngingObj.UpdateLevel(ChekLeveled);
         GetGameData(ChekLeveled);
         GameUserData.Xp = score;
         GameUserData.level = ChekLeveled;
@@ -115,7 +101,6 @@ function confirmLogout() {
 }
 
 function gameTimer(timeleft) {
-    console.log("Time left: " + timeleft);
     //call the function here
     let timer = document.getElementById('time');
     timeeIntervel = setInterval(async function () {
@@ -126,6 +111,7 @@ function gameTimer(timeleft) {
         timeleft -= 1;
         timer.innerHTML = timeleft;
         if (timeleft == 0) {
+            endGameAudio.play();
             clearInterval(timeeIntervel);
             gameTimer(GameEngingObj.time);
             updateScore(GameEngingObj.NoAnswerScore());
@@ -158,7 +144,6 @@ async function ClickButton(e) {
     var result = GameEngingObj.checkSolution(e);
     if (result) {
         obtainPowerUpAudio.play();
-        console.log("Correct");
         updateScore(GameEngingObj.score);
         clearInterval(timeeIntervel);
         gameTimer(GameEngingObj.time);

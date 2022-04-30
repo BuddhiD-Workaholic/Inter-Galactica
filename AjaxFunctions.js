@@ -20,44 +20,13 @@ async function GetUserData() {
  * @param {*} level 
  * @returns the Game data corespond to a particular user's Level 
  */
-async function GetGameData(level) {
+async function GetGameData(clevel) {
     var result = await fetch('./GameData.json')
         .then((response) => {
             return response.json();
         })
         .then((myJson) => {
-            console.log(myJson.Data[level - 1]);
-            return myJson.Data[level - 1];
+            GameData = new Levels(myJson.Data, clevel);     //If the level changes we'll just cteate a new Level object and assign it t othe same variable
         });
     return result;
-}
-
-/**
- * Update User XP by making a Ajax fetch request to the PHP 
- * @param {*} xp 
- * @return the status of the request
- */
-async function UpdateXP(xp) {
-    let Fucname = "UpdateXP";
-    let result = $.post("Includes/AjaxUpdate.php", {
-        xp: xp,
-        FuntionName: Fucname
-    }, function (data) {
-        return (data);
-    });
-}
-
-/**
- * Update User Level by making a Ajax fetch request to the PHP 
- * @param {*} level 
- * @return the status of the request
- */
-async function UpdateLevel(level) {
-    let Fucname = "UpdateLevel";
-    let result = $.post("Includes/AjaxUpdate.php", {
-        level: level,
-        FuntionName: Fucname
-    }, function (data) {
-        return (data);
-    });
 }

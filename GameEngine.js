@@ -3,7 +3,7 @@
  * Basic functionality using Composite Design pattern 
  * And Facade deisgn patter is used --> Creating Object inside class, and By calling one function it calls multip functions with-in and reducing down the complxity
  */
-class GameEngine {
+class GameEngine extends Player {
     /**
      * The constructor allows to define the Player deatils as well as game details, Each player has their own game engine.
      * @param {*} player 
@@ -14,7 +14,7 @@ class GameEngine {
      * @param {*} MinusScore 
      */
     constructor(player, score, level, time, PlusScore, MinusScore) {
-        this.thePlayer = new Player(player);
+        super(player);
         this.level = level;
         this.time = time;
         this.init(score, PlusScore, MinusScore);
@@ -78,7 +78,6 @@ class GameEngine {
      * @return boolean whether the Solution to the answer is corect or wrong depending on the answer given by the user
      */
     checkSolution(i) {
-        console.log("I: "+i);
         if (i == this.current.getSolution()) {
             this.score = parseFloat(this.score + this.MathImagesObj.fixscore);
             return true;
@@ -117,7 +116,6 @@ class GameEngine {
     * https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_progressbar_labels_js
     */
     Xp(scoreBenchmark) {
-        console.log("XP Bar Updated")
         $(".score").attr(
             "style",
             "width:" + (this.score / scoreBenchmark) * 100 * 1.5 + "px"
