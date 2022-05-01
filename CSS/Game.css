@@ -90,7 +90,7 @@ cursor: pointer;
 
 /*ProgressBar Starts*/
   .containerY {
-    margin-left: 4rem !important;
+    margin-left: 8rem !important;
     background: white;
     display: flex;
     width: 213px;

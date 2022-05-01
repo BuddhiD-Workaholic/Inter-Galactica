@@ -84,3 +84,13 @@ function downloadJSAtOnload() {
         document.body.appendChild(element);
     }
 }
+
+//email
+$("#email").attr('title', 'When entering email make sure its a valid email address!');
+
+//Adding a Tooltip element for Passowrd
+$("#pwd1").attr('title', 'The Password length must be between 8 chracters to 10 characters long!');
+$("#pwdc").attr('title', 'Confirm the above added password again!');
+
+//Adding a Tooltip element for contact number
+$("#contact").attr('title', 'When entering password enter your Country code, followed with the number: +94 XX XXXXXX');

@@ -71,7 +71,7 @@ if (isset($_SESSION['userid'])) {
       if ((pwd1 == pwdc) && (pwd1.length >= 8) && (pwd1.length <= 10)) {
         return true;
       } else {
-        swal("Please enter the correct password with minimum of 8 charcters and Maximum of 10 Characters");
+        swal("Please enter the correct password with Minimum of 8 charcters and Maximum of 10 Characters");
         return false;
       }
     }
