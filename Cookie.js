@@ -1,4 +1,4 @@
-//UserCookie
+//USER Cookie
 function setCookie(exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -36,7 +36,7 @@ function checkCookie() {
 }
 
 
-//MUSIC Cookeie
+//MUSIC Cookei
 function setMusicCookie() {
     const d = new Date();
     d.setTime(d.getTime() + (120 * 24 * 60 * 60 * 1000));

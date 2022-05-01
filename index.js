@@ -1,4 +1,7 @@
-//https://www.w3schools.com/howto/howto_google_translate.asp
+/**
+ * The google translate is been utlized in here with the help of the W3school, The code listed in the webpage been utilzed and changed appropriately
+ * //https://www.w3schools.com/howto/howto_google_translate.asp
+ */
 
 //Google Translate
 function setCookieGT(b, h, c, f, e) {
@@ -8,7 +11,7 @@ function setCookieGT(b, h, c, f, e) {
     } else {
         var g = new Date();
         g.setTime(g.getTime() + (c * 24 * 60 * 60 * 1000));
-        console.log('Time+'+  g.setTime(g.getTime() + (c * 24 * 60 * 60 * 1000)))
+        console.log('Time+' + g.setTime(g.getTime() + (c * 24 * 60 * 60 * 1000)))
         a = "expires=" + g.toGMTString() + "; "
     }
     var e = (typeof e === "undefined") ? "" : "; domain=" + e;
@@ -85,7 +88,14 @@ function downloadJSAtOnload() {
     }
 }
 
-//email
+/**
+ * The tooltip elemnt helps to add more information about the each element, That would be useful to increase the User
+ * experience when sign-up to the system
+ * Reference: 
+ * https://stackoverflow.com/questions/1333546/how-can-i-display-a-tooltip-message-on-hover-using-jquery
+ */
+
+//Adding a Tooltip element for email
 $("#email").attr('title', 'When entering email make sure its a valid email address!');
 
 //Adding a Tooltip element for Passowrd
