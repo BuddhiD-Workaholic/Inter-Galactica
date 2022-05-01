@@ -172,7 +172,7 @@ if (isset($_SESSION['userid'])) {
             </div>
             <div class="input-field">
               <i class="fa fa-phone"></i>
-              <input type="tel" id="contact" required name="contact" placeholder="Country code: +94 XX XXXXXX" />
+              <input type="tel" id="contact" required name="contact" placeholder="Phone Number: +94 XX XXXXXX" />
             </div>
             <div class="input-field">
               <i class="fa fa-lock"></i>
