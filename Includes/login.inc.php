@@ -36,9 +36,13 @@ if (isset($_POST['submit'])) {
 	$pwd = $_POST['pwd'];
 
 	require_once("./UserLogin.classes.php");
+	/**
+	 * Creating a Object from the class UserLogin which gonna contain all the information the user inserterd when Login in	 
+	 */
 	$login = new UserLogin($con, $username, $pwd);
 	$login->initUser();
 } else if (isset($_GET['code'])) {
+	//User Login with Google Signup SDK 
 	require_once('./GoogleAPI/vendor/autoload.php');
 	require_once("./GoogleController.php");
 	session_start();

@@ -11,6 +11,9 @@ if (isset($_POST['submit'])) {
 	require_once("../DataBase/config.php");
 	require_once("./UserSingup.classes.php");
 
+	/**
+	 * Creating a Object from the class UserSingup which gonna contain all the information the user inserterd when signing up
+	 */
 	$signup = new UserSingup($con, $pwd, $email, $name, $Tel, $pwdrepeat);
 	$signup->initUser();
 

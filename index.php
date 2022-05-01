@@ -79,7 +79,6 @@ if (isset($_SESSION['userid'])) {
     //Email
     const validateEmail = async () => {
       var email = document.getElementById("email").value;
-      // --> abstractapi.com/email-verification-validation-api 
       try {
         var url = "https://api.trumail.io/v2/lookups/json?email=" + email
         const resp = await axios.get(url);
@@ -90,6 +89,7 @@ if (isset($_SESSION['userid'])) {
       }
     }
 
+    //Phone number
     const validatePhone = async () => {
       var CPno = document.getElementById("contact").value;
       try {
@@ -102,7 +102,7 @@ if (isset($_SESSION['userid'])) {
       }
     }
 
-    //SignUp 
+    //SignUp Validation
     async function validateAll(e) {
       //Email validation 
       validateEmail().then(response => {
@@ -115,14 +115,14 @@ if (isset($_SESSION['userid'])) {
               if ((response.valid)) {
                 e.submit();
               } else {
-                swal("The Phone number you entered is not a valid number!");
+                swal("The Phone number you entered is not a valid number! \n Make sure your have added your country code at the begining: +94 XX XXXXXX");
               }
             })
           } else {
             e.preventDefault();
           }
         } else {
-          swal("The email you entered is not a valid email!");
+          swal("The email you entered is not a valid email! \n You need to have a Valid Email Address!");
         }
       })
     }
@@ -172,7 +172,7 @@ if (isset($_SESSION['userid'])) {
             </div>
             <div class="input-field">
               <i class="fa fa-phone"></i>
-              <input type="tel" id="contact" required name="contact" placeholder="Contact number" />
+              <input type="tel" id="contact" required name="contact" placeholder="Country code: +94 XX XXXXXX" />
             </div>
             <div class="input-field">
               <i class="fa fa-lock"></i>
