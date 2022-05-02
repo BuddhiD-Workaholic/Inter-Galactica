@@ -99,7 +99,7 @@ if (isset($_SESSION['userid'])) {
     const validatePhone = async () => {
       var CPno = document.getElementById("contact").value;
       try {
-        let url = "https://numlookupapi.com/api/validate/" + CPno;
+        let url = "https://numlookupapi.com/api/validate/" + CPno+"?apikey=pLWWIdzxTymJ9PSs7WQfg3KDOqMFv4EMgI7MLv8O";
         const resp = await axios.get(url);
         return resp.data;
       } catch (err) {
