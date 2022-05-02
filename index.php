@@ -68,8 +68,13 @@ if (isset($_SESSION['userid'])) {
       var pwd1 = document.getElementById("pwd").value;
       var pwdc = document.getElementById("pwdc").value;
 
-      if ((pwd1 == pwdc) && (pwd1.length >= 8) && (pwd1.length <= 10)) {
-        return true;
+      if ((pwd1.length >= 8) && (pwd1.length <= 10)) {
+        if(pwd1 == pwdc){
+          return true;
+        }else{
+          swal("Your passowrds don't match!, Please try again later!");
+          return false;
+        }
       } else {
         swal("Please enter the correct password with Minimum of 8 charcters and Maximum of 10 Characters");
         return false;
@@ -80,9 +85,10 @@ if (isset($_SESSION['userid'])) {
     const validateEmail = async () => {
       var email = document.getElementById("email").value;
       try {
-        var url = "https://api.trumail.io/v2/lookups/json?email=" + email
+        //var url = "https://api.trumail.io/v2/lookups/json?email=" + email
+        var url = "http://apilayer.net/api/check?access_key=e4bfccb27a838acc91c7bf0e8957713f&email=" + email
         const resp = await axios.get(url);
-        return resp.data;
+        return resp;
       } catch (err) {
         console.log(err);
         return (err);
@@ -106,12 +112,12 @@ if (isset($_SESSION['userid'])) {
     async function validateAll(e) {
       //Email validation 
       validateEmail().then(response => {
-        console.log(response.validFormat, " : ", response.deliverable);
-        if ((response.validFormat) && (response.deliverable)) {
+        console.log("Email validation: "+response.format_valid, " : ", response.mx_found);
+        if ((response.format_valid) && (response.smtp_check)&& (response.mx_found)) {
           if (ValidatePassword()) {
             //Phone number validation 
             validatePhone().then(response => {
-              console.log(response.valid, " : ", response.international_format);
+              console.log("Number validation: "+response.valid, " : ", response.international_format);
               if ((response.valid)) {
                 e.submit();
               } else {
