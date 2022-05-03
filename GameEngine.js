@@ -1,6 +1,6 @@
 /**
  * Main class where the games are coming from. 
- * Basic functionality using Composite Design pattern 
+ * Basic functionality using Singelton Design pattern 
  * And Facade deisgn patter is used --> Creating Object inside class, and By calling one function it calls multip functions with-in and reducing down the complxity
  */
 class GameEngine extends Player {

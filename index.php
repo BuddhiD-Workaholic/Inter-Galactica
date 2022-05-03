@@ -85,7 +85,6 @@ if (isset($_SESSION['userid'])) {
     const validateEmail = async () => {
       var email = document.getElementById("email").value;
       try {
-        //var url = "https://api.trumail.io/v2/lookups/json?email=" + email
         var url = "http://apilayer.net/api/check?access_key=e4bfccb27a838acc91c7bf0e8957713f&email=" + email
         const resp = await axios.get(url);
         return resp;
