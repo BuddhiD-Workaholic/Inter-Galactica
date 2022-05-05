@@ -50,14 +50,12 @@ class MathQuetions {
             }
             let question = response.MathAPI.question;
             let answer = response.MathAPI.answer;
-            console.log("Answer: " + Math.round(answer));
             var resultSwal = swal({
                 title: `${titile}`,
                 text: `\t Time Allocated: ${time} Seconds; \n \t Your Quetions is: \n  ${question}`,
                 timer: time * 1000,
                 content: "input",
             }).then((value) => {
-                console.log("value:"+value)
                 if ((value == Math.round(answer)) || (value == Math.round(answer * 1000) / 1000)) {
                     swal("Good job!", "Your answer is Correct!", "success");
                     return true;

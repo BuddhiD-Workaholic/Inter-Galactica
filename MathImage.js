@@ -50,7 +50,6 @@ class MathImages {
             } catch (e) {
                 swal("Something went wrong!", "when trying to retrieve game! " + e, "warning");
             }
-            console.log("Answer: " + response.MathAPI.solution);
             return response;
         })
         return result;
